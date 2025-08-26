@@ -1,3 +1,4 @@
+import ProfileCard from "@/blocks/Components/ProfileCard/ProfileCard";
 import heroPortrait from "@/assets/hero-portrait.jpg";
 
 const Hero = () => {
@@ -32,14 +33,27 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="relative">
-            <div className="aspect-[4/5] overflow-hidden">
-              <img 
-                src={heroPortrait} 
-                alt="Creative professional portrait"
-                className="w-full h-full object-cover grayscale"
-              />
-            </div>
+          {/* Replace the image with ProfileCard */}
+          <div className="relative flex justify-center">
+            <ProfileCard 
+              avatarUrl={heroPortrait}
+              name="Creative Studio"
+              title="Design & Development"
+              handle="@webrelicreborn"
+              status="Available for projects"
+              contactText="Get in touch"
+              showUserInfo={true}
+              enableTilt={true}
+              enableMobileTilt={true}
+              showBehindGradient={true}
+              // Override the rainbow gradient with subtle monochrome
+              behindGradient="radial-gradient(farthest-side circle at var(--pointer-x) var(--pointer-y),hsla(220,20%,90%,var(--card-opacity)) 4%,hsla(220,15%,80%,calc(var(--card-opacity)*0.75)) 10%,hsla(220,10%,70%,calc(var(--card-opacity)*0.5)) 50%,hsla(220,0%,60%,0) 100%)"
+              innerGradient="linear-gradient(145deg,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.6) 100%)"
+              onContactClick={() => {
+                // Add your contact logic here
+                console.log("Contact clicked!");
+              }}
+            />
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="text-2xl font-bold text-foreground">
-            Kanso<sup className="text-sm">®</sup>
+            Pierre<sup className="text-sm">®</sup>
           </div>
           
           <nav className="hidden md:flex items-center space-x-8">
