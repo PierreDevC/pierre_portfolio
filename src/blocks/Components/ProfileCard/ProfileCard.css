@@ -298,9 +298,10 @@
 .pc-details {
   width: 100%;
   position: absolute;
-  top: 3em;
+  top: 1em;
   display: flex;
   flex-direction: column;
+  z-index: 10;
 }
 
 .pc-details h3 {

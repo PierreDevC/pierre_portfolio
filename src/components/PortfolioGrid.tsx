@@ -1,5 +1,5 @@
-import jumpingSilhouette from "@/assets/jumping-silhouette.jpg";
-import sunglassesPortrait from "@/assets/sunglasses-portrait.jpg";
+import calendarImage from "@/assets/calendar.png";
+import estateHubImage from "@/assets/estate_hub.png";
 import flowerMacro from "@/assets/flower-macro.jpg";
 import architecture from "@/assets/architecture.jpg";
 
@@ -7,19 +7,19 @@ const PortfolioGrid = () => {
   const projects = [
     {
       id: 1,
-      image: jumpingSilhouette,
-      title: "Lune",
-      category: "Brand Development",
+      image: calendarImage,
+      title: "CalendApp",
+      category: "Mobile Application",
       year: "2024",
       sourceUrl: "#",
       projectUrl: "#"
     },
     {
       id: 2,
-      image: sunglassesPortrait,
-      title: "Aren",
-      category: "Fashion Brand Launch",
-      year: "2025",
+      image: estateHubImage,
+      title: "Estate Hub",
+      category: "Real Estate Platform",
+      year: "2024",
       sourceUrl: "#",
       projectUrl: "#"
     },

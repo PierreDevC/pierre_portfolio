@@ -1,7 +1,7 @@
 import ProfileCard from "@/blocks/Components/ProfileCard/ProfileCard";
 import StyledButton from "@/components/ui/styled-button";
 import CircularText from "@/components/CircularText";
-import heroPortrait from "@/assets/hero-portrait.jpg";
+import heroCardImage from "@/assets/hero-card.jpg";
 
 
 
@@ -32,9 +32,10 @@ const Hero = () => {
                   <span className="text-3xl lg:text-4xl font-normal text-gray-600">Hey, I'm</span>
                   <div className="w-16 h-10 bg-white border border-black overflow-hidden" style={{ borderRadius: '20px' }}>
                     <img 
-                      src="/src/assets/hero-portrait.jpg" 
+                      src={heroCardImage} 
                       alt="Pierre" 
                       className="w-full h-full object-cover"
+                      style={{ objectPosition: 'center top' }}
                     />
                   </div>
                   <span className="text-3xl lg:text-4xl font-normal text-gray-900">Pierre</span>
@@ -52,9 +53,9 @@ const Hero = () => {
                   </div>
                 </div>
                 
-                {/* Living in Montréal line */}
+                {/* Based in Montréal line */}
                 <div className="flex items-center justify-center lg:justify-start gap-4 mb-6">
-                  <span className="text-3xl lg:text-4xl font-normal text-gray-600">Living in</span>
+                  <span className="text-3xl lg:text-4xl font-normal text-gray-600">Based in</span>
                   <div className="w-16 h-10 bg-white border border-black overflow-hidden" style={{ borderRadius: '20px' }}>
                     <img 
                       src="/src/assets/bike-photo.jpg" 
@@ -90,10 +91,10 @@ const Hero = () => {
           {/* Replace the image with ProfileCard */}
           <div className="relative flex justify-center">
             <ProfileCard 
-              avatarUrl={heroPortrait}
-              name="Creative Studio"
-              title="Design & Development"
-              handle="@webrelicreborn"
+              avatarUrl={heroCardImage}
+              name="Pierre"
+              title="Creative Developer"
+              handle="pierredevc"
               status="Available for projects"
               contactText="Get in touch"
               showUserInfo={true}
