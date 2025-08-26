@@ -65,6 +65,7 @@ export default function NavigationBody({ links, selectedLink, setSelectedLink }:
               variants={blur} 
               animate={selectedLink.isActive && selectedLink.index !== index ? "open" : "closed"}
               className="m-0 flex overflow-hidden text-[32px] lg:text-[5vw] pr-8 lg:pr-[2vw] pt-2.5 font-light hover:text-gray-600 transition-colors cursor-pointer"
+              style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
             >
               {getChars(title)}
             </motion.p>

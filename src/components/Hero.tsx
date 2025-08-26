@@ -1,5 +1,9 @@
 import ProfileCard from "@/blocks/Components/ProfileCard/ProfileCard";
+import StyledButton from "@/components/ui/styled-button";
+import CircularText from "@/components/CircularText";
 import heroPortrait from "@/assets/hero-portrait.jpg";
+
+
 
 const Hero = () => {
   return (
@@ -7,29 +11,79 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
-            <div className="space-y-6">
-              <h1 className="text-5xl lg:text-6xl font-light text-foreground leading-tight">
-                We're a design studio focused on creating
-                <span className="block text-studio-gray">simple, functional,</span>
-                <span className="block">& beautiful experiences.</span>
+            <div className="flex items-center justify-center lg:justify-start gap-8">
+              <h1 className="text-8xl lg:text-9xl font-bold text-foreground leading-none" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
+                PIERRE
               </h1>
-            </div>
-            
-            <div className="space-y-4">
-              <p className="text-studio-gray text-lg leading-relaxed max-w-md">
-                Our approach combines strategic thinking with creative execution to deliver 
-                meaningful design solutions that resonate with your audience.
-              </p>
+              <div className="hidden lg:block">
+                <CircularText
+                  text="PIERRE*DEV*"
+                  onHover="speedUp"
+                  spinDuration={20}
+                  className="text-black w-32 h-32"
+                />
+              </div>
             </div>
 
-            <div className="flex items-center space-x-6 pt-4">
-              <button className="text-sm text-foreground hover:text-studio-gray transition-colors underline">
-                View Our Work
-              </button>
-              <span className="text-studio-gray">•</span>
-              <button className="text-sm text-foreground hover:text-studio-gray transition-colors underline">
-                About the Studio
-              </button>
+            <div className="space-y-6">
+              <div className="max-w-2xl text-center lg:text-left mx-auto lg:mx-0">
+                {/* Hey, I'm Pierre line */}
+                <div className="flex items-center justify-center lg:justify-start gap-4 mb-3">
+                  <span className="text-3xl lg:text-4xl font-normal text-gray-600">Hey, I'm</span>
+                  <div className="w-16 h-10 bg-white border border-black overflow-hidden" style={{ borderRadius: '20px' }}>
+                    <img 
+                      src="/src/assets/hero-portrait.jpg" 
+                      alt="Pierre" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <span className="text-3xl lg:text-4xl font-normal text-gray-900">Pierre</span>
+                </div>
+                
+                {/* Creative Developer line */}
+                <div className="flex items-center justify-center lg:justify-start gap-4 mb-3">
+                  <span className="text-3xl lg:text-4xl font-normal text-gray-900">Creative Developer</span>
+                  <div className="w-16 h-10 bg-white border border-black overflow-hidden" style={{ borderRadius: '20px' }}>
+                    <img 
+                      src="/src/assets/architecture.jpg" 
+                      alt="Development tools" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+                
+                {/* Living in Montréal line */}
+                <div className="flex items-center justify-center lg:justify-start gap-4 mb-6">
+                  <span className="text-3xl lg:text-4xl font-normal text-gray-600">Living in</span>
+                  <div className="w-16 h-10 bg-white border border-black overflow-hidden" style={{ borderRadius: '20px' }}>
+                    <img 
+                      src="/src/assets/bike-photo.jpg" 
+                      alt="Montréal" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <span className="text-3xl lg:text-4xl font-normal text-gray-900">Montréal</span>
+                </div>
+                
+                {/* Description */}
+                <p className="text-gray-600 text-base leading-relaxed max-w-md">
+                  I specialize in creating thoughtful and impactful digital experiences, 
+                  collaborating with startups and leading brands
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start justify-center lg:justify-start pt-4">
+              <StyledButton onClick={() => {
+                // Calculate viewport height to scroll past the current hero section
+                const viewportHeight = window.innerHeight;
+                window.scrollTo({ 
+                  top: viewportHeight * 0.8, // Scroll down about 80% of viewport height
+                  behavior: 'smooth' 
+                });
+              }}>
+                See Projects
+              </StyledButton>
             </div>
           </div>
 

@@ -4,7 +4,6 @@ import { blur } from '@/components/AnimatedHeader/animations';
 import AnimatedHeader from "@/components/AnimatedHeader";
 import Hero from "@/components/Hero";
 import TechStack from "@/components/ClientLogos";
-import FeaturedWork from "@/components/FeaturedWork";
 import PortfolioGrid from "@/components/PortfolioGrid";
 import ArtDirection from "@/components/ArtDirection";
 import Footer from "@/components/Footer";
@@ -23,7 +22,6 @@ const Index = () => {
       >
         <Hero />
         <TechStack />
-        <FeaturedWork />
         <PortfolioGrid />
         <ArtDirection />
         <Footer />

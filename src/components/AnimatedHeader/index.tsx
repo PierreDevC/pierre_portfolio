@@ -7,14 +7,14 @@ export default function AnimatedHeader() {
   const { isMenuOpen: isActive, setIsMenuOpen: setIsActive } = useNavigation();
 
   return (
-    <div className={`fixed w-full z-50 border-b border-studio-border p-2.5 md:p-5 transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] will-change-transform ${isActive ? 'bg-[#f4f0ea]' : 'bg-background/95 backdrop-blur-sm'}`}>
+    <div className={`fixed w-full z-50 border-b border-studio-border p-2.5 md:p-5 transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] will-change-transform ${isActive ? 'bg-[#f8f9fa]' : 'bg-background/95 backdrop-blur-sm'}`}>
       <div className="flex justify-center items-center relative text-xs md:text-sm font-normal uppercase">
         {/* Logo */}
         <a 
           href="/" 
           className={`absolute left-0 no-underline transition-colors duration-700 ${isActive ? 'text-black hover:text-gray-600' : 'text-foreground hover:text-studio-gray'}`}
         >
-          Kanso<sup className="text-xs">®</sup>
+          Pierre<sup className="text-xs">®</sup>
         </a>
 
         {/* Menu Button */}
@@ -95,7 +95,7 @@ export default function AnimatedHeader() {
         variants={background} 
         initial="initial" 
         animate={isActive ? "open" : "closed"} 
-        className="absolute left-0 top-full w-full bg-[#f4f0ea] will-change-transform"
+        className="absolute left-0 top-full w-full bg-[#f8f9fa] will-change-transform"
         style={{ transform: "translate3d(0, 0, 0)" }}
       />
 
@@ -107,7 +107,7 @@ export default function AnimatedHeader() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4, ease: [0.76, 0, 0.24, 1] }}
-            className="fixed top-[72px] left-0 right-0 bottom-0 z-40 bg-[#f4f0ea] px-6 py-8"
+            className="fixed top-[72px] left-0 right-0 bottom-0 z-40 bg-[#f8f9fa] px-6 py-8"
           >
             <Navigation />
           </motion.div>
