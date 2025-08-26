@@ -47,7 +47,8 @@ export default function Navigation() {
       initial="initial" 
       animate="enter" 
       exit="exit" 
-      className="overflow-hidden"
+      className="overflow-hidden will-change-transform"
+      style={{ transform: "translate3d(0, 0, 0)" }}
     >
       <div className="flex gap-12 mb-20 lg:mb-0 lg:justify-between">
         <div className="flex flex-col justify-between">

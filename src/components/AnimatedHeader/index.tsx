@@ -7,7 +7,7 @@ export default function AnimatedHeader() {
   const { isMenuOpen: isActive, setIsMenuOpen: setIsActive } = useNavigation();
 
   return (
-    <div className={`fixed w-full z-50 border-b border-studio-border p-2.5 md:p-5 transition-all duration-700 ${isActive ? 'bg-[#f4f0ea]' : 'bg-background/95 backdrop-blur-sm'}`}>
+    <div className={`fixed w-full z-50 border-b border-studio-border p-2.5 md:p-5 transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] will-change-transform ${isActive ? 'bg-[#f4f0ea]' : 'bg-background/95 backdrop-blur-sm'}`}>
       <div className="flex justify-center items-center relative text-xs md:text-sm font-normal uppercase">
         {/* Logo */}
         <a 
@@ -27,7 +27,7 @@ export default function AnimatedHeader() {
             {/* Top line */}
             <div 
               className={`
-                h-[1px] w-full absolute transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)]
+                h-[1px] w-full absolute transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] will-change-transform
                 ${isActive 
                   ? 'rotate-45 top-1/2 -translate-y-1/2 bg-black' 
                   : 'top-1 bg-foreground'
@@ -37,14 +37,14 @@ export default function AnimatedHeader() {
             {/* Middle line - fades out */}
             <div 
               className={`
-                h-[1px] w-full absolute top-1/2 -translate-y-1/2 transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)]
+                h-[1px] w-full absolute top-1/2 -translate-y-1/2 transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] will-change-transform
                 ${isActive ? 'opacity-0 scale-0 bg-black' : 'opacity-100 scale-100 bg-foreground'}
               `}
             />
             {/* Bottom line */}
             <div 
               className={`
-                h-[1px] w-full absolute transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)]
+                h-[1px] w-full absolute transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] will-change-transform
                 ${isActive 
                   ? '-rotate-45 top-1/2 -translate-y-1/2 bg-black' 
                   : 'bottom-1 bg-foreground'
@@ -95,15 +95,22 @@ export default function AnimatedHeader() {
         variants={background} 
         initial="initial" 
         animate={isActive ? "open" : "closed"} 
-        className="absolute left-0 top-full w-full bg-[#f4f0ea]"
+        className="absolute left-0 top-full w-full bg-[#f4f0ea] will-change-transform"
+        style={{ transform: "translate3d(0, 0, 0)" }}
       />
 
       {/* Navigation Overlay */}
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" initial={false}>
         {isActive && (
-          <div className="fixed top-[72px] left-0 right-0 bottom-0 z-40 bg-[#f4f0ea] px-6 py-8">
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4, ease: [0.76, 0, 0.24, 1] }}
+            className="fixed top-[72px] left-0 right-0 bottom-0 z-40 bg-[#f4f0ea] px-6 py-8"
+          >
             <Navigation />
-          </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </div>

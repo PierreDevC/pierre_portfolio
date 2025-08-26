@@ -18,7 +18,8 @@ const Index = () => {
       <motion.div
         variants={blur}
         animate={isMenuOpen ? "open" : "closed"}
-        className="relative"
+        className="relative will-change-transform"
+        style={{ transform: "translate3d(0, 0, 0)" }}
       >
         <Hero />
         <TechStack />
