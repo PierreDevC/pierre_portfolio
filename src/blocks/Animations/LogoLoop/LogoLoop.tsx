@@ -36,6 +36,8 @@ export interface LogoLoopProps {
   logoHeight?: number;
   gap?: number;
   pauseOnHover?: boolean;
+  slowOnHover?: boolean;
+  hoverSpeedRatio?: number;
   fadeOut?: boolean;
   fadeOutColor?: string;
   scaleOnHover?: boolean;
@@ -129,7 +131,9 @@ const useAnimationLoop = (
   targetVelocity: number,
   seqWidth: number,
   isHovered: boolean,
-  pauseOnHover: boolean
+  pauseOnHover: boolean,
+  slowOnHover: boolean,
+  hoverSpeedRatio: number
 ) => {
   const rafRef = useRef<number | null>(null);
   const lastTimestampRef = useRef<number | null>(null);
@@ -167,7 +171,14 @@ const useAnimationLoop = (
         Math.max(0, timestamp - lastTimestampRef.current) / 1000;
       lastTimestampRef.current = timestamp;
 
-      const target = pauseOnHover && isHovered ? 0 : targetVelocity;
+      let target = targetVelocity;
+      if (isHovered) {
+        if (pauseOnHover) {
+          target = 0;
+        } else if (slowOnHover) {
+          target = targetVelocity * hoverSpeedRatio;
+        }
+      }
 
       const easingFactor =
         1 - Math.exp(-deltaTime / ANIMATION_CONFIG.SMOOTH_TAU);
@@ -194,7 +205,7 @@ const useAnimationLoop = (
       }
       lastTimestampRef.current = null;
     };
-  }, [targetVelocity, seqWidth, isHovered, pauseOnHover]);
+  }, [targetVelocity, seqWidth, isHovered, pauseOnHover, slowOnHover, hoverSpeedRatio]);
 };
 
 export const LogoLoop = React.memo<LogoLoopProps>(
@@ -205,7 +216,9 @@ export const LogoLoop = React.memo<LogoLoopProps>(
     width = "100%",
     logoHeight = 28,
     gap = 32,
-    pauseOnHover = true,
+    pauseOnHover = false,
+    slowOnHover = true,
+    hoverSpeedRatio = 0.15,
     fadeOut = false,
     fadeOutColor,
     scaleOnHover = false,
@@ -257,7 +270,9 @@ export const LogoLoop = React.memo<LogoLoopProps>(
       targetVelocity,
       seqWidth,
       isHovered,
-      pauseOnHover
+      pauseOnHover,
+      slowOnHover,
+      hoverSpeedRatio
     );
 
     const cssVariables = useMemo(
@@ -285,12 +300,12 @@ export const LogoLoop = React.memo<LogoLoopProps>(
     );
 
     const handleMouseEnter = useCallback(() => {
-      if (pauseOnHover) setIsHovered(true);
-    }, [pauseOnHover]);
+      if (pauseOnHover || slowOnHover) setIsHovered(true);
+    }, [pauseOnHover, slowOnHover]);
 
     const handleMouseLeave = useCallback(() => {
-      if (pauseOnHover) setIsHovered(false);
-    }, [pauseOnHover]);
+      if (pauseOnHover || slowOnHover) setIsHovered(false);
+    }, [pauseOnHover, slowOnHover]);
 
     const renderLogoItem = useCallback(
       (item: LogoItem, key: React.Key) => {

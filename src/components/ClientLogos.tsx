@@ -91,13 +91,15 @@ const TechStack = () => {
         </div>
         
         {/* LogoLoop with fade effect */}
-        <LogoLoop 
+        <LogoLoop
           logos={logos}
           speed={60}
           direction="left"
           logoHeight={24}
           gap={64}
-          pauseOnHover={true}
+          pauseOnHover={false}
+          slowOnHover={true}
+          hoverSpeedRatio={0.1}
           fadeOut={true}
           fadeOutColor="hsl(var(--background))"
           scaleOnHover={false}
