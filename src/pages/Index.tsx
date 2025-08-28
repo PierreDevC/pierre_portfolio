@@ -6,6 +6,7 @@ import Hero from "@/components/Hero";
 import TechStack from "@/components/ClientLogos";
 import PortfolioGrid from "@/components/PortfolioGrid";
 import ArtDirection from "@/components/ArtDirection";
+import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -23,6 +24,7 @@ const Index = () => {
         <Hero />
         <TechStack />
         <PortfolioGrid />
+        <ContactSection />
         <ArtDirection />
         <Footer />
       </motion.div>

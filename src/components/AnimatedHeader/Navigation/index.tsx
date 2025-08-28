@@ -12,8 +12,8 @@ const links = [
     src: "hero-portrait.jpg"
   },
   {
-    title: "Work",
-    href: "#work",
+    title: "Projects",
+    href: "#projects",
     src: "architecture.jpg"
   },
   {

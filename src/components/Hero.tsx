@@ -105,8 +105,14 @@ const Hero = () => {
               behindGradient="radial-gradient(farthest-side circle at var(--pointer-x) var(--pointer-y),hsla(220,20%,90%,var(--card-opacity)) 4%,hsla(220,15%,80%,calc(var(--card-opacity)*0.75)) 10%,hsla(220,10%,70%,calc(var(--card-opacity)*0.5)) 50%,hsla(220,0%,60%,0) 100%)"
               innerGradient="linear-gradient(145deg,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.6) 100%)"
               onContactClick={() => {
-                // Add your contact logic here
-                console.log("Contact clicked!");
+                // Scroll to contact section
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                  contactSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                }
               }}
             />
           </div>

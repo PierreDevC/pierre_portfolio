@@ -71,6 +71,13 @@ const TechStack = () => {
       alt: "Docker",
       title: "Docker"
     },
+    { 
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swift/swift-original.svg", 
+      alt: "Swift",
+      title: "Swift"
+    },
+    
+    
   ];
 
   return (
