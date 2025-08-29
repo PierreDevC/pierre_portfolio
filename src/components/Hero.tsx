@@ -156,7 +156,7 @@ const Hero = () => {
                   behavior: 'smooth' 
                 });
               }}>
-                See Projects
+                View Projects
               </StyledButton>
             </motion.div>
           </div>
