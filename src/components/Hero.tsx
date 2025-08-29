@@ -1,3 +1,6 @@
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { motion } from 'framer-motion';
 import ProfileCard from "@/blocks/Components/ProfileCard/ProfileCard";
 import StyledButton from "@/components/ui/styled-button";
 import CircularText from "@/components/CircularText";
@@ -6,15 +9,74 @@ import heroCardImage from "@/assets/hero-card.jpg";
 
 
 const Hero = () => {
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLDivElement>(null);
+  const descriptionRef = useRef<HTMLParagraphElement>(null);
+  const buttonRef = useRef<HTMLDivElement>(null);
+  const profileCardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const timeline = gsap.timeline();
+
+    // Set initial states
+    gsap.set([titleRef.current, subtitleRef.current, descriptionRef.current, buttonRef.current, profileCardRef.current], {
+      y: 50,
+      opacity: 0
+    });
+
+    // Create staggered entrance animation
+    timeline
+      .to(titleRef.current, {
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+        ease: "power3.out"
+      })
+      .to(subtitleRef.current, {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power3.out"
+      }, "-=0.8")
+      .to(descriptionRef.current, {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "power3.out"
+      }, "-=0.6")
+      .to(buttonRef.current, {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "power3.out"
+      }, "-=0.4")
+      .to(profileCardRef.current, {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power3.out"
+      }, "-=0.6");
+
+    return () => {
+      timeline.kill();
+    };
+  }, []);
+
   return (
-    <section className="pt-24 pb-20">
+    <section className="pt-4 pb-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
             <div className="flex items-center justify-center lg:justify-start gap-8">
-              <h1 className="text-8xl lg:text-9xl font-bold text-foreground leading-none" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
+              <motion.h1 
+                ref={titleRef}
+                className="text-8xl lg:text-9xl font-bold text-foreground leading-none" 
+                style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              >
                 PIERRE
-              </h1>
+              </motion.h1>
               <div className="hidden lg:block">
                 <CircularText
                   text="PIERRE*DEV*"
@@ -25,10 +87,10 @@ const Hero = () => {
               </div>
             </div>
 
-            <div className="space-y-6">
+            <div ref={subtitleRef} className="space-y-6">
               <div className="max-w-2xl text-center lg:text-left mx-auto lg:mx-0">
                 {/* Hey, I'm Pierre line */}
-                <div className="flex items-center justify-center lg:justify-start gap-4 mb-3">
+                <div className="flex items-center justify-center lg:justify-start gap-4 mb-3" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
                   <span className="text-3xl lg:text-4xl font-normal text-gray-600">Hey, I'm</span>
                   <div className="w-16 h-10 bg-white border border-black overflow-hidden" style={{ borderRadius: '20px' }}>
                     <img 
@@ -42,7 +104,7 @@ const Hero = () => {
                 </div>
                 
                 {/* Creative Developer line */}
-                <div className="flex items-center justify-center lg:justify-start gap-4 mb-3">
+                <div className="flex items-center justify-center lg:justify-start gap-4 mb-3" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
                   <span className="text-3xl lg:text-4xl font-normal text-gray-900">Creative Developer</span>
                   <div className="w-16 h-10 bg-white border border-black overflow-hidden" style={{ borderRadius: '20px' }}>
                     <img 
@@ -54,7 +116,7 @@ const Hero = () => {
                 </div>
                 
                 {/* Based in Montréal line */}
-                <div className="flex items-center justify-center lg:justify-start gap-4 mb-6">
+                <div className="flex items-center justify-center lg:justify-start gap-4 mb-6" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
                   <span className="text-3xl lg:text-4xl font-normal text-gray-600">Based in</span>
                   <div className="w-16 h-10 bg-white border border-black overflow-hidden" style={{ borderRadius: '20px' }}>
                     <img 
@@ -67,14 +129,25 @@ const Hero = () => {
                 </div>
                 
                 {/* Description */}
-                <p className="text-gray-600 text-base leading-relaxed max-w-md">
+                <motion.p 
+                  ref={descriptionRef}
+                  className="text-gray-600 text-base leading-relaxed max-w-md"
+                  style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
+                  whileHover={{ scale: 1.01 }}
+                  transition={{ duration: 0.2 }}
+                >
                   I specialize in creating thoughtful and impactful digital experiences, 
                   collaborating with startups and leading brands
-                </p>
+                </motion.p>
               </div>
             </div>
 
-            <div className="flex items-start justify-center lg:justify-start pt-4">
+            <motion.div 
+              ref={buttonRef}
+              className="flex items-start justify-center lg:justify-start pt-4"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.2 }}
+            >
               <StyledButton onClick={() => {
                 // Calculate viewport height to scroll past the current hero section
                 const viewportHeight = window.innerHeight;
@@ -85,11 +158,16 @@ const Hero = () => {
               }}>
                 See Projects
               </StyledButton>
-            </div>
+            </motion.div>
           </div>
 
           {/* Replace the image with ProfileCard */}
-          <div className="relative flex justify-center">
+          <motion.div 
+            ref={profileCardRef}
+            className="relative flex justify-center"
+            whileHover={{ scale: 1.02, rotateY: 5 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+          >
             <ProfileCard 
               avatarUrl={heroCardImage}
               name="Pierre"
@@ -115,7 +193,7 @@ const Hero = () => {
                 }
               }}
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

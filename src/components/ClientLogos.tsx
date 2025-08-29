@@ -1,6 +1,41 @@
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { motion } from 'framer-motion';
 import LogoLoop from "@/blocks/Animations/LogoLoop/LogoLoop";
 
 const TechStack = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const logoLoopRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Set initial states
+    gsap.set([headerRef.current, logoLoopRef.current], {
+      y: 40,
+      opacity: 0
+    });
+
+    // Create staggered animation
+    const timeline = gsap.timeline();
+    timeline
+      .to(headerRef.current, {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "power3.out"
+      })
+      .to(logoLoopRef.current, {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power3.out"
+      }, "-=0.4");
+
+    return () => {
+      timeline.kill();
+    };
+  }, []);
+
   // Technology stack with logos from CDN
   const logos = [
     { 
@@ -81,17 +116,31 @@ const TechStack = () => {
   ];
 
   return (
-    <section className="py-16 bg-background">
+    <motion.section 
+      ref={sectionRef}
+      className="py-16 bg-background"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
       <div className="max-w-7xl mx-auto px-6">
         {/* Optional header */}
-        <div className="text-center mb-12">
+        <motion.div 
+          ref={headerRef}
+          className="text-center mb-12"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
+          style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
+        >
           <p className="text-sm text-studio-gray uppercase tracking-wide mb-2">
             Technologies & Tools
           </p>
-        </div>
+        </motion.div>
         
         {/* LogoLoop with fade effect */}
-        <LogoLoop
+        <div ref={logoLoopRef}>
+          <LogoLoop
           logos={logos}
           speed={60}
           direction="left"
@@ -106,8 +155,9 @@ const TechStack = () => {
           ariaLabel="Technologies and tools we use"
           className="opacity-70 hover:opacity-90 transition-opacity duration-300 [&_img]:grayscale [&_img]:hover:grayscale-0 [&_img]:transition-all [&_img]:duration-300"
         />
+        </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

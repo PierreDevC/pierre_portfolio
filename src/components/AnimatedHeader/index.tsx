@@ -7,12 +7,13 @@ export default function AnimatedHeader() {
   const { isMenuOpen: isActive, setIsMenuOpen: setIsActive } = useNavigation();
 
   return (
-    <div className={`fixed w-full z-50 border-b border-studio-border p-2.5 md:p-5 transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] will-change-transform ${isActive ? 'bg-[#f8f9fa]' : 'bg-background/95 backdrop-blur-sm'}`}>
-      <div className="flex justify-center items-center relative text-xs md:text-sm font-normal uppercase">
+    <div className={`fixed top-0 w-full z-50 border-b border-studio-border p-2.5 md:p-5 transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] will-change-transform ${isActive ? 'bg-[#f8f9fa]' : 'bg-background/95 backdrop-blur-sm'}`}>
+      <div className="flex justify-center items-center relative text-xs md:text-sm font-normal uppercase" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
         {/* Logo */}
         <a 
           href="/" 
           className={`absolute left-0 no-underline transition-colors duration-700 ${isActive ? 'text-black hover:text-gray-600' : 'text-foreground hover:text-studio-gray'}`}
+          style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
         >
           Pierre<sup className="text-xs">®</sup>
         </a>
@@ -59,6 +60,7 @@ export default function AnimatedHeader() {
               variants={opacity} 
               animate={!isActive ? "open" : "closed"}
               className={`m-0 transition-colors duration-700 ${isActive ? 'text-black' : 'text-foreground'}`}
+              style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
             >
               Menu
             </motion.p>
@@ -66,6 +68,7 @@ export default function AnimatedHeader() {
               variants={opacity} 
               animate={isActive ? "open" : "closed"}
               className={`m-0 absolute opacity-0 transition-colors duration-700 ${isActive ? 'text-black' : 'text-foreground'}`}
+              style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
             >
               Close
             </motion.p>

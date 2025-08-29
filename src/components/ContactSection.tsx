@@ -103,14 +103,14 @@ const ContactSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Left side - Call to action */}
           <div className="space-y-6">
-            <h2 className="text-4xl lg:text-5xl font-light text-gray-900 leading-tight">
+            <h2 className="text-4xl lg:text-5xl font-light text-gray-900 leading-tight" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
               Let's turn your vision into reality! Contact us today, and let's start a conversation about your next project.
             </h2>
           </div>
 
           {/* Right side - Contact form */}
           <div>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-900 mb-2">

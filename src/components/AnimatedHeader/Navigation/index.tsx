@@ -9,17 +9,12 @@ const links = [
   {
     title: "Home",
     href: "/",
-    src: "hero-portrait.jpg"
+    src: "hero-card.jpg"
   },
   {
     title: "Projects",
     href: "#projects",
     src: "architecture.jpg"
-  },
-  {
-    title: "Studio",
-    href: "#studio",
-    src: "bike-photo.jpg"
   },
   {
     title: "Services",
@@ -29,8 +24,13 @@ const links = [
   {
     title: "Contact",
     href: "#contact",
+    src: "bike-photo.jpg"
+  },
+  {
+    title: "About",
+    href: "#about",
     src: "jumping-silhouette.jpg"
-  }
+  },
 ];
 
 interface SelectedLink {

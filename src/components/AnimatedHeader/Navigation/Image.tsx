@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { opacity } from '../animations';
 import heroPortrait from '@/assets/hero-portrait.jpg';
+import heroCard from '@/assets/hero-card.jpg';
 import architecture from '@/assets/architecture.jpg';
 import bikePhoto from '@/assets/bike-photo.jpg';
 import flowerMacro from '@/assets/flower-macro.jpg';
@@ -14,6 +15,7 @@ interface NavigationImageProps {
 export default function NavigationImage({ src, isActive }: NavigationImageProps) {
   const imageMap: { [key: string]: string } = {
     'hero-portrait.jpg': heroPortrait,
+    'hero-card.jpg': heroCard,
     'architecture.jpg': architecture,
     'bike-photo.jpg': bikePhoto,
     'flower-macro.jpg': flowerMacro,
