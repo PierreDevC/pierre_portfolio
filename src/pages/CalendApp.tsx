@@ -122,6 +122,65 @@ const CalendApp = () => {
           </div>
         </section>
 
+        {/* Features Section */}
+        <section className="pb-12 md:pb-20 px-4 md:px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center space-y-6 md:space-y-8">
+              {/* Features Title */}
+              <motion.h3
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground"
+                style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
+              >
+                CalendApp Features
+              </motion.h3>
+
+              {/* Features Description */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                viewport={{ once: true }}
+                className="max-w-2xl mx-auto"
+              >
+                <h4 className="text-lg md:text-xl font-medium text-gray-900 mb-3" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
+                  Creating Events
+                </h4>
+                <p className="text-gray-600 leading-relaxed text-sm md:text-base" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
+                  Effortlessly create and manage events with our intuitive interface. Set reminders, add locations, and invite participants with just a few taps.
+                </p>
+              </motion.div>
+
+              {/* Feature Images */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto mt-8"
+              >
+                <div className="relative overflow-hidden rounded-xl md:rounded-2xl shadow-lg">
+                  <img
+                    src="/src/assets/calendar.png"
+                    alt="Calendar Interface"
+                    className="w-full h-64 md:h-80 object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="relative overflow-hidden rounded-xl md:rounded-2xl shadow-lg">
+                  <img
+                    src="/src/assets/estate_hub.png"
+                    alt="Event Creation"
+                    className="w-full h-64 md:h-80 object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
         <Footer />
       </motion.div>
     </div>

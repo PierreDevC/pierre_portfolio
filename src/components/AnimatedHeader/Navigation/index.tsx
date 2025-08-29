@@ -14,22 +14,22 @@ const links = [
   {
     title: "Projects",
     href: "#projects",
-    src: "architecture.jpg"
+    src: "projects.jpg"
   },
   {
     title: "Services",
     href: "#services",
-    src: "flower-macro.jpg"
+    src: "services.jpg"
   },
   {
     title: "Contact",
     href: "#contact",
-    src: "bike-photo.jpg"
+    src: "contact.jpg"
   },
   {
     title: "About",
     href: "#about",
-    src: "jumping-silhouette.jpg"
+    src: "about.png"
   },
 ];
 

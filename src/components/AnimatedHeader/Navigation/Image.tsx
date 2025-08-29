@@ -6,6 +6,10 @@ import architecture from '@/assets/architecture.jpg';
 import bikePhoto from '@/assets/bike-photo.jpg';
 import flowerMacro from '@/assets/flower-macro.jpg';
 import jumpingSilhouette from '@/assets/jumping-silhouette.jpg';
+import aboutImage from '@/assets/about.png';
+import contactImage from '@/assets/contact.jpg';
+import projectsImage from '@/assets/projects.jpg';
+import servicesImage from '@/assets/services.jpg';
 
 interface NavigationImageProps {
   src: string;
@@ -20,6 +24,10 @@ export default function NavigationImage({ src, isActive }: NavigationImageProps)
     'bike-photo.jpg': bikePhoto,
     'flower-macro.jpg': flowerMacro,
     'jumping-silhouette.jpg': jumpingSilhouette,
+    'about.png': aboutImage,
+    'contact.jpg': contactImage,
+    'projects.jpg': projectsImage,
+    'services.jpg': servicesImage,
   };
 
   return (
