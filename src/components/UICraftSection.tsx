@@ -82,7 +82,7 @@ const UICraftSection: React.FC = () => {
 
       <ul
         ref={listRef}
-        className="grid gap-4 list-none p-0 mx-auto max-w-2xl transition-all duration-600 ease-out"
+        className="grid gap-4 list-none p-0 mx-auto max-w-2xl transition-all duration-1000 ease-in-out"
         style={{
           gridTemplateRows: getGridRows(),
           height: '80vh',
@@ -114,7 +114,7 @@ const UICraftSection: React.FC = () => {
           >
             {/* Background Image */}
             <div
-              className={`absolute inset-0 transition-all duration-700 border border-border/30 ${
+              className={`absolute inset-0 transition-all duration-1000 ease-in-out border border-border/30 ${
                 index === activeIndex 
                   ? 'opacity-100 scale-100' 
                   : 'opacity-100 scale-110'
@@ -131,14 +131,14 @@ const UICraftSection: React.FC = () => {
             <div 
               className={`relative z-10 h-full flex flex-col gap-4 p-6 ${
                 index === activeIndex ? 'justify-end' : 'justify-center'
-              } transition-all duration-700`}
+              } transition-all duration-1000 ease-in-out`}
               style={{ 
                 fontFamily: '"Geist", system-ui, -apple-system, sans-serif'
               }}
             >
               <div className="flex items-center gap-4">
                 <svg
-                  className={`w-6 h-6 flex-shrink-0 fill-none stroke-current stroke-2 transition-opacity duration-700 ${
+                  className={`w-6 h-6 flex-shrink-0 fill-none stroke-current stroke-2 transition-opacity duration-1000 ease-in-out ${
                     index === activeIndex ? 'opacity-100' : 'opacity-60'
                   }`}
                   xmlns="http://www.w3.org/2000/svg"
@@ -150,7 +150,7 @@ const UICraftSection: React.FC = () => {
                 </svg>
                 
                 <h3 
-                  className={`text-lg font-medium transition-opacity duration-700 ${
+                  className={`text-lg font-medium transition-opacity duration-1000 ease-in-out ${
                     index === activeIndex ? 'opacity-100' : 'opacity-80'
                   }`}
                   style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
@@ -160,8 +160,8 @@ const UICraftSection: React.FC = () => {
               </div>
 
               <p 
-                className={`text-sm leading-6 text-studio-gray transition-all duration-700 ${
-                  index === activeIndex ? 'opacity-100 delay-150 max-h-32' : 'opacity-0 max-h-0'
+                className={`text-sm leading-6 text-studio-gray transition-all duration-1000 ease-in-out ${
+                  index === activeIndex ? 'opacity-100 delay-300 max-h-32' : 'opacity-0 max-h-0'
                 } overflow-hidden`}
                 style={{ 
                   textWrap: 'balance',
