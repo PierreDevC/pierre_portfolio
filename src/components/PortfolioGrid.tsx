@@ -190,15 +190,22 @@ const PortfolioGrid = () => {
     >
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-16 text-center">
-          <motion.h2 
+          <motion.h1 
             ref={titleRef}
-            className="text-4xl lg:text-5xl font-normal text-gray-900 mb-2" 
+            className="text-4xl md:text-6xl lg:text-7xl font-light mb-6 text-foreground" 
             style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
             Projects
-          </motion.h2>
+          </motion.h1>
+          <p 
+            className="max-w-4xl mx-auto text-studio-gray leading-relaxed text-lg"
+            style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
+          >
+            A curated selection of my work showcasing innovative solutions across web development, 
+            mobile applications, and digital experiences. Each project represents a unique challenge solved with creativity and technical expertise.
+          </p>
         </div>
 
         <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 gap-6">

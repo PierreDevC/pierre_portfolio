@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
+import contactImage from "../assets/contact.jpg";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -103,9 +104,23 @@ const ContactSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Left side - Call to action */}
           <div className="space-y-6">
-            <h2 className="text-4xl lg:text-5xl font-light text-gray-900 leading-tight" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
-              Let's turn your vision into reality! Contact us today, and let's start a conversation about your next project.
-            </h2>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-foreground mb-6" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
+              Contact
+            </h1>
+            <p className="text-lg text-studio-gray leading-relaxed mb-8" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
+              Ready to bring your ideas to life? Let's start a conversation about your next project. 
+              I'm here to help transform your vision into exceptional digital experiences.
+            </p>
+            
+            {/* Contact Image */}
+            <div className="relative overflow-hidden rounded-lg">
+              <img 
+                src={contactImage} 
+                alt="Contact Pierre" 
+                className="w-full h-80 object-cover transition-transform duration-300 hover:scale-105"
+                style={{ objectPosition: 'center 40%' }}
+              />
+            </div>
           </div>
 
           {/* Right side - Contact form */}

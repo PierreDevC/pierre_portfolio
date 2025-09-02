@@ -9,6 +9,7 @@ import AnimatedHeader from "@/components/AnimatedHeader";
 import Hero from "@/components/Hero";
 import TechStack from "@/components/ClientLogos";
 import PortfolioGrid from "@/components/PortfolioGrid";
+import UICraftSection from "@/components/UICraftSection";
 
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -22,6 +23,7 @@ const Index = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const techStackRef = useRef<HTMLDivElement>(null);
   const portfolioRef = useRef<HTMLDivElement>(null);
+  const uiCraftRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
 
   const footerRef = useRef<HTMLDivElement>(null);
@@ -38,6 +40,7 @@ const Index = () => {
       { ref: heroRef, delay: 0 },
       { ref: techStackRef, delay: 0.1 },
       { ref: portfolioRef, delay: 0.2 },
+      { ref: uiCraftRef, delay: 0.25 },
       { ref: contactRef, delay: 0.3 },
       { ref: footerRef, delay: 0.4 }
     ];
@@ -151,6 +154,9 @@ const Index = () => {
         </div>
         <div ref={portfolioRef}>
           <PortfolioGrid />
+        </div>
+        <div ref={uiCraftRef}>
+          <UICraftSection />
         </div>
         <div ref={contactRef}>
           <ContactSection />
