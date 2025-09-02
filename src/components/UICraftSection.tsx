@@ -106,7 +106,7 @@ const UICraftSection: React.FC = () => {
         {craftItems.map((item, index) => (
           <li
             key={item.id}
-            className="relative overflow-hidden min-h-16 rounded-lg border border-border/50 cursor-pointer"
+            className="relative overflow-hidden min-h-16 rounded-2xl border border-border/50 cursor-pointer"
             style={{
               backgroundColor: 'var(--background)',
             }}

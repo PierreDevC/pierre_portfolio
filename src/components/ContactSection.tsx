@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
-import contactImage from "../assets/contact.jpg";
+import contactImage from "../assets/projects.jpg";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -99,9 +99,9 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="py-32 bg-white">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left side - Call to action */}
           <div className="space-y-6">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-foreground mb-6" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
@@ -113,11 +113,11 @@ const ContactSection = () => {
             </p>
             
             {/* Contact Image */}
-            <div className="relative overflow-hidden rounded-lg">
+            <div className="relative overflow-hidden rounded-2xl">
               <img 
                 src={contactImage} 
                 alt="Contact Pierre" 
-                className="w-full h-80 object-cover transition-transform duration-300 hover:scale-105"
+                className="w-full h-80 object-cover transition-transform duration-300 hover:scale-105 "
                 style={{ objectPosition: 'center 40%' }}
               />
             </div>
@@ -138,7 +138,7 @@ const ContactSection = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-200 rounded-3xl text-gray-900 placeholder-gray-400 focus:border-gray-400 focus:outline-none transition-colors bg-gray-50"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:border-gray-400 focus:outline-none transition-colors bg-gray-50"
                     placeholder="Enter your name"
                   />
                 </div>
@@ -154,7 +154,7 @@ const ContactSection = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-200 rounded-3xl text-gray-900 placeholder-gray-400 focus:border-gray-400 focus:outline-none transition-colors bg-gray-50"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:border-gray-400 focus:outline-none transition-colors bg-gray-50"
                     placeholder="Enter your email"
                   />
                 </div>
@@ -168,7 +168,7 @@ const ContactSection = () => {
                   <button
                     type="button"
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-3xl text-gray-900 focus:border-gray-400 focus:outline-none transition-colors bg-gray-50 text-left flex items-center justify-between"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 focus:border-gray-400 focus:outline-none transition-colors bg-gray-50 text-left flex items-center justify-between"
                   >
                     <span className={formData.projectType ? "text-gray-900" : "text-gray-400"}>
                       {projectTypes.find(type => type.value === formData.projectType)?.label || "Select a project type"}
@@ -188,7 +188,7 @@ const ContactSection = () => {
                   {isDropdownOpen && (
                     <motion.div
                       ref={dropdownRef}
-                      className="absolute z-50 w-full mt-2 bg-white border border-gray-200 rounded-3xl shadow-lg overflow-hidden"
+                      className="absolute z-50 w-full mt-2 bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden"
                       initial={{ opacity: 0, y: -10, scaleY: 0.8 }}
                       animate={{ opacity: 1, y: 0, scaleY: 1 }}
                       exit={{ opacity: 0, y: -10, scaleY: 0.8 }}
@@ -212,7 +212,7 @@ const ContactSection = () => {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-900 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-900 mb-2 ">
                   Project Details:
                 </label>
                 <textarea
@@ -222,20 +222,20 @@ const ContactSection = () => {
                   onChange={handleInputChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-3xl text-gray-900 placeholder-gray-400 focus:border-gray-400 focus:outline-none transition-colors bg-gray-50 resize-vertical"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:border-gray-400 focus:outline-none transition-colors bg-gray-50 resize-vertical"
                   placeholder="Tell me about your project, timeline, budget, and any specific requirements..."
                 />
               </div>
-
-              <div className="text-xs text-gray-500 space-y-1">
+              
+              {/* <div className="text-xs text-gray-500 space-y-1">
                 <p>🔒 All the fields are required. By sending the form you agree to the Terms & Conditions and Privacy Policy.</p>
-              </div>
-
+              </div> */}
+                  
               <div>
                 <motion.button
                   ref={buttonRef}
                   type="submit"
-                  className="inline-flex items-center px-8 py-3 border-2 border-gray-900 text-gray-900 font-medium rounded-full hover:bg-gray-900 hover:text-white transition-all duration-300 group relative overflow-hidden"
+                  className="inline-flex items-center px-8 py-3 border-2 border-gray-900 text-gray-900 font-medium rounded-xl hover:bg-gray-900 hover:text-white transition-all duration-300 group relative overflow-hidden"
                   whileHover={{ 
                     scale: 1.02,
                     boxShadow: "0 10px 25px rgba(0,0,0,0.1)"
@@ -272,7 +272,7 @@ const ContactSection = () => {
                   
                   {/* Animated background */}
                   <motion.div
-                    className="absolute inset-0 bg-gray-900 rounded-full"
+                    className="absolute inset-0 bg-gray-900 rounded-xl"
                     initial={{ scale: 0, opacity: 0 }}
                     whileHover={{ 
                       scale: 1, 

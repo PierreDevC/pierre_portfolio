@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { motion } from 'framer-motion';
 
@@ -8,46 +8,47 @@ const Footer = () => {
   const skillsRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
   const followRef = useRef<HTMLDivElement>(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
-  useEffect(() => {
-    // Set initial states
-    gsap.set([projectsRef.current, skillsRef.current, contactRef.current, followRef.current], {
-      y: 40,
-      opacity: 0
-    });
+  const handleViewportEnter = () => {
+    if (!hasAnimated) {
+      setHasAnimated(true);
+      
+      // Set initial states
+      gsap.set([projectsRef.current, skillsRef.current, contactRef.current, followRef.current], {
+        y: 40,
+        opacity: 0
+      });
 
-    // Create staggered animation
-    const timeline = gsap.timeline();
-    timeline
-      .to(projectsRef.current, {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        ease: "power3.out"
-      })
-      .to(skillsRef.current, {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        ease: "power3.out"
-      }, "-=0.6")
-      .to(contactRef.current, {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        ease: "power3.out"
-      }, "-=0.6")
-      .to(followRef.current, {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        ease: "power3.out"
-      }, "-=0.6");
-
-    return () => {
-      timeline.kill();
-    };
-  }, []);
+      // Create staggered animation
+      const timeline = gsap.timeline();
+      timeline
+        .to(projectsRef.current, {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power3.out"
+        })
+        .to(skillsRef.current, {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power3.out"
+        }, "-=0.6")
+        .to(contactRef.current, {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power3.out"
+        }, "-=0.6")
+        .to(followRef.current, {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power3.out"
+        }, "-=0.6");
+    }
+  };
 
   return (
     <motion.footer 
@@ -55,6 +56,7 @@ const Footer = () => {
       className="py-40 bg-studio-charcoal text-studio-light"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
+      onViewportEnter={handleViewportEnter}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
     >
