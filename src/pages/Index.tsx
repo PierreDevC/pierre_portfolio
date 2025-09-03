@@ -10,7 +10,7 @@ import AnimatedHeader from "@/components/AnimatedHeader";
 import Hero from "@/components/Hero";
 import TechStack from "@/components/ClientLogos";
 import PortfolioGrid from "@/components/PortfolioGrid";
-import UICraftSection from "@/components/UICraftSection";
+import Services from "@/components/Services";
 
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -178,7 +178,7 @@ const Index = () => {
           <PortfolioGrid />
         </div>
         <div ref={uiCraftRef} id="services">
-          <UICraftSection />
+          <Services />
         </div>
         <div ref={contactRef} id="contact">
           <ContactSection />
