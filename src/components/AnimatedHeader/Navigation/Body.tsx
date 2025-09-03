@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { blur, translate } from '../animations';
 import { useNavigation } from '@/contexts/NavigationContext';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 interface Link {
   title: string;
@@ -21,6 +22,8 @@ interface NavigationBodyProps {
 
 export default function NavigationBody({ links, selectedLink, setSelectedLink }: NavigationBodyProps) {
   const { setIsMenuOpen } = useNavigation();
+  const navigate = useNavigate();
+  const location = useLocation();
   const getChars = (word: string) => {
     let chars: JSX.Element[] = [];
     word.split("").forEach((char, i) => {
@@ -50,11 +53,32 @@ export default function NavigationBody({ links, selectedLink, setSelectedLink }:
             href={href}
             className="text-black no-underline uppercase"
             onClick={(e) => {
+              e.preventDefault();
+              
               if (href.startsWith('#')) {
-                e.preventDefault();
-                const element = document.querySelector(href);
-                element?.scrollIntoView({ behavior: 'smooth' });
+                // Handle section links
+                if (location.pathname === '/') {
+                  // Already on home page, just scroll to section
+                  const element = document.querySelector(href);
+                  element?.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  // On different page, navigate to home page with hash
+                  navigate(`/${href}`);
+                }
+              } else if (href === '/') {
+                // Handle home link
+                if (location.pathname === '/') {
+                  // Already on home page, scroll to top
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                  // Navigate to home page
+                  navigate('/');
+                }
+              } else {
+                // Handle other routes
+                navigate(href);
               }
+              
               // Close menu after clicking any link
               setTimeout(() => setIsMenuOpen(false), 300);
             }}

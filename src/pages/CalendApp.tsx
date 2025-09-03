@@ -5,6 +5,20 @@ import { blur } from '@/components/AnimatedHeader/animations';
 import AnimatedHeader from "@/components/AnimatedHeader";
 import Footer from "@/components/Footer";
 import calendappVideo from "@/assets/calendapp.mp4";
+import calendapp1 from "@/assets/calendapp1.png";
+import calendapp2 from "@/assets/calendapp2.png";
+import calendapp3 from "@/assets/calendapp3.png";
+import calendapp4 from "@/assets/calendapp4.png";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+// Import custom Swiper styles
+import '@/components/CalendAppSwiper.css';
 
 const CalendApp = () => {
   const { isMenuOpen } = useNavigation();
@@ -13,6 +27,38 @@ const CalendApp = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // Feature slides data
+  const featureSlides = [
+    {
+      id: 1,
+      title: "Create Events and Invite People",
+      description: "Effortlessly create and manage events with our intuitive interface. Set reminders, add locations, and invite participants with just a few taps.",
+      image: calendapp1,
+      alt: "Create Events Interface"
+    },
+    {
+      id: 2,
+      title: "Create Your Availabilities Easily",
+      description: "Set your availability preferences with simple drag-and-drop controls. Define your working hours, break times, and personal commitments in seconds.",
+      image: calendapp2,
+      alt: "Availability Management"
+    },
+    {
+      id: 3,
+      title: "Get Real-Time Availability",
+      description: "See everyone's availability instantly when planning meetings. No more back-and-forth emails or scheduling conflicts - find the perfect time slot for all participants.",
+      image: calendapp3,
+      alt: "Real-time Availability"
+    },
+    {
+      id: 4,
+      title: "Sync with Your Favorite Apps",
+      description: "Seamlessly integrate with Google Calendar, Apple Calendar, and Microsoft Teams. Keep all your events synchronized across platforms without any manual work.",
+      image: calendapp4,
+      alt: "App Integration"
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -172,7 +218,7 @@ const CalendApp = () => {
           </div>
         </section>
 
-        {/* Features Section */}
+        {/* Features Carousel Section */}
         <section className="pb-12 md:pb-20 px-4 md:px-6">
           <div className="max-w-7xl mx-auto">
             <div className="text-center space-y-12 md:space-y-16">
@@ -188,112 +234,54 @@ const CalendApp = () => {
                 CalendApp Features
               </motion.h3>
 
-              {/* Feature 1: Creating Events */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1 }}
-                viewport={{ once: true }}
-                className="space-y-6"
-              >
-                <div className="max-w-2xl mx-auto">
-                  <h4 className="text-lg md:text-xl font-medium text-gray-900 mb-3" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
-                    Create Events and Invite People
-                  </h4>
-                  <p className="text-gray-600 leading-relaxed text-sm md:text-base" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
-                    Effortlessly create and manage events with our intuitive interface. Set reminders, add locations, and invite participants with just a few taps.
-                  </p>
-                </div>
-                <div className="max-w-2xl mx-auto">
-                  <div className="relative overflow-hidden rounded-xl md:rounded-2xl shadow-lg">
-                    <img
-                      src="/src/assets/calendar.png"
-                      alt="Create Events Interface"
-                      className="w-full h-64 md:h-80 object-cover hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Feature 2: Availabilities */}
+              {/* Features Carousel */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="space-y-6"
+                className="max-w-6xl mx-auto"
               >
-                <div className="max-w-2xl mx-auto">
-                  <h4 className="text-lg md:text-xl font-medium text-gray-900 mb-3" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
-                    Create Your Availabilities Easily
-                  </h4>
-                  <p className="text-gray-600 leading-relaxed text-sm md:text-base" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
-                    Set your availability preferences with simple drag-and-drop controls. Define your working hours, break times, and personal commitments in seconds.
-                  </p>
-                </div>
-                <div className="max-w-2xl mx-auto">
-                  <div className="relative overflow-hidden rounded-xl md:rounded-2xl shadow-lg">
-                    <img
-                      src="/src/assets/calendar.png"
-                      alt="Availability Management"
-                      className="w-full h-64 md:h-80 object-cover hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Feature 3: Real-time Availability */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                viewport={{ once: true }}
-                className="space-y-6"
-              >
-                <div className="max-w-2xl mx-auto">
-                  <h4 className="text-lg md:text-xl font-medium text-gray-900 mb-3" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
-                    Get Real-Time Availability
-                  </h4>
-                  <p className="text-gray-600 leading-relaxed text-sm md:text-base" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
-                    See everyone's availability instantly when planning meetings. No more back-and-forth emails or scheduling conflicts - find the perfect time slot for all participants.
-                  </p>
-                </div>
-                <div className="max-w-2xl mx-auto">
-                  <div className="relative overflow-hidden rounded-xl md:rounded-2xl shadow-lg">
-                    <img
-                      src="/src/assets/calendar.png"
-                      alt="Real-time Availability"
-                      className="w-full h-64 md:h-80 object-cover hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Feature 4: Seamless Sync */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                viewport={{ once: true }}
-                className="space-y-6"
-              >
-                <div className="max-w-2xl mx-auto">
-                  <h4 className="text-lg md:text-xl font-medium text-gray-900 mb-3" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
-                    Sync with Your Favorite Apps
-                  </h4>
-                  <p className="text-gray-600 leading-relaxed text-sm md:text-base" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
-                    Seamlessly integrate with Google Calendar, Apple Calendar, and Microsoft Teams. Keep all your events synchronized across platforms without any manual work.
-                  </p>
-                </div>
-                <div className="max-w-2xl mx-auto">
-                  <div className="relative overflow-hidden rounded-xl md:rounded-2xl shadow-lg">
-                    <img
-                      src="/src/assets/calendar.png"
-                      alt="App Integration"
-                      className="w-full h-64 md:h-80 object-cover hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                </div>
+                <Swiper
+                  modules={[Navigation, Pagination, Autoplay]}
+                  spaceBetween={30}
+                  slidesPerView={1}
+                  navigation
+                  pagination={{ clickable: true }}
+                  autoplay={{
+                    delay: 5000,
+                    disableOnInteraction: false,
+                  }}
+                  loop={true}
+                  className="feature-swiper"
+                >
+                  {featureSlides.map((slide) => (
+                    <SwiperSlide key={slide.id}>
+                      <div className="space-y-6">
+                        {/* Feature Content */}
+                        <div className="max-w-2xl mx-auto text-center">
+                          <h4 className="text-lg md:text-xl font-medium text-gray-900 mb-3" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
+                            {slide.title}
+                          </h4>
+                          <p className="text-gray-600 leading-relaxed text-sm md:text-base" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
+                            {slide.description}
+                          </p>
+                        </div>
+                        
+                        {/* Feature Image */}
+                        <div className="max-w-5xl mx-auto">
+                          <div className="relative overflow-hidden rounded-xl md:rounded-2xl shadow-lg">
+                            <img
+                              src={slide.image}
+                              alt={slide.alt}
+                              className="w-full h-80 md:h-96 lg:h-[500px] object-cover transition-transform duration-500"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
               </motion.div>
             </div>
           </div>

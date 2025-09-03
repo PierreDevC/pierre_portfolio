@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { useNavigation } from '@/contexts/NavigationContext';
+import { useLocation } from 'react-router-dom';
 import { blur } from '@/components/AnimatedHeader/animations';
 import AnimatedHeader from "@/components/AnimatedHeader";
 import Hero from "@/components/Hero";
@@ -19,6 +20,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const Index = () => {
   const { isMenuOpen } = useNavigation();
+  const location = useLocation();
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const techStackRef = useRef<HTMLDivElement>(null);
@@ -27,6 +29,26 @@ const Index = () => {
   const contactRef = useRef<HTMLDivElement>(null);
 
   const footerRef = useRef<HTMLDivElement>(null);
+
+  // Handle hash navigation when arriving from other pages
+  useEffect(() => {
+    if (location.hash) {
+      // Small delay to ensure DOM is ready
+      setTimeout(() => {
+        const element = document.querySelector(location.hash);
+        if (element) {
+          const navbarHeight = 72;
+          const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
+          const adjustedTarget = Math.max(0, elementTop - navbarHeight);
+          
+          window.scrollTo({
+            top: adjustedTarget,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+    }
+  }, [location.hash]);
 
   useEffect(() => {
     // Ensure ScrollTrigger refreshes after DOM changes
@@ -152,13 +174,13 @@ const Index = () => {
         <div ref={techStackRef}>
           <TechStack />
         </div>
-        <div ref={portfolioRef}>
+        <div ref={portfolioRef} id="projects">
           <PortfolioGrid />
         </div>
-        <div ref={uiCraftRef}>
+        <div ref={uiCraftRef} id="services">
           <UICraftSection />
         </div>
-        <div ref={contactRef}>
+        <div ref={contactRef} id="contact">
           <ContactSection />
         </div>
         <div ref={footerRef}>

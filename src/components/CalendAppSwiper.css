@@ -1,0 +1,79 @@
+/* Custom Swiper styles for CalendApp features carousel */
+.feature-swiper {
+  padding-bottom: 50px !important;
+}
+
+.feature-swiper .swiper-pagination {
+  bottom: 0 !important;
+}
+
+.feature-swiper .swiper-pagination-bullet {
+  background: #d1d5db !important;
+  opacity: 1 !important;
+  width: 12px !important;
+  height: 12px !important;
+  margin: 0 6px !important;
+  transition: all 0.3s ease !important;
+}
+
+.feature-swiper .swiper-pagination-bullet-active {
+  background: #374151 !important;
+  transform: scale(1.2) !important;
+}
+
+.feature-swiper .swiper-button-next,
+.feature-swiper .swiper-button-prev {
+  color: #374151 !important;
+  font-weight: bold !important;
+  width: 44px !important;
+  height: 44px !important;
+  margin-top: -22px !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-radius: 50% !important;
+  border: 1px solid #e5e7eb !important;
+  transition: all 0.3s ease !important;
+}
+
+.feature-swiper .swiper-button-next:hover,
+.feature-swiper .swiper-button-prev:hover {
+  background: rgba(255, 255, 255, 1) !important;
+  transform: scale(1.1) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.feature-swiper .swiper-button-next::after,
+.feature-swiper .swiper-button-prev::after {
+  font-size: 18px !important;
+  font-weight: bold !important;
+}
+
+.feature-swiper .swiper-button-next {
+  right: 20px !important;
+}
+
+.feature-swiper .swiper-button-prev {
+  left: 20px !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .feature-swiper .swiper-button-next,
+  .feature-swiper .swiper-button-prev {
+    width: 36px !important;
+    height: 36px !important;
+    margin-top: -18px !important;
+  }
+  
+  .feature-swiper .swiper-button-next::after,
+  .feature-swiper .swiper-button-prev::after {
+    font-size: 14px !important;
+  }
+  
+  .feature-swiper .swiper-button-next {
+    right: 10px !important;
+  }
+  
+  .feature-swiper .swiper-button-prev {
+    left: 10px !important;
+  }
+}

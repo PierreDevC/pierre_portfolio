@@ -12,24 +12,19 @@ const links = [
     src: "hero-card.jpg"
   },
   {
-    title: "Projects",
+    title: "Projects", 
     href: "#projects",
     src: "projects.jpg"
   },
   {
     title: "Services",
-    href: "#services",
+    href: "#services", 
     src: "services.jpg"
   },
   {
     title: "Contact",
     href: "#contact",
     src: "contact.jpg"
-  },
-  {
-    title: "About",
-    href: "#about",
-    src: "about.png"
   },
 ];
 

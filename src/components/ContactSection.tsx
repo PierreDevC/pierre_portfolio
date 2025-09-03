@@ -99,7 +99,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-32 bg-white">
+    <section className="py-32 bg-white">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left side - Call to action */}
