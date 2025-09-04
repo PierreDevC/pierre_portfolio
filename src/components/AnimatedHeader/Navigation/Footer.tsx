@@ -1,5 +1,3 @@
-import { motion } from 'framer-motion';
-import { translate } from '../animations';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function NavigationFooter() {
@@ -20,51 +18,25 @@ export default function NavigationFooter() {
   return (
     <div className="flex flex-col gap-8 lg:flex-row lg:gap-16">
       <ul className="list-none p-0 m-0">
-        <motion.li 
-          custom={[0.3, 0]} 
-          variants={translate} 
-          initial="initial" 
-          animate="enter" 
-          exit="exit"
-          className="text-gray-600 text-sm"
-        >
+        <li className="text-gray-600 text-sm">
           <span className="text-black">Location:</span> Based in Montreal
-        </motion.li>
+        </li>
       </ul>
       
       <ul className="list-none p-0 m-0">
-        <motion.li  
-          custom={[0.3, 0]} 
-          variants={translate} 
-          initial="initial" 
-          animate="enter" 
-          exit="exit"
-          className="text-gray-600 text-sm"
-        >
+        <li className="text-gray-600 text-sm">
           <span className="text-black">Available for:</span> Freelance Projects
-        </motion.li>
+        </li>
       </ul>
       
       <ul className="list-none p-0 m-0">
-        <motion.li
-          custom={[0.3, 0]} 
-          variants={translate} 
-          initial="initial" 
-          animate="enter" 
-          exit="exit"
-          className="text-gray-600 text-sm"
-        >
+        <li className="text-gray-600 text-sm">
           <span className="text-black">Specialties:</span> Full-Stack Development
-        </motion.li>
+        </li>
       </ul>
       
       <ul className="list-none p-0 m-0 flex flex-col gap-2">
-        <motion.li
-          custom={[0.3, 0]} 
-          variants={translate} 
-          initial="initial" 
-          animate="enter" 
-          exit="exit"
+        <li
           className="text-gray-600 text-sm hover:text-black transition-colors cursor-pointer"
           onClick={(e) => {
             e.preventDefault();
@@ -72,13 +44,8 @@ export default function NavigationFooter() {
           }}
         >
           Let's Work Together
-        </motion.li>
-        <motion.li 
-          custom={[0.3, 0]} 
-          variants={translate} 
-          initial="initial" 
-          animate="enter" 
-          exit="exit"
+        </li>
+        <li 
           className="text-gray-600 text-sm hover:text-black transition-colors cursor-pointer"
           onClick={(e) => {
             e.preventDefault();
@@ -86,7 +53,7 @@ export default function NavigationFooter() {
           }}
         >
           Connect on LinkedIn
-        </motion.li>
+        </li>
       </ul>
     </div>
   );

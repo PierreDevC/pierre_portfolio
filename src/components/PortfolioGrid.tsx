@@ -4,8 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { gsap } from 'gsap';
 import calendarImage from "@/assets/calendar.png";
 import estateHubImage from "@/assets/estate_hub.png";
-import flowerMacro from "@/assets/flower-macro.jpg";
-import architecture from "@/assets/architecture.jpg";
 
 const PortfolioGrid = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -79,22 +77,6 @@ const PortfolioGrid = () => {
       image: estateHubImage,
       title: "Estate Hub",
       category: "Real Estate Platform",
-      year: "2024",
-      projectUrl: "#"
-    },
-    {
-      id: 3,
-      image: flowerMacro,
-      title: "Oura",
-      category: "Brand Refinement",
-      year: "2024",
-      projectUrl: "#"
-    },
-    {
-      id: 4,
-      image: architecture,
-      title: "Forma",
-      category: "Product UI",
       year: "2024",
       projectUrl: "#"
     }
