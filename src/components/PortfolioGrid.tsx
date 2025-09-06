@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { gsap } from 'gsap';
 import calendarImage from "@/assets/calendar.png";
-import estateHubImage from "@/assets/estate_hub.png";
+import cryptotradeImage from "@/assets/cryptotrade.png";
 
 const PortfolioGrid = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -68,17 +68,17 @@ const PortfolioGrid = () => {
       id: 1,
       image: calendarImage,
       title: "CalendApp",
-      category: "Mobile Application",
-      year: "2024",
+      category: "Web Application",
+      year: "2025",
       projectUrl: "/calendapp"
     },
     {
       id: 2,
-      image: estateHubImage,
-      title: "Estate Hub",
-      category: "Real Estate Platform",
-      year: "2024",
-      projectUrl: "#"
+      image: cryptotradeImage,
+      title: "CryptoTrade",
+      category: "Web Application",
+      year: "2025",
+      projectUrl: "/cryptotrade"
     }
   ];
 
