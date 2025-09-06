@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { NavigationProvider } from "@/contexts/NavigationContext";
 import Index from "./pages/Index";
 import CalendApp from "./pages/CalendApp";
+import CryptoTrade from "./pages/CryptoTrade";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,6 +21,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/calendapp" element={<CalendApp />} />
+            <Route path="/cryptotrade" element={<CryptoTrade />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
