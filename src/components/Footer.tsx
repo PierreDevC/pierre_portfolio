@@ -1,73 +1,12 @@
-import { useEffect, useRef, useState } from 'react';
-import { gsap } from 'gsap';
-import { motion } from 'framer-motion';
-
 const Footer = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const projectsRef = useRef<HTMLDivElement>(null);
-  const skillsRef = useRef<HTMLDivElement>(null);
-  const contactRef = useRef<HTMLDivElement>(null);
-  const followRef = useRef<HTMLDivElement>(null);
-  const [hasAnimated, setHasAnimated] = useState(false);
-
-  const handleViewportEnter = () => {
-    if (!hasAnimated) {
-      setHasAnimated(true);
-      
-      // Set initial states
-      gsap.set([projectsRef.current, skillsRef.current, contactRef.current, followRef.current], {
-        y: 40,
-        opacity: 0
-      });
-
-      // Create staggered animation
-      const timeline = gsap.timeline();
-      timeline
-        .to(projectsRef.current, {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          ease: "power3.out"
-        })
-        .to(skillsRef.current, {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          ease: "power3.out"
-        }, "-=0.6")
-        .to(contactRef.current, {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          ease: "power3.out"
-        }, "-=0.6")
-        .to(followRef.current, {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          ease: "power3.out"
-        }, "-=0.6");
-    }
-  };
 
   return (
-    <motion.footer 
-      ref={sectionRef}
-      className="py-40 bg-studio-charcoal text-studio-light"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      onViewportEnter={handleViewportEnter}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-    >
+    <footer className="py-40 bg-studio-charcoal text-studio-light">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-16">
           {/* Projects Column */}
-          <motion.div 
-            ref={projectsRef}
+          <div 
             className="space-y-6"
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.3 }}
             style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
           >
             <div className="text-studio-gray text-sm">PROJECTS</div>
@@ -75,14 +14,11 @@ const Footer = () => {
               <div className="hover:text-studio-gray transition-colors cursor-pointer">CalendApp</div>
               <div className="hover:text-studio-gray transition-colors cursor-pointer">CryptoTrade</div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Skills & Services Column */}
-          <motion.div 
-            ref={skillsRef}
+          <div 
             className="space-y-6"
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.3 }}
             style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
           >
             <div className="text-studio-gray text-sm">SERVICES</div>
@@ -92,14 +28,11 @@ const Footer = () => {
               <div className="hover:text-studio-gray transition-colors">Mobile Development</div>
               <div className="hover:text-studio-gray transition-colors">Brand Development</div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Contact Column */}
-          <motion.div 
-            ref={contactRef}
+          <div 
             className="space-y-6"
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.3 }}
             style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
           >
             <div className="text-studio-gray text-sm">CONTACT</div>
@@ -110,14 +43,11 @@ const Footer = () => {
                 Montreal, Canada<br />
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Follow Column */}
-          <motion.div 
-            ref={followRef}
+          <div 
             className="space-y-6"
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.3 }}
             style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
           >
             <div className="text-studio-gray text-sm">FOLLOW</div>
@@ -132,7 +62,7 @@ const Footer = () => {
                 LinkedIn
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Pierre Branding Section */}
@@ -155,7 +85,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </motion.footer>
+    </footer>
   );
 };
 

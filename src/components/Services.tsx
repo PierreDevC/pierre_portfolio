@@ -232,13 +232,13 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Right Column - Dynamic Image */}
+        {/* Right Column - Dynamic Image (Hidden on mobile) */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="relative"
+          className="relative hidden lg:block"
         >
           <div className="relative overflow-hidden rounded-2xl">
             <img 

@@ -7,12 +7,12 @@ export default function AnimatedHeader() {
   const { isMenuOpen: isActive, setIsMenuOpen: setIsActive } = useNavigation();
 
   return (
-    <div className={`fixed top-0 w-full z-50 border-b border-studio-border p-2.5 md:p-5 transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] will-change-transform ${isActive ? 'bg-[#f8f9fa]' : 'bg-background/95 backdrop-blur-sm'}`}>
-      <div className="flex justify-center items-center relative text-xs md:text-sm font-normal uppercase" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
+    <div className={`fixed top-0 w-full z-50 border-b border-studio-border p-4 md:p-5 transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] will-change-transform ${isActive ? 'bg-[#f8f9fa]' : 'bg-background/95 backdrop-blur-sm'}`}>
+      <div className="flex justify-center items-center relative text-base md:text-sm font-normal uppercase min-h-[60px] md:min-h-[50px]" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
         {/* Logo */}
         <a 
           href="/" 
-          className={`absolute left-0 no-underline transition-colors duration-700 ${isActive ? 'text-black hover:text-gray-600' : 'text-foreground hover:text-studio-gray'}`}
+          className={`absolute left-0 no-underline transition-colors duration-700 text-lg md:text-base font-medium ${isActive ? 'text-black hover:text-gray-600' : 'text-foreground hover:text-studio-gray'}`}
           style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
         >
           Pierre
@@ -21,14 +21,14 @@ export default function AnimatedHeader() {
         {/* Menu Button */}
         <div 
           onClick={() => setIsActive(!isActive)} 
-          className="flex items-center justify-center gap-2 cursor-pointer"
+          className="flex items-center justify-center gap-3 md:gap-2 cursor-pointer py-2 px-3 md:py-0 md:px-0"
         >
           {/* Animated Burger to X */}
-          <div className="w-[22.5px] h-4 relative pointer-events-none flex flex-col justify-center">
+          <div className="w-6 h-5 md:w-[22.5px] md:h-4 relative pointer-events-none flex flex-col justify-center">
             {/* Top line */}
             <div 
               className={`
-                h-[1px] w-full absolute transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] will-change-transform
+                h-[2px] md:h-[1px] w-full absolute transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] will-change-transform
                 ${isActive 
                   ? 'rotate-45 top-1/2 -translate-y-1/2 bg-black' 
                   : 'top-1 bg-foreground'
@@ -38,14 +38,14 @@ export default function AnimatedHeader() {
             {/* Middle line - fades out */}
             <div 
               className={`
-                h-[1px] w-full absolute top-1/2 -translate-y-1/2 transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] will-change-transform
+                h-[2px] md:h-[1px] w-full absolute top-1/2 -translate-y-1/2 transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] will-change-transform
                 ${isActive ? 'opacity-0 scale-0 bg-black' : 'opacity-100 scale-100 bg-foreground'}
               `}
             />
             {/* Bottom line */}
             <div 
               className={`
-                h-[1px] w-full absolute transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] will-change-transform
+                h-[2px] md:h-[1px] w-full absolute transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] will-change-transform
                 ${isActive 
                   ? '-rotate-45 top-1/2 -translate-y-1/2 bg-black' 
                   : 'bottom-1 bg-foreground'
@@ -59,7 +59,7 @@ export default function AnimatedHeader() {
             <motion.p 
               variants={opacity} 
               animate={!isActive ? "open" : "closed"}
-              className={`m-0 transition-colors duration-700 ${isActive ? 'text-black' : 'text-foreground'}`}
+              className={`m-0 transition-colors duration-700 text-lg md:text-base font-medium ${isActive ? 'text-black' : 'text-foreground'}`}
               style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
             >
               Menu
@@ -67,7 +67,7 @@ export default function AnimatedHeader() {
             <motion.p 
               variants={opacity} 
               animate={isActive ? "open" : "closed"}
-              className={`m-0 absolute opacity-0 transition-colors duration-700 ${isActive ? 'text-black' : 'text-foreground'}`}
+              className={`m-0 absolute opacity-0 transition-colors duration-700 text-lg md:text-base font-medium ${isActive ? 'text-black' : 'text-foreground'}`}
               style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
             >
               Close
@@ -95,7 +95,7 @@ export default function AnimatedHeader() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4, ease: [0.76, 0, 0.24, 1] }}
-            className="fixed top-[72px] left-0 right-0 bottom-0 z-40 bg-[#f8f9fa] px-6 py-8"
+            className="fixed top-[88px] md:top-[72px] left-0 right-0 bottom-0 z-40 bg-[#f8f9fa] px-6 py-8"
           >
             <Navigation />
           </motion.div>

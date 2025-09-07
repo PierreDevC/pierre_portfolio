@@ -5,6 +5,8 @@ import ProfileCard from "@/blocks/Components/ProfileCard/ProfileCard";
 import StyledButton from "@/components/ui/styled-button";
 import CircularText from "@/components/CircularText";
 import heroCardImage from "@/assets/hero-card.jpg";
+import developerImage from "@/assets/developer.jpg";
+import montrealImage from "@/assets/montreal.jpg";
 
 
 
@@ -63,7 +65,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="pt-4 pb-20">
+    <section className="pt-16 md:pt-20 pb-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
@@ -106,7 +108,7 @@ const Hero = () => {
                   <span className="text-3xl lg:text-4xl font-normal text-gray-900">a Software Developer</span>
                   <div className="w-16 h-10 bg-white border border-black overflow-hidden" style={{ borderRadius: '20px' }}>
                     <img 
-                      src="/src/assets/architecture.jpg" 
+                      src="/src/assets/developer.jpg" 
                       alt="Development tools" 
                       className="w-full h-full object-cover"
                     />
@@ -118,7 +120,7 @@ const Hero = () => {
                   <span className="text-3xl lg:text-4xl font-normal text-gray-600">Based in</span>
                   <div className="w-16 h-10 bg-white border border-black overflow-hidden" style={{ borderRadius: '20px' }}>
                     <img 
-                      src="/src/assets/bike-photo.jpg" 
+                      src="/src/assets/montreal.jpg" 
                       alt="Montréal" 
                       className="w-full h-full object-cover"
                     />
@@ -148,8 +150,7 @@ const Hero = () => {
                 // Calculate viewport height to scroll past the current hero section
                 const viewportHeight = window.innerHeight;
                 window.scrollTo({ 
-                  top: viewportHeight * 0.8, // Scroll down about 80% of viewport height
-                  behavior: 'smooth' 
+                  top: viewportHeight * 0.8 // Scroll down about 80% of viewport height
                 });
               }}>
                 View Projects
@@ -183,7 +184,6 @@ const Hero = () => {
                 const contactSection = document.getElementById('contact');
                 if (contactSection) {
                   contactSection.scrollIntoView({ 
-                    behavior: 'smooth',
                     block: 'start'
                   });
                 }

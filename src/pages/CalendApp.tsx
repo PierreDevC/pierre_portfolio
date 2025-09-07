@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 import { useNavigation } from '@/contexts/NavigationContext';
-import { blur } from '@/components/AnimatedHeader/animations';
 import AnimatedHeader from "@/components/AnimatedHeader";
 import Footer from "@/components/Footer";
 import calendappVideo from "@/assets/calendapp.mp4";
@@ -63,12 +62,7 @@ const CalendApp = () => {
   return (
     <div className="min-h-screen bg-background">
       <AnimatedHeader />
-      <motion.div
-        variants={blur}
-        animate={isMenuOpen ? "open" : "closed"}
-        className="relative will-change-transform"
-        style={{ transform: "translate3d(0, 0, 0)" }}
-      >
+      <div className="relative will-change-transform pt-[100px] md:pt-[80px]">
         {/* Main Content Section */}
         <section className="pt-24 md:pt-32 pb-12 md:pb-20 px-4 md:px-6">
           <div className="max-w-7xl mx-auto">
@@ -287,7 +281,7 @@ const CalendApp = () => {
         </section>
 
         <Footer />
-      </motion.div>
+      </div>
     </div>
   );
 };

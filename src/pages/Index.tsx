@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { useNavigation } from '@/contexts/NavigationContext';
 import { useLocation } from 'react-router-dom';
 import { blur } from '@/components/AnimatedHeader/animations';
@@ -16,7 +15,7 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 // Register GSAP plugins
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+gsap.registerPlugin(ScrollTrigger);
 
 const Index = () => {
   const { isMenuOpen } = useNavigation();
@@ -42,8 +41,7 @@ const Index = () => {
           const adjustedTarget = Math.max(0, elementTop - navbarHeight);
           
           window.scrollTo({
-            top: adjustedTarget,
-            behavior: 'smooth'
+            top: adjustedTarget
           });
         }
       }, 100);
@@ -63,8 +61,7 @@ const Index = () => {
       { ref: techStackRef, delay: 0.1 },
       { ref: portfolioRef, delay: 0.2 },
       { ref: uiCraftRef, delay: 0.25 },
-      { ref: contactRef, delay: 0.3 },
-      { ref: footerRef, delay: 0.4 }
+      { ref: contactRef, delay: 0.3 }
     ];
 
     // Set up ScrollTrigger animations that don't interfere with fixed navbar
@@ -97,47 +94,6 @@ const Index = () => {
       }
     });
 
-    // Improved smooth scroll that respects fixed navbar
-    let scrollTween: gsap.core.Tween;
-
-    const smoothScroll = (target: number) => {
-      if (scrollTween) scrollTween.kill();
-      
-      // Account for navbar height (approximately 72px based on AnimatedHeader)
-      const navbarHeight = 72;
-      const adjustedTarget = Math.max(0, target - navbarHeight);
-      
-      scrollTween = gsap.to(window, {
-        duration: 1.2,
-        scrollTo: {
-          y: adjustedTarget,
-          autoKill: false
-        },
-        ease: "power2.out",
-        // Ensure this doesn't interfere with other animations
-        overwrite: "auto"
-      });
-    };
-
-    // Enhanced anchor link handler
-    const handleAnchorClick = (e: Event) => {
-      const target = e.target as HTMLElement;
-      const link = target.closest('a') as HTMLAnchorElement;
-      
-      if (link && link.href && link.href.includes('#')) {
-        e.preventDefault();
-        const id = link.href.split('#')[1];
-        const element = document.getElementById(id);
-        
-        if (element) {
-          const elementTop = element.offsetTop;
-          smoothScroll(elementTop);
-        }
-      }
-    };
-
-    // Use capture phase to ensure we catch all anchor clicks
-    document.addEventListener('click', handleAnchorClick, true);
 
     // Refresh ScrollTrigger on resize to maintain proper positioning
     const handleResize = () => {
@@ -148,9 +104,7 @@ const Index = () => {
 
     // Cleanup function
     return () => {
-      document.removeEventListener('click', handleAnchorClick, true);
       window.removeEventListener('resize', handleResize);
-      if (scrollTween) scrollTween.kill();
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
       masterTimeline.kill();
     };
@@ -162,10 +116,9 @@ const Index = () => {
       <motion.div
         variants={blur}
         animate={isMenuOpen ? "open" : "closed"}
-        className="relative will-change-transform"
+        className="relative will-change-transform pt-[100px] md:pt-[80px]"
         style={{ 
-          transform: "translate3d(0, 0, 0)",
-          paddingTop: "80px" // Account for fixed navbar height
+          transform: "translate3d(0, 0, 0)"
         }}
       >
         <div ref={heroRef}>
