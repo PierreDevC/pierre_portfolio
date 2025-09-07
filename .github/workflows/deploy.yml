@@ -36,6 +36,11 @@ jobs:
           
       - name: Setup Pages
         uses: actions/configure-pages@v4
+        with:
+          # Token that is provided by GitHub, no need to create your own token
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # Enable Pages if not already enabled
+          enablement: true
         
       - name: Install dependencies
         run: npm ci
