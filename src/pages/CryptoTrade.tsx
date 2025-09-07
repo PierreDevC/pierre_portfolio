@@ -4,11 +4,11 @@ import { useNavigation } from '@/contexts/NavigationContext';
 import { blur } from '@/components/AnimatedHeader/animations';
 import AnimatedHeader from "@/components/AnimatedHeader";
 import Footer from "@/components/Footer";
-import calendappVideo from "@/assets/calendapp.mp4";
-import calendapp1 from "@/assets/calendapp1.png";
-import calendapp2 from "@/assets/calendapp2.png";
-import calendapp3 from "@/assets/calendapp3.png";
-import calendapp4 from "@/assets/calendapp4.png";
+import calendappVideo from "@/assets/cryptotrade.mp4";
+import calendapp1 from "@/assets/cryptotrade1.png";
+import calendapp2 from "@/assets/cryptotrade2.png";
+import calendapp3 from "@/assets/cryptotrade3.png";
+import calendapp4 from "@/assets/cryptotrade4.png";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
