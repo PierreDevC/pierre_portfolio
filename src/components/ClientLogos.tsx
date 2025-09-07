@@ -130,21 +130,21 @@ const TechStack = () => {
         
         {/* LogoLoop with fade effect */}
         <div ref={logoLoopRef}>
-          <LogoLoop
-          logos={logos}
-          speed={60}
-          direction="left"
-          logoHeight={24}
-          gap={64}
-          pauseOnHover={false}
-          slowOnHover={true}
-          hoverSpeedRatio={0.1}
-          fadeOut={true}
-          fadeOutColor="hsl(var(--background))"
-          scaleOnHover={false}
-          ariaLabel="Technologies and tools we use"
-          className="opacity-70 hover:opacity-90 transition-opacity duration-150 [&_img]:grayscale [&_img]:hover:grayscale-0 [&_img]:transition-all [&_img]:duration-150"
-        />
+        <LogoLoop
+        logos={logos}
+        speed={60}
+        direction="left"
+        logoHeight={24}
+        gap={64}
+        pauseOnHover={false}
+        slowOnHover={true} 
+        hoverSpeedRatio={0.3} 
+        fadeOut={true}
+        fadeOutColor="hsl(var(--background))"
+        scaleOnHover={false}
+        ariaLabel="Technologies and tools we use"
+        className="opacity-70 hover:opacity-90 transition-opacity duration-150 [&_img]:grayscale [&_img]:hover:grayscale-0 [&_img]:transition-all [&_img]:duration-150"
+      />
         </div>
       </div>
     </motion.section>

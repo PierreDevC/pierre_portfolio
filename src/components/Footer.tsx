@@ -139,7 +139,7 @@ const Footer = () => {
         <div className="border-t border-studio-gray/20 mt-16 pt-8" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
           <div className="text-center mb-8">
             <div className="text-3xl font-bold">
-              Pierre<sup className="text-sm">®</sup>
+              Pierre
             </div>
             <p className="text-studio-gray leading-relaxed mt-4 max-w-md mx-auto">
               A software developer focused on thoughtful design and meaningful experiences.

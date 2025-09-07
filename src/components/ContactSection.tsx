@@ -117,7 +117,7 @@ const ContactSection = () => {
               <img 
                 src={contactImage} 
                 alt="Contact Pierre" 
-                className="w-full h-80 object-cover transition-transform duration-300 hover:scale-105 "
+                className="w-full h-80 object-cover"
                 style={{ objectPosition: 'center 40%' }}
               />
             </div>

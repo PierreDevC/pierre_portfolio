@@ -93,7 +93,7 @@ const CalendApp = () => {
                   transition={{ duration: 0.6, delay: 0.1 }}
                   className="space-y-2"
                 >
-                  <div className="text-base md:text-lg text-gray-600" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>Web Application / 2024</div>
+                  <div className="text-base md:text-lg text-gray-600" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>Web Application / 2025</div>
                 </motion.div>
 
                 {/* Tech Stack */}

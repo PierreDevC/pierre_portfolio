@@ -93,7 +93,7 @@ const CryptoTrade = () => {
                   transition={{ duration: 0.6, delay: 0.1 }}
                   className="space-y-2"
                 >
-                  <div className="text-base md:text-lg text-gray-600" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>Web Application / 2024</div>
+                  <div className="text-base md:text-lg text-gray-600" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>Web Application / 2025</div>
                 </motion.div>
 
                 {/* Tech Stack */}
@@ -183,7 +183,7 @@ const CryptoTrade = () => {
                   <button className="px-6 md:px-8 py-3 bg-gray-500 text-white rounded-[35px] hover:bg-gray-600 transition-colors duration-300 text-sm md:text-base w-full sm:w-auto" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }} onClick={() => window.open("https://github.com/PierreDevC/cryptotrade", "_blank")}>
                     Source Code
                   </button>
-                  <button className="px-6 md:px-8 py-3 bg-black text-white rounded-[35px] hover:bg-gray-800 transition-colors duration-300 text-sm md:text-base w-full sm:w-auto" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
+                  <button className="px-6 md:px-8 py-3 bg-black text-white rounded-[35px] hover:bg-gray-800 transition-colors duration-300 text-sm md:text-base w-full sm:w-auto" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }} onClick={() => window.open("https://cryptotrade-production-5b56.up.railway.app/", "_blank")}>
                     Live Preview
                   </button>
                 </motion.div>

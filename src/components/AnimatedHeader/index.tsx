@@ -15,7 +15,7 @@ export default function AnimatedHeader() {
           className={`absolute left-0 no-underline transition-colors duration-700 ${isActive ? 'text-black hover:text-gray-600' : 'text-foreground hover:text-studio-gray'}`}
           style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
         >
-          Pierre<sup className="text-xs">®</sup>
+          Pierre
         </a>
 
         {/* Menu Button */}
