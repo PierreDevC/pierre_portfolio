@@ -5,6 +5,8 @@ import ProfileCard from "@/blocks/Components/ProfileCard/ProfileCard";
 import StyledButton from "@/components/ui/styled-button";
 import CircularText from "@/components/CircularText";
 import heroCardImage from "@/assets/hero-card.jpg";
+import developerImage from "@/assets/developer.jpg";
+import montrealImage from "@/assets/montreal.jpg";
 
 
 
@@ -106,7 +108,7 @@ const Hero = () => {
                   <span className="text-3xl lg:text-4xl font-normal text-gray-900">a Software Developer</span>
                   <div className="w-16 h-10 bg-white border border-black overflow-hidden" style={{ borderRadius: '20px' }}>
                     <img 
-                      src="/src/assets/developer.jpg" 
+                      src={developerImage} 
                       alt="Development tools" 
                       className="w-full h-full object-cover"
                     />
@@ -118,7 +120,7 @@ const Hero = () => {
                   <span className="text-3xl lg:text-4xl font-normal text-gray-600">Based in</span>
                   <div className="w-16 h-10 bg-white border border-black overflow-hidden" style={{ borderRadius: '20px' }}>
                     <img 
-                      src="/src/assets/montreal.jpg" 
+                      src={montrealImage} 
                       alt="Montréal" 
                       className="w-full h-full object-cover"
                     />
