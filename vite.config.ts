@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: '/web-relic-reborn/',
+  base: '/pierre_portfolio/',
   server: {
     host: "::",
     port: 8080,

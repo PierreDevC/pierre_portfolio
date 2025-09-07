@@ -142,7 +142,7 @@ const Footer = () => {
               Pierre
             </div>
             <p className="text-studio-gray leading-relaxed mt-4 max-w-md mx-auto">
-              A software developer focused on thoughtful development and meaningful experiences.
+              A software developer focused on thoughtful design and meaningful experiences .
             </p>
           </div>
           
