@@ -5,8 +5,6 @@ import ProfileCard from "@/blocks/Components/ProfileCard/ProfileCard";
 import StyledButton from "@/components/ui/styled-button";
 import CircularText from "@/components/CircularText";
 import heroCardImage from "@/assets/hero-card.jpg";
-import developerImage from "@/assets/developer.jpg";
-import montrealImage from "@/assets/montreal.jpg";
 
 
 
