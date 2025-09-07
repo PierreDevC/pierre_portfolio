@@ -222,7 +222,7 @@ const ContactSection = () => {
                   onChange={handleInputChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:border-gray-400 focus:outline-none transition-colors bg-gray-50 resize-vertical"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:border-gray-400 focus:outline-none transition-colors bg-gray-50 resize-none"
                   placeholder="Tell me about your project, timeline, budget, and any specific requirements..."
                 />
               </div>

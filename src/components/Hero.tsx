@@ -72,8 +72,6 @@ const Hero = () => {
                 ref={titleRef}
                 className="text-8xl lg:text-9xl font-bold text-foreground leading-none" 
                 style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
               >
                 PIERRE
               </motion.h1>
@@ -105,7 +103,7 @@ const Hero = () => {
                 
                 {/* Creative Developer line */}
                 <div className="flex items-center justify-center lg:justify-start gap-4 mb-3" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
-                  <span className="text-3xl lg:text-4xl font-normal text-gray-900">Creative Developer</span>
+                  <span className="text-3xl lg:text-4xl font-normal text-gray-900">a Software Developer</span>
                   <div className="w-16 h-10 bg-white border border-black overflow-hidden" style={{ borderRadius: '20px' }}>
                     <img 
                       src="/src/assets/architecture.jpg" 
@@ -133,8 +131,6 @@ const Hero = () => {
                   ref={descriptionRef}
                   className="text-gray-600 text-base leading-relaxed max-w-md"
                   style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
-                  whileHover={{ scale: 1.01 }}
-                  transition={{ duration: 0.2 }}
                 >
                   I specialize in creating thoughtful and impactful digital experiences, 
                   collaborating with startups and leading brands

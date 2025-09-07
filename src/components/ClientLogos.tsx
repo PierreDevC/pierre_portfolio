@@ -89,14 +89,6 @@ const TechStack = () => {
       title: "WordPress"
     },
     { 
-      node: (
-        <div className="flex items-center justify-center">
-          <span className="font-bold text-studio-gray text-lg">Webflow</span>
-        </div>
-      ),
-      title: "Webflow"
-    },
-    { 
       src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg", 
       alt: "AWS CDK",
       title: "AWS CDK"
@@ -129,8 +121,6 @@ const TechStack = () => {
         <motion.div 
           ref={headerRef}
           className="text-center mb-12"
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.3 }}
           style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
         >
           <p className="text-sm text-studio-gray uppercase tracking-wide mb-2">
@@ -153,7 +143,7 @@ const TechStack = () => {
           fadeOutColor="hsl(var(--background))"
           scaleOnHover={false}
           ariaLabel="Technologies and tools we use"
-          className="opacity-70 hover:opacity-90 transition-opacity duration-300 [&_img]:grayscale [&_img]:hover:grayscale-0 [&_img]:transition-all [&_img]:duration-300"
+          className="opacity-70 hover:opacity-90 transition-opacity duration-150 [&_img]:grayscale [&_img]:hover:grayscale-0 [&_img]:transition-all [&_img]:duration-150"
         />
         </div>
       </div>

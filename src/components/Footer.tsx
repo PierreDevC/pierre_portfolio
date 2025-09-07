@@ -73,9 +73,7 @@ const Footer = () => {
             <div className="text-studio-gray text-sm">PROJECTS</div>
             <div className="space-y-3 text-studio-light">
               <div className="hover:text-studio-gray transition-colors cursor-pointer">CalendApp</div>
-              <div className="hover:text-studio-gray transition-colors cursor-pointer">EstateHub</div>
-              <div className="hover:text-studio-gray transition-colors cursor-pointer">Thrift App</div>
-              <div className="hover:text-studio-gray transition-colors cursor-pointer">Work in Progress...</div>
+              <div className="hover:text-studio-gray transition-colors cursor-pointer">CryptoTrade</div>
             </div>
           </motion.div>
 
@@ -87,7 +85,7 @@ const Footer = () => {
             transition={{ duration: 0.3 }}
             style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
           >
-            <div className="text-studio-gray text-sm">SKILLS & SERVICES</div>
+            <div className="text-studio-gray text-sm">SERVICES</div>
             <div className="space-y-3 text-studio-light">
               <div className="hover:text-studio-gray transition-colors">Web Development</div>
               <div className="hover:text-studio-gray transition-colors">UI/UX Design</div>
@@ -144,7 +142,7 @@ const Footer = () => {
               Pierre<sup className="text-sm">®</sup>
             </div>
             <p className="text-studio-gray leading-relaxed mt-4 max-w-md mx-auto">
-              A creative developer focused on thoughtful design and meaningful experiences.
+              A software developer focused on thoughtful design and meaningful experiences.
             </p>
           </div>
           

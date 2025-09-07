@@ -70,7 +70,8 @@ const PortfolioGrid = () => {
       title: "CalendApp",
       category: "Web Application",
       year: "2025",
-      projectUrl: "/calendapp"
+      projectUrl: "/calendapp",
+      techStack: ["SpringBoot", "Next.js", "PostgresSQL"]
     },
     {
       id: 2,
@@ -78,7 +79,8 @@ const PortfolioGrid = () => {
       title: "CryptoTrade",
       category: "Web Application",
       year: "2025",
-      projectUrl: "/cryptotrade"
+      projectUrl: "/cryptotrade",
+      techStack: ["PHP", "JavaScript", "MySQL"]
     }
   ];
 
@@ -176,8 +178,6 @@ const PortfolioGrid = () => {
             ref={titleRef}
             className="text-4xl md:text-6xl lg:text-7xl font-light mb-6 text-foreground" 
             style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
           >
             Projects
           </motion.h1>
@@ -320,9 +320,25 @@ const PortfolioGrid = () => {
                     </AnimatePresence>
                   </div>
                 </div>
+              {/* Tech Stack Pills */}
+              <div className="flex flex-wrap gap-1.5 justify-end">
+                {project.techStack.map((tech, techIndex) => (
+                  <div
+                    key={techIndex}
+                    className="bg-gray-200/80 group-hover:bg-white/20 text-gray-700 group-hover:text-white text-xs px-2 py-1 rounded-xl transition-all duration-500"
+                    style={{ 
+                      fontFamily: '"Geist", system-ui, -apple-system, sans-serif',
+                      fontSize: '10px',
+                      height: '25px',
+                      display: 'flex',
+                      alignItems: 'center'
+                    }}
+                  >
+                    {tech}
+                  </div>
+                ))}
               </div>
-
-
+            </div>
             </div>
           ))}
         </div>
