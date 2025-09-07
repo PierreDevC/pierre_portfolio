@@ -106,7 +106,6 @@ const CalendApp = () => {
                   <div className="px-3 md:px-4 py-2 bg-gray-300 text-gray-700 rounded-[35px] text-xs md:text-sm" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>SpringBoot</div>
                   <div className="px-3 md:px-4 py-2 bg-gray-300 text-gray-700 rounded-[35px] text-xs md:text-sm" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>Next.js</div>
                   <div className="px-3 md:px-4 py-2 bg-gray-300 text-gray-700 rounded-[35px] text-xs md:text-sm" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>PostgresSQL</div>
-                  <div className="px-3 md:px-4 py-2 bg-gray-300 text-gray-700 rounded-[35px] text-xs md:text-sm" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>Apache Tomcat</div>
                 </motion.div>
 
                 {/* Collaborators */}
