@@ -178,7 +178,7 @@ const CalendApp = () => {
                   <button className="px-6 md:px-8 py-3 bg-gray-500 text-white rounded-[35px] hover:bg-gray-600 transition-colors duration-300 text-sm md:text-base w-full sm:w-auto" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }} onClick={() => window.open("https://github.com/coffee-only/CalendarProject", "_blank")}>
                     Source Code
                   </button>
-                  <button className="px-6 md:px-8 py-3 bg-black text-white rounded-[35px] hover:bg-gray-800 transition-colors duration-300 text-sm md:text-base w-full sm:w-auto" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
+                  <button className="px-6 md:px-8 py-3 bg-black text-white rounded-[35px] hover:bg-gray-800 transition-colors duration-300 text-sm md:text-base w-full sm:w-auto" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }} onClick={() => window.open("https://mina-scheduler-delta.vercel.app/", "_blank")}>
                     Live Preview
                   </button>
                 </motion.div>
