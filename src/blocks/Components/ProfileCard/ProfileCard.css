@@ -36,7 +36,7 @@
   perspective: 500px;
   transform: translate3d(0, 0, 0.1px);
   position: relative;
-  touch-action: none;
+  touch-action: auto;
 }
 
 .pc-card-wrapper::before {
@@ -352,6 +352,40 @@
 }
 
 @media (max-width: 768px) {
+  /* Disable tilt effects on mobile for better scrolling */
+  .pc-card-wrapper {
+    perspective: none;
+    touch-action: pan-y pan-x;
+  }
+
+  .pc-card-wrapper:hover,
+  .pc-card-wrapper.active {
+    --card-opacity: 0;
+  }
+
+  .pc-card-wrapper:hover::before,
+  .pc-card-wrapper.active::before {
+    filter: none;
+    transform: scale(0.8) translate3d(0, 0, 0.1px);
+  }
+
+  .pc-card:hover,
+  .pc-card.active {
+    transform: translate3d(0, 0, 0.1px) rotateX(0deg) rotateY(0deg);
+  }
+
+  .pc-card:hover .pc-shine,
+  .pc-card.active .pc-shine {
+    filter: brightness(0.66) contrast(1.33) saturate(0.33) opacity(0.5);
+  }
+
+  .pc-card:hover .pc-shine::before,
+  .pc-card.active .pc-shine::before,
+  .pc-card:hover .pc-shine::after,
+  .pc-card.active .pc-shine::after {
+    opacity: 0;
+  }
+
   .pc-card {
     height: 70svh;
     max-height: 450px;

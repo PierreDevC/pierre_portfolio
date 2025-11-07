@@ -147,11 +147,18 @@ const Hero = () => {
               transition={{ duration: 0.2 }}
             >
               <StyledButton onClick={() => {
-                // Calculate viewport height to scroll past the current hero section
-                const viewportHeight = window.innerHeight;
-                window.scrollTo({ 
-                  top: viewportHeight * 0.8 // Scroll down about 80% of viewport height
-                });
+                // Scroll to projects section
+                const projectsSection = document.getElementById('projects');
+                if (projectsSection) {
+                  const navbarHeight = 80; // Account for fixed navbar
+                  const elementTop = projectsSection.getBoundingClientRect().top + window.pageYOffset;
+                  const offsetPosition = elementTop - navbarHeight;
+
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'instant'
+                  });
+                }
               }}>
                 View Projects
               </StyledButton>
@@ -159,13 +166,11 @@ const Hero = () => {
           </div>
 
           {/* Replace the image with ProfileCard */}
-          <motion.div 
+          <div
             ref={profileCardRef}
             className="relative flex justify-center"
-            whileHover={{ scale: 1.02, rotateY: 5 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
           >
-            <ProfileCard 
+            <ProfileCard
               avatarUrl={heroCardImage}
               name="Pierre"
               title="Software Developer"
@@ -174,7 +179,7 @@ const Hero = () => {
               contactText="Get in touch"
               showUserInfo={true}
               enableTilt={true}
-              enableMobileTilt={true}
+              enableMobileTilt={false}
               showBehindGradient={true}
               // Override the rainbow gradient with subtle monochrome
               behindGradient="radial-gradient(farthest-side circle at var(--pointer-x) var(--pointer-y),hsla(220,20%,90%,var(--card-opacity)) 4%,hsla(220,15%,80%,calc(var(--card-opacity)*0.75)) 10%,hsla(220,10%,70%,calc(var(--card-opacity)*0.5)) 50%,hsla(220,0%,60%,0) 100%)"
@@ -183,13 +188,14 @@ const Hero = () => {
                 // Scroll to contact section
                 const contactSection = document.getElementById('contact');
                 if (contactSection) {
-                  contactSection.scrollIntoView({ 
-                    block: 'start'
+                  contactSection.scrollIntoView({
+                    block: 'start',
+                    behavior: 'instant'
                   });
                 }
               }}
             />
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

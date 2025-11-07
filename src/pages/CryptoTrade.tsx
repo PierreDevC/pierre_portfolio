@@ -24,7 +24,7 @@ const CryptoTrade = () => {
 
   // Scroll to top when component mounts
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'instant' });
   }, []);
 
   // Feature slides data

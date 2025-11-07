@@ -80,6 +80,19 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
 }) => {
   const wrapRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  // Detect mobile device
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const animationHandlers = useMemo(() => {
     if (!enableTilt) return null;
@@ -166,6 +179,9 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
 
       if (!card || !wrap || !animationHandlers) return;
 
+      // Disable tilt on mobile
+      if (isMobile) return;
+
       const rect = card.getBoundingClientRect();
       animationHandlers.updateCardTransform(
         event.clientX - rect.left,
@@ -174,7 +190,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
         wrap
       );
     },
-    [animationHandlers]
+    [animationHandlers, isMobile]
   );
 
   const handlePointerEnter = useCallback(() => {
@@ -183,10 +199,13 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
 
     if (!card || !wrap || !animationHandlers) return;
 
+    // Disable tilt on mobile
+    if (isMobile) return;
+
     animationHandlers.cancelAnimation();
     wrap.classList.add("active");
     card.classList.add("active");
-  }, [animationHandlers]);
+  }, [animationHandlers, isMobile]);
 
   const handlePointerLeave = useCallback(
     (event: PointerEvent) => {
@@ -194,6 +213,9 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
       const wrap = wrapRef.current;
 
       if (!card || !wrap || !animationHandlers) return;
+
+      // Disable tilt on mobile
+      if (isMobile) return;
 
       animationHandlers.createSmoothAnimation(
         ANIMATION_CONFIG.SMOOTH_DURATION,
@@ -205,7 +227,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
       wrap.classList.remove("active");
       card.classList.remove("active");
     },
-    [animationHandlers]
+    [animationHandlers, isMobile]
   );
 
   const handleDeviceOrientation = useCallback(
@@ -262,17 +284,20 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
     card.addEventListener("pointerleave", pointerLeaveHandler);
     card.addEventListener('click', handleClick);
 
-    const initialX = wrap.clientWidth - ANIMATION_CONFIG.INITIAL_X_OFFSET;
-    const initialY = ANIMATION_CONFIG.INITIAL_Y_OFFSET;
+    // Only run initial animation on desktop
+    if (!isMobile) {
+      const initialX = wrap.clientWidth - ANIMATION_CONFIG.INITIAL_X_OFFSET;
+      const initialY = ANIMATION_CONFIG.INITIAL_Y_OFFSET;
 
-    animationHandlers.updateCardTransform(initialX, initialY, card, wrap);
-    animationHandlers.createSmoothAnimation(
-      ANIMATION_CONFIG.INITIAL_DURATION,
-      initialX,
-      initialY,
-      card,
-      wrap
-    );
+      animationHandlers.updateCardTransform(initialX, initialY, card, wrap);
+      animationHandlers.createSmoothAnimation(
+        ANIMATION_CONFIG.INITIAL_DURATION,
+        initialX,
+        initialY,
+        card,
+        wrap
+      );
+    }
 
     return () => {
       card.removeEventListener("pointerenter", pointerEnterHandler);
@@ -285,6 +310,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   }, [
     enableTilt,
     enableMobileTilt,
+    isMobile,
     animationHandlers,
     handlePointerMove,
     handlePointerEnter,

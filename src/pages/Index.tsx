@@ -1,10 +1,6 @@
-import { motion } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useNavigation } from '@/contexts/NavigationContext';
 import { useLocation } from 'react-router-dom';
-import { blur } from '@/components/AnimatedHeader/animations';
 import AnimatedHeader from "@/components/AnimatedHeader";
 import Hero from "@/components/Hero";
 import TechStack from "@/components/ClientLogos";
@@ -14,11 +10,7 @@ import Services from "@/components/Services";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
-// Register GSAP plugins
-gsap.registerPlugin(ScrollTrigger);
-
 const Index = () => {
-  const { isMenuOpen } = useNavigation();
   const location = useLocation();
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
@@ -41,7 +33,8 @@ const Index = () => {
           const adjustedTarget = Math.max(0, elementTop - navbarHeight);
           
           window.scrollTo({
-            top: adjustedTarget
+            top: adjustedTarget,
+            behavior: 'instant'
           });
         }
       }, 100);
@@ -49,77 +42,42 @@ const Index = () => {
   }, [location.hash]);
 
   useEffect(() => {
-    // Ensure ScrollTrigger refreshes after DOM changes
-    ScrollTrigger.refresh();
-
-    // Create a master timeline for better control
-    const masterTimeline = gsap.timeline();
-
-    // Set initial states without affecting body or document positioning
+    // Simple fade-in on mount without scroll triggers
     const sections = [
-      { ref: heroRef },
-      { ref: techStackRef },
-      { ref: portfolioRef },
-      { ref: uiCraftRef },
-      { ref: contactRef }
-    ];
+      heroRef.current,
+      techStackRef.current,
+      portfolioRef.current,
+      uiCraftRef.current,
+      contactRef.current
+    ].filter(Boolean);
 
-    // Set up ScrollTrigger animations that don't interfere with fixed navbar
-    sections.forEach(({ ref }) => {
-      if (ref.current) {
-        // Set initial state with transform3d for better performance
-        gsap.set(ref.current, {
-          y: 50,
-          opacity: 0,
-          force3D: true
-        });
-
-        // Create ScrollTrigger animation
-        ScrollTrigger.create({
-          trigger: ref.current,
-          start: "top 85%",
-          end: "bottom 20%",
-          toggleActions: "play none none reverse",
-          animation: gsap.to(ref.current, {
-            y: 0,
+    // Simple fade in on page load only
+    sections.forEach((section, index) => {
+      if (section) {
+        gsap.fromTo(section,
+          { opacity: 0 },
+          {
             opacity: 1,
-            duration: 1,
+            duration: 0.6,
+            delay: index * 0.05,
             ease: "power2.out"
-          }),
-          // Prevent conflicts with fixed elements
-          invalidateOnRefresh: true,
-          refreshPriority: -1 // Lower priority to not interfere with navbar
-        });
+          }
+        );
       }
     });
 
-
-    // Refresh ScrollTrigger on resize to maintain proper positioning
-    const handleResize = () => {
-      ScrollTrigger.refresh();
-    };
-    
-    window.addEventListener('resize', handleResize);
-
-    // Cleanup function
     return () => {
-      window.removeEventListener('resize', handleResize);
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-      masterTimeline.kill();
+      // Cleanup any ongoing animations
+      sections.forEach(section => {
+        if (section) gsap.killTweensOf(section);
+      });
     };
   }, []);
 
   return (
     <div ref={containerRef} className="min-h-screen bg-background">
       <AnimatedHeader />
-      <motion.div
-        variants={blur}
-        animate={isMenuOpen ? "open" : "closed"}
-        className="relative will-change-transform pt-[100px] md:pt-[80px]"
-        style={{ 
-          transform: "translate3d(0, 0, 0)"
-        }}
-      >
+      <div className="relative pt-[100px] md:pt-[80px]">
         <div ref={heroRef}>
           <Hero />
         </div>
@@ -138,7 +96,7 @@ const Index = () => {
         <div ref={footerRef}>
           <Footer />
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };

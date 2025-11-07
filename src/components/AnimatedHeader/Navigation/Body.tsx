@@ -60,7 +60,7 @@ export default function NavigationBody({ links, selectedLink, setSelectedLink }:
                 if (location.pathname === '/') {
                   // Already on home page, just scroll to section
                   const element = document.querySelector(href);
-                  element?.scrollIntoView();
+                  element?.scrollIntoView({ behavior: 'instant' });
                 } else {
                   // On different page, navigate to home page with hash
                   navigate(`/${href}`);
@@ -69,7 +69,7 @@ export default function NavigationBody({ links, selectedLink, setSelectedLink }:
                 // Handle home link
                 if (location.pathname === '/') {
                   // Already on home page, scroll to top
-                  window.scrollTo({ top: 0 });
+                  window.scrollTo({ top: 0, behavior: 'instant' });
                 } else {
                   // Navigate to home page
                   navigate('/');

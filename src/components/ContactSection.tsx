@@ -12,8 +12,21 @@ const ContactSection = () => {
   });
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+
+  // Detect mobile on mount and resize
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // md breakpoint
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const projectTypes = [
     { value: "", label: "Select a project type" },
@@ -164,51 +177,77 @@ const ContactSection = () => {
                 <label htmlFor="projectType" className="block text-sm font-medium text-gray-900 mb-2">
                   Project Type:
                 </label>
-                <div className="relative">
-                  <button
-                    type="button"
-                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 focus:border-gray-400 focus:outline-none transition-colors bg-gray-50 text-left flex items-center justify-between"
-                  >
-                    <span className={formData.projectType ? "text-gray-900" : "text-gray-400"}>
-                      {projectTypes.find(type => type.value === formData.projectType)?.label || "Select a project type"}
-                    </span>
-                    <motion.svg
-                      className="w-5 h-5 text-gray-400"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      animate={{ rotate: isDropdownOpen ? 180 : 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                    </motion.svg>
-                  </button>
 
-                  {isDropdownOpen && (
-                    <motion.div
-                      ref={dropdownRef}
-                      className="absolute z-50 w-full mt-2 bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden"
-                      initial={{ opacity: 0, y: -10, scaleY: 0.8 }}
-                      animate={{ opacity: 1, y: 0, scaleY: 1 }}
-                      exit={{ opacity: 0, y: -10, scaleY: 0.8 }}
-                      transition={{ duration: 0.3, ease: "easeOut" }}
+                {isMobile ? (
+                  // Native select for mobile (iOS Safari liquid glass effect)
+                  <select
+                    id="projectType"
+                    name="projectType"
+                    value={formData.projectType}
+                    onChange={(e) => setFormData(prev => ({ ...prev, projectType: e.target.value }))}
+                    required
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-gray-400 focus:outline-none transition-colors bg-gray-50 appearance-none bg-no-repeat bg-right pr-10"
+                    style={{
+                      backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
+                      backgroundPosition: 'right 0.75rem center',
+                      backgroundSize: '1.5em 1.5em',
+                      color: formData.projectType ? '#111827' : '#9ca3af'
+                    }}
+                  >
+                    {projectTypes.map((type) => (
+                      <option key={type.value} value={type.value} style={{ color: '#111827' }}>
+                        {type.label}
+                      </option>
+                    ))}
+                  </select>
+                ) : (
+                  // Custom dropdown for desktop
+                  <div className="relative">
+                    <button
+                      type="button"
+                      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                      className="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 focus:border-gray-400 focus:outline-none transition-colors bg-gray-50 text-left flex items-center justify-between"
                     >
-                      {projectTypes.slice(1).map((type) => (
-                        <motion.button
-                          key={type.value}
-                          type="button"
-                          onClick={() => handleProjectTypeSelect(type.value)}
-                          className="w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors text-gray-900 first:rounded-t-3xl last:rounded-b-3xl"
-                          whileHover={{ backgroundColor: "#f9fafb", x: 4 }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          {type.label}
-                        </motion.button>
-                      ))}
-                    </motion.div>
-                  )}
-                </div>
+                      <span className={formData.projectType ? "text-gray-900" : "text-gray-400"}>
+                        {projectTypes.find(type => type.value === formData.projectType)?.label || "Select a project type"}
+                      </span>
+                      <motion.svg
+                        className="w-5 h-5 text-gray-400"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        animate={{ rotate: isDropdownOpen ? 180 : 0 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                      </motion.svg>
+                    </button>
+
+                    {isDropdownOpen && (
+                      <motion.div
+                        ref={dropdownRef}
+                        className="absolute z-50 w-full mt-2 bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden"
+                        initial={{ opacity: 0, y: -10, scaleY: 0.8 }}
+                        animate={{ opacity: 1, y: 0, scaleY: 1 }}
+                        exit={{ opacity: 0, y: -10, scaleY: 0.8 }}
+                        transition={{ duration: 0.3, ease: "easeOut" }}
+                      >
+                        {projectTypes.slice(1).map((type) => (
+                          <motion.button
+                            key={type.value}
+                            type="button"
+                            onClick={() => handleProjectTypeSelect(type.value)}
+                            className="w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors text-gray-900 first:rounded-t-3xl last:rounded-b-3xl"
+                            whileHover={{ backgroundColor: "#f9fafb", x: 4 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            {type.label}
+                          </motion.button>
+                        ))}
+                      </motion.div>
+                    )}
+                  </div>
+                )}
               </div>
 
               <div>
