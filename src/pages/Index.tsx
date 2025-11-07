@@ -57,15 +57,15 @@ const Index = () => {
 
     // Set initial states without affecting body or document positioning
     const sections = [
-      { ref: heroRef, delay: 0 },
-      { ref: techStackRef, delay: 0.1 },
-      { ref: portfolioRef, delay: 0.2 },
-      { ref: uiCraftRef, delay: 0.25 },
-      { ref: contactRef, delay: 0.3 }
+      { ref: heroRef },
+      { ref: techStackRef },
+      { ref: portfolioRef },
+      { ref: uiCraftRef },
+      { ref: contactRef }
     ];
 
     // Set up ScrollTrigger animations that don't interfere with fixed navbar
-    sections.forEach(({ ref, delay }) => {
+    sections.forEach(({ ref }) => {
       if (ref.current) {
         // Set initial state with transform3d for better performance
         gsap.set(ref.current, {
@@ -84,8 +84,7 @@ const Index = () => {
             y: 0,
             opacity: 1,
             duration: 1,
-            ease: "power2.out",
-            delay: delay * 0.1 // Reduce stagger timing
+            ease: "power2.out"
           }),
           // Prevent conflicts with fixed elements
           invalidateOnRefresh: true,

@@ -168,7 +168,7 @@ const Hero = () => {
             <ProfileCard 
               avatarUrl={heroCardImage}
               name="Pierre"
-              title="Creative Developer"
+              title="Software Developer"
               handle="pierredevc"
               status="Available for projects"
               contactText="Get in touch"
