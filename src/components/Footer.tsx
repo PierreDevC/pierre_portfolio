@@ -55,13 +55,13 @@ const Footer = () => {
           >
             <div className="text-studio-gray text-sm">{t('footer.columns.follow.heading')}</div>
             <div className="space-y-3">
-              <a href="#" className="block text-studio-light hover:text-studio-gray transition-colors">
+              <a href="https://github.com/PierreDevC" target="_blank" rel="noopener noreferrer" className="block text-studio-light hover:text-studio-gray transition-colors">
                 {t('footer.columns.follow.github')}
               </a>
-              <a href="#" className="block text-studio-light hover:text-studio-gray transition-colors">
+              <a href="https://www.behance.net/pierre-cypr" target="_blank" rel="noopener noreferrer" className="block text-studio-light hover:text-studio-gray transition-colors">
                 {t('footer.columns.follow.behance')}
               </a>
-              <a href="#" className="block text-studio-light hover:text-studio-gray transition-colors">
+              <a href="https://www.linkedin.com/in/pierre-sylvestre-cypre/" target="_blank" rel="noopener noreferrer" className="block text-studio-light hover:text-studio-gray transition-colors">
                 {t('footer.columns.follow.linkedin')}
               </a>
             </div>
