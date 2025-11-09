@@ -7,10 +7,12 @@ import CircularText from "@/components/CircularText";
 import heroCardImage from "@/assets/hero-card.jpg";
 import developerImage from "@/assets/developer.jpg";
 import montrealImage from "@/assets/montreal.jpg";
+import { useTranslation } from '@/hooks/useTranslation';
 
 
 
 const Hero = () => {
+  const { t } = useTranslation();
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLDivElement>(null);
   const descriptionRef = useRef<HTMLParagraphElement>(null);
@@ -70,19 +72,19 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
             <div className="flex items-center justify-center lg:justify-start gap-8">
-              <motion.h1 
+              <motion.h1
                 ref={titleRef}
-                className="text-8xl lg:text-9xl font-bold text-foreground leading-none" 
+                className="text-8xl lg:text-9xl font-bold text-foreground leading-none"
                 style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
               >
-                PIERRE
+                {t('hero.title')}
               </motion.h1>
               <div className="hidden lg:block">
                 <CircularText
                   text="PIERRE*DEV*"
                   onHover="speedUp"
                   spinDuration={20}
-                  className="text-black w-32 h-32"
+                  className="text-black dark:text-white w-32 h-32"
                 />
               </div>
             </div>
@@ -91,56 +93,53 @@ const Hero = () => {
               <div className="max-w-2xl text-center lg:text-left mx-auto lg:mx-0">
                 {/* Hey, I'm Pierre line */}
                 <div className="flex items-center justify-center lg:justify-start gap-4 mb-3" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
-                  <span className="text-3xl lg:text-4xl font-normal text-gray-600">Hey, I'm</span>
-                  <div className="w-16 h-10 bg-white border border-black overflow-hidden" style={{ borderRadius: '20px' }}>
-                    <img 
-                      src={heroCardImage} 
-                      alt="Pierre" 
+                  <span className="text-3xl lg:text-4xl font-normal text-gray-600 dark:text-gray-400">{t('hero.greeting')}</span>
+                  <div className="w-16 h-10 bg-white dark:bg-gray-800 border border-black dark:border-white overflow-hidden" style={{ borderRadius: '20px' }}>
+                    <img
+                      src={heroCardImage}
+                      alt="Pierre"
                       className="w-full h-full object-cover"
                       style={{ objectPosition: 'center top' }}
                     />
                   </div>
-                  <span className="text-3xl lg:text-4xl font-normal text-gray-900">Pierre</span>
                 </div>
-                
+
                 {/* Creative Developer line */}
                 <div className="flex items-center justify-center lg:justify-start gap-4 mb-3" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
-                  <span className="text-3xl lg:text-4xl font-normal text-gray-900">a Software Developer</span>
-                  <div className="w-16 h-10 bg-white border border-black overflow-hidden" style={{ borderRadius: '20px' }}>
-                    <img 
-                      src={developerImage} 
-                      alt="Development tools" 
+                  <span className="text-3xl lg:text-4xl font-normal text-gray-900 dark:text-gray-100">{t('hero.role')}</span>
+                  <div className="w-16 h-10 bg-white dark:bg-gray-800 border border-black dark:border-white overflow-hidden" style={{ borderRadius: '20px' }}>
+                    <img
+                      src={developerImage}
+                      alt="Development tools"
                       className="w-full h-full object-cover"
                     />
                   </div>
                 </div>
-                
+
                 {/* Based in Montréal line */}
                 <div className="flex items-center justify-center lg:justify-start gap-4 mb-6" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
-                  <span className="text-3xl lg:text-4xl font-normal text-gray-600">Based in</span>
-                  <div className="w-16 h-10 bg-white border border-black overflow-hidden" style={{ borderRadius: '20px' }}>
-                    <img 
-                      src={montrealImage} 
-                      alt="Montréal" 
+                  <span className="text-3xl lg:text-4xl font-normal text-gray-600 dark:text-gray-400">{t('hero.location')}</span>
+                  <div className="w-16 h-10 bg-white dark:bg-gray-800 border border-black dark:border-white overflow-hidden" style={{ borderRadius: '20px' }}>
+                    <img
+                      src={montrealImage}
+                      alt="Montréal"
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <span className="text-3xl lg:text-4xl font-normal text-gray-900">Montréal</span>
                 </div>
                 
                 {/* Description */}
-                <motion.p 
+                <motion.p
                   ref={descriptionRef}
-                  className="text-gray-600 text-base leading-relaxed max-w-md"
+                  className="text-gray-600 dark:text-gray-400 text-base leading-relaxed max-w-md"
                   style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
                 >
-                  I specialize in creating thoughtful and impactful digital experiences, 
-                  collaborating with startups and leading brands
+                  {t('hero.description')}
                 </motion.p>
               </div>
             </div>
 
-            <motion.div 
+            <motion.div
               ref={buttonRef}
               className="flex items-start justify-center lg:justify-start pt-4"
               whileHover={{ scale: 1.02 }}
@@ -160,7 +159,7 @@ const Hero = () => {
                   });
                 }
               }}>
-                View Projects
+                {t('hero.cta')}
               </StyledButton>
             </motion.div>
           </div>
@@ -172,11 +171,11 @@ const Hero = () => {
           >
             <ProfileCard
               avatarUrl={heroCardImage}
-              name="Pierre"
-              title="Software Developer"
-              handle="pierredevc"
-              status="Available for projects"
-              contactText="Get in touch"
+              name={t('hero.profile.name')}
+              title={t('hero.profile.title')}
+              handle={t('hero.profile.handle')}
+              status={t('hero.profile.status')}
+              contactText={t('hero.profile.action')}
               showUserInfo={true}
               enableTilt={true}
               enableMobileTilt={false}

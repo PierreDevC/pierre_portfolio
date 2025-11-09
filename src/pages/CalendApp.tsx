@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 import { useNavigation } from '@/contexts/NavigationContext';
+import { useTranslation } from '@/hooks/useTranslation';
 import AnimatedHeader from "@/components/AnimatedHeader";
 import Footer from "@/components/Footer";
 import calendappVideo from "@/assets/calendapp.mp4";
@@ -21,6 +22,7 @@ import '@/components/CalendAppSwiper.css';
 
 const CalendApp = () => {
   const { isMenuOpen } = useNavigation();
+  const { t } = useTranslation();
 
   // Scroll to top when component mounts
   useEffect(() => {
@@ -31,29 +33,29 @@ const CalendApp = () => {
   const featureSlides = [
     {
       id: 1,
-      title: "Create Events and Invite People",
-      description: "Effortlessly create and manage events with our intuitive interface. Set reminders, add locations, and invite participants with just a few taps.",
+      title: t('projects.details.calendapp.features.createEvents.title'),
+      description: t('projects.details.calendapp.features.createEvents.description'),
       image: calendapp1,
       alt: "Create Events Interface"
     },
     {
       id: 2,
-      title: "Create Your Availabilities Easily",
-      description: "Set your availability preferences with simple drag-and-drop controls. Define your working hours, break times, and personal commitments in seconds.",
+      title: t('projects.details.calendapp.features.availabilities.title'),
+      description: t('projects.details.calendapp.features.availabilities.description'),
       image: calendapp2,
       alt: "Availability Management"
     },
     {
       id: 3,
-      title: "Get Real-Time Availability",
-      description: "See everyone's availability instantly when planning meetings. No more back-and-forth emails or scheduling conflicts - find the perfect time slot for all participants.",
+      title: t('projects.details.calendapp.features.realtime.title'),
+      description: t('projects.details.calendapp.features.realtime.description'),
       image: calendapp3,
       alt: "Real-time Availability"
     },
     {
       id: 4,
-      title: "Sync with Your Favorite Apps",
-      description: "Seamlessly integrate with Google Calendar, Apple Calendar, and Microsoft Teams. Keep all your events synchronized across platforms without any manual work.",
+      title: t('projects.details.calendapp.features.sync.title'),
+      description: t('projects.details.calendapp.features.sync.description'),
       image: calendapp4,
       alt: "App Integration"
     }
@@ -87,7 +89,7 @@ const CalendApp = () => {
                   transition={{ duration: 0.6, delay: 0.1 }}
                   className="space-y-2"
                 >
-                  <div className="text-base md:text-lg text-gray-600" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>Web Application / 2025</div>
+                  <div className="text-base md:text-lg text-gray-600 dark:text-gray-300" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>{t('projects.items.calendapp.category')} / {t('projects.items.calendapp.year')}</div>
                 </motion.div>
 
                 {/* Tech Stack */}
@@ -109,8 +111,8 @@ const CalendApp = () => {
                   transition={{ duration: 0.6, delay: 0.3 }}
                   className="space-y-3"
                 >
-                  <div className="text-sm md:text-base text-gray-600 text-center lg:text-left" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
-                    Collaborators
+                  <div className="text-sm md:text-base text-gray-600 dark:text-gray-300 text-center lg:text-left" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
+                    {t('projects.details.collaborators')}
                   </div>
                   <div className="flex flex-wrap gap-2 md:gap-3 justify-center lg:justify-start">
                     <a
@@ -162,9 +164,8 @@ const CalendApp = () => {
                   transition={{ duration: 0.6, delay: 0.3 }}
                   className="max-w-md text-center lg:text-right"
                 >
-                  <p className="text-gray-600 leading-relaxed text-sm md:text-base" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
-                    CalendApp represents a modern approach to calendar management, focusing on simplicity and user experience. 
-                    The application was designed to address the common pain points users face with traditional calendar apps.
+                  <p className="text-gray-600 dark:text-gray-100 leading-relaxed text-sm md:text-base" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
+                    {t('projects.details.calendapp.description')}
                   </p>
                 </motion.div>
 
@@ -176,10 +177,10 @@ const CalendApp = () => {
                   className="flex flex-col sm:flex-row gap-3 md:gap-4 w-full max-w-sm lg:max-w-none lg:justify-end"
                 >
                   <button className="px-6 md:px-8 py-3 bg-gray-500 text-white rounded-[35px] hover:bg-gray-600 transition-colors duration-300 text-sm md:text-base w-full sm:w-auto" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }} onClick={() => window.open("https://github.com/coffee-only/CalendarProject", "_blank")}>
-                    Source Code
+                    {t('projects.details.sourceCode')}
                   </button>
                   <button className="px-6 md:px-8 py-3 bg-black text-white rounded-[35px] hover:bg-gray-800 transition-colors duration-300 text-sm md:text-base w-full sm:w-auto" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }} onClick={() => window.open("https://mina-scheduler-delta.vercel.app/", "_blank")}>
-                    Live Preview
+                    {t('projects.details.livePreview')}
                   </button>
                 </motion.div>
               </div>
@@ -224,7 +225,7 @@ const CalendApp = () => {
                 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground"
                 style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
               >
-                CalendApp Features
+                {t('projects.details.calendapp.featuresTitle')}
               </motion.h3>
 
               {/* Features Carousel */}
@@ -253,10 +254,10 @@ const CalendApp = () => {
                       <div className="space-y-6">
                         {/* Feature Content */}
                         <div className="max-w-2xl mx-auto text-center">
-                          <h4 className="text-lg md:text-xl font-medium text-gray-900 mb-3" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
+                          <h4 className="text-lg md:text-xl font-medium text-gray-900 dark:text-gray-100 mb-3" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
                             {slide.title}
                           </h4>
-                          <p className="text-gray-600 leading-relaxed text-sm md:text-base" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
+                          <p className="text-gray-600 dark:text-gray-100 leading-relaxed text-sm md:text-base" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
                             {slide.description}
                           </p>
                         </div>

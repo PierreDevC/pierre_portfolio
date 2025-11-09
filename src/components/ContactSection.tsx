@@ -2,8 +2,10 @@ import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import contactImage from "../assets/projects.jpg";
+import { useTranslation } from '@/hooks/useTranslation';
 
 const ContactSection = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -11,61 +13,17 @@ const ContactSection = () => {
     message: ''
   });
 
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
-  // Detect mobile on mount and resize
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768); // md breakpoint
-    };
-
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
   const projectTypes = [
-    { value: "", label: "Select a project type" },
-    { value: "web-development", label: "Web Development" },
-    { value: "mobile-app", label: "Mobile App" },
-    { value: "ui-ux-design", label: "UI/UX Design" },
-    { value: "full-stack", label: "Full-Stack Application" },
-    { value: "consulting", label: "Consulting" },
-    { value: "other", label: "Other" }
+    { value: "", label: t('contact.form.projectType.placeholder') },
+    { value: "web-development", label: t('contact.form.projectType.options.webdev') },
+    { value: "mobile-app", label: t('contact.form.projectType.options.mobile') },
+    { value: "ui-ux-design", label: t('contact.form.projectType.options.uiux') },
+    { value: "full-stack", label: t('contact.form.projectType.options.fullstack') },
+    { value: "consulting", label: t('contact.form.projectType.options.consulting') },
+    { value: "other", label: t('contact.form.projectType.options.other') }
   ];
-
-  // GSAP animation for dropdown
-  useEffect(() => {
-    if (dropdownRef.current) {
-      if (isDropdownOpen) {
-        gsap.fromTo(dropdownRef.current, 
-          { opacity: 0, y: -10, scaleY: 0.8 },
-          { opacity: 1, y: 0, scaleY: 1, duration: 0.3, ease: "power2.out" }
-        );
-      }
-    }
-  }, [isDropdownOpen]);
-
-  // Click outside handler for dropdown
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsDropdownOpen(false);
-      }
-    };
-
-    if (isDropdownOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isDropdownOpen]);
 
   // GSAP animation for button on hover
   useEffect(() => {
@@ -98,11 +56,6 @@ const ContactSection = () => {
     }));
   };
 
-  const handleProjectTypeSelect = (value: string) => {
-    setFormData(prev => ({ ...prev, projectType: value }));
-    setIsDropdownOpen(false);
-  };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // TODO: Implement form submission logic
@@ -112,17 +65,16 @@ const ContactSection = () => {
   };
 
   return (
-    <section className="py-32 bg-white">
+    <section className="py-32 bg-white dark:bg-[hsl(var(--background))]">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left side - Call to action */}
           <div className="space-y-6">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-foreground mb-6" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
-              Contact
+              {t('contact.heading')}
             </h1>
             <p className="text-lg text-studio-gray leading-relaxed mb-8" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
-              Ready to bring your ideas to life? Let's start a conversation about your next project. 
-              I'm here to help transform your vision into exceptional digital experiences.
+              {t('contact.description')}
             </p>
             
             {/* Contact Image */}
@@ -141,8 +93,8 @@ const ContactSection = () => {
             <form onSubmit={handleSubmit} className="space-y-6" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-900 mb-2">
-                    Name:
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-2">
+                    {t('contact.form.name.label')}
                   </label>
                   <input
                     type="text"
@@ -151,14 +103,14 @@ const ContactSection = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:border-gray-400 focus:outline-none transition-colors bg-gray-50"
-                    placeholder="Enter your name"
+                    className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:border-gray-400 dark:focus:border-gray-500 focus:outline-none transition-colors bg-gray-50 dark:bg-gray-800"
+                    placeholder={t('contact.form.name.placeholder')}
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-2">
-                    Email:
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-2">
+                    {t('contact.form.email.label')}
                   </label>
                   <input
                     type="email"
@@ -167,92 +119,44 @@ const ContactSection = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:border-gray-400 focus:outline-none transition-colors bg-gray-50"
-                    placeholder="Enter your email"
+                    className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:border-gray-400 dark:focus:border-gray-500 focus:outline-none transition-colors bg-gray-50 dark:bg-gray-800"
+                    placeholder={t('contact.form.email.placeholder')}
                   />
                 </div>
               </div>
 
               <div className="relative">
-                <label htmlFor="projectType" className="block text-sm font-medium text-gray-900 mb-2">
-                  Project Type:
+                <label htmlFor="projectType" className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-2">
+                  {t('contact.form.projectType.label')}
                 </label>
-
-                {isMobile ? (
-                  // Native select for mobile (iOS Safari liquid glass effect)
-                  <select
-                    id="projectType"
-                    name="projectType"
-                    value={formData.projectType}
-                    onChange={(e) => setFormData(prev => ({ ...prev, projectType: e.target.value }))}
-                    required
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:border-gray-400 focus:outline-none transition-colors bg-gray-50 appearance-none bg-no-repeat bg-right pr-10"
-                    style={{
-                      backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
-                      backgroundPosition: 'right 0.75rem center',
-                      backgroundSize: '1.5em 1.5em',
-                      color: formData.projectType ? '#111827' : '#9ca3af'
-                    }}
-                  >
-                    {projectTypes.map((type) => (
-                      <option key={type.value} value={type.value} style={{ color: '#111827' }}>
-                        {type.label}
-                      </option>
-                    ))}
-                  </select>
-                ) : (
-                  // Custom dropdown for desktop
-                  <div className="relative">
-                    <button
-                      type="button"
-                      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                      className="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 focus:border-gray-400 focus:outline-none transition-colors bg-gray-50 text-left flex items-center justify-between"
-                    >
-                      <span className={formData.projectType ? "text-gray-900" : "text-gray-400"}>
-                        {projectTypes.find(type => type.value === formData.projectType)?.label || "Select a project type"}
-                      </span>
-                      <motion.svg
-                        className="w-5 h-5 text-gray-400"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        animate={{ rotate: isDropdownOpen ? 180 : 0 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                      </motion.svg>
-                    </button>
-
-                    {isDropdownOpen && (
-                      <motion.div
-                        ref={dropdownRef}
-                        className="absolute z-50 w-full mt-2 bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden"
-                        initial={{ opacity: 0, y: -10, scaleY: 0.8 }}
-                        animate={{ opacity: 1, y: 0, scaleY: 1 }}
-                        exit={{ opacity: 0, y: -10, scaleY: 0.8 }}
-                        transition={{ duration: 0.3, ease: "easeOut" }}
-                      >
-                        {projectTypes.slice(1).map((type) => (
-                          <motion.button
-                            key={type.value}
-                            type="button"
-                            onClick={() => handleProjectTypeSelect(type.value)}
-                            className="w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors text-gray-900 first:rounded-t-3xl last:rounded-b-3xl"
-                            whileHover={{ backgroundColor: "#f9fafb", x: 4 }}
-                            transition={{ duration: 0.2 }}
-                          >
-                            {type.label}
-                          </motion.button>
-                        ))}
-                      </motion.div>
-                    )}
-                  </div>
-                )}
+                <select
+                  id="projectType"
+                  name="projectType"
+                  value={formData.projectType}
+                  onChange={(e) => setFormData(prev => ({ ...prev, projectType: e.target.value }))}
+                  required
+                  className={`w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl focus:border-gray-400 dark:focus:border-gray-500 focus:outline-none transition-colors bg-gray-50 dark:bg-gray-800 appearance-none bg-no-repeat bg-right pr-10 ${
+                    formData.projectType
+                      ? 'text-gray-900 dark:text-gray-100'
+                      : 'text-gray-400 dark:text-gray-500'
+                  }`}
+                  style={{
+                    backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
+                    backgroundPosition: 'right 0.75rem center',
+                    backgroundSize: '1.5em 1.5em'
+                  }}
+                >
+                  {projectTypes.map((type) => (
+                    <option key={type.value} value={type.value}>
+                      {type.label}
+                    </option>
+                  ))}
+                </select>
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-900 mb-2 ">
-                  Project Details:
+                <label htmlFor="message" className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-2 ">
+                  {t('contact.form.details.label')}
                 </label>
                 <textarea
                   id="message"
@@ -261,8 +165,8 @@ const ContactSection = () => {
                   onChange={handleInputChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:border-gray-400 focus:outline-none transition-colors bg-gray-50 resize-none"
-                  placeholder="Tell me about your project, timeline, budget, and any specific requirements..."
+                  className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:border-gray-400 dark:focus:border-gray-500 focus:outline-none transition-colors bg-gray-50 dark:bg-gray-800 resize-none"
+                  placeholder={t('contact.form.details.placeholder')}
                 />
               </div>
               
@@ -274,19 +178,19 @@ const ContactSection = () => {
                 <motion.button
                   ref={buttonRef}
                   type="submit"
-                  className="inline-flex items-center px-8 py-3 border-2 border-gray-900 text-gray-900 font-medium rounded-xl hover:bg-gray-900 hover:text-white transition-all duration-300 group relative overflow-hidden"
-                  whileHover={{ 
+                  className="inline-flex items-center px-8 py-3 border-2 border-gray-900 dark:border-gray-100 text-gray-900 dark:text-gray-100 font-medium rounded-xl hover:bg-gray-900 hover:text-white dark:hover:bg-gray-100 dark:hover:text-gray-900 transition-all duration-300 group relative overflow-hidden"
+                  whileHover={{
                     scale: 1.02,
                     boxShadow: "0 10px 25px rgba(0,0,0,0.1)"
                   }}
-                  whileTap={{ 
+                  whileTap={{
                     scale: 0.98,
                     transition: { duration: 0.1 }
                   }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    duration: 0.6, 
+                  transition={{
+                    duration: 0.6,
                     delay: 0.8,
                     ease: "easeOut"
                   }}
@@ -296,7 +200,7 @@ const ContactSection = () => {
                     whileHover={{ x: -2 }}
                     transition={{ duration: 0.2 }}
                   >
-                    SEND MESSAGE
+                    {t('contact.form.submit')}
                   </motion.span>
                   <motion.span 
                     className="ml-2 transform group-hover:translate-x-1 transition-transform duration-300 relative z-10"
@@ -311,10 +215,10 @@ const ContactSection = () => {
                   
                   {/* Animated background */}
                   <motion.div
-                    className="absolute inset-0 bg-gray-900 rounded-xl"
+                    className="absolute inset-0 bg-gray-900 dark:bg-gray-100 rounded-xl"
                     initial={{ scale: 0, opacity: 0 }}
-                    whileHover={{ 
-                      scale: 1, 
+                    whileHover={{
+                      scale: 1,
                       opacity: 1,
                       transition: { duration: 0.3 }
                     }}

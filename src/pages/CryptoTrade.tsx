@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 import { useNavigation } from '@/contexts/NavigationContext';
+import { useTranslation } from '@/hooks/useTranslation';
 import AnimatedHeader from "@/components/AnimatedHeader";
 import Footer from "@/components/Footer";
 import calendappVideo from "@/assets/cryptotrade.mp4";
@@ -21,6 +22,7 @@ import '@/components/CalendAppSwiper.css';
 
 const CryptoTrade = () => {
   const { isMenuOpen } = useNavigation();
+  const { t } = useTranslation();
 
   // Scroll to top when component mounts
   useEffect(() => {
@@ -31,29 +33,29 @@ const CryptoTrade = () => {
   const featureSlides = [
     {
       id: 1,
-      title: "Dynamic Portfolio Tracking",
-      description: "Efficiently track your cryptocurrency portfolio with real-time updates and performance analytics.",
+      title: t('projects.details.cryptotrade.features.portfolio.title'),
+      description: t('projects.details.cryptotrade.features.portfolio.description'),
       image: calendapp1,
       alt: "Create Events Interface"
     },
     {
       id: 2,
-      title: "Risk-Free Trading Simulation",
-      description: "Practice trading without risking real money with our risk-free simulation feature.",
+      title: t('projects.details.cryptotrade.features.simulation.title'),
+      description: t('projects.details.cryptotrade.features.simulation.description'),
       image: calendapp2,
       alt: "Availability Management"
     },
     {
       id: 3,
-      title: "Custom Crypto Creation",
-      description: "Create your own cryptocurrencies and add them to your portfolio for analysis and trading.",
+      title: t('projects.details.cryptotrade.features.custom.title'),
+      description: t('projects.details.cryptotrade.features.custom.description'),
       image: calendapp3,
       alt: "Real-time Availability"
     },
     {
       id: 4,
-      title: "Professional Analysis Tools",
-      description: "Access advanced analytics, charts, and reports to make informed trading decisions.",
+      title: t('projects.details.cryptotrade.features.analysis.title'),
+      description: t('projects.details.cryptotrade.features.analysis.description'),
       image: calendapp4,
       alt: "App Integration"
     }
@@ -87,7 +89,7 @@ const CryptoTrade = () => {
                   transition={{ duration: 0.6, delay: 0.1 }}
                   className="space-y-2"
                 >
-                  <div className="text-base md:text-lg text-gray-600" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>Web Application / 2025</div>
+                  <div className="text-base md:text-lg text-gray-600 dark:text-gray-300" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>{t('projects.items.cryptotrade.category')} / {t('projects.items.cryptotrade.year')}</div>
                 </motion.div>
 
                 {/* Tech Stack */}
@@ -109,8 +111,8 @@ const CryptoTrade = () => {
                   transition={{ duration: 0.6, delay: 0.3 }}
                   className="space-y-3"
                 >
-                  <div className="text-sm md:text-base text-gray-600 text-center lg:text-left" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
-                    Collaborators
+                  <div className="text-sm md:text-base text-gray-600 dark:text-gray-300 text-center lg:text-left" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
+                    {t('projects.details.collaborators')}
                   </div>
                   <div className="flex flex-wrap gap-2 md:gap-3 justify-center lg:justify-start">
                     <a
@@ -162,8 +164,8 @@ const CryptoTrade = () => {
                   transition={{ duration: 0.6, delay: 0.3 }}
                   className="max-w-md text-center lg:text-right"
                 >
-                  <p className="text-gray-600 leading-relaxed text-sm md:text-base" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
-                  CryptoTrade is a risk-free crypto exchange simulator with real-time market data, virtual portfolio management, and transaction tracking—ideal for beginners learning the basics and experienced traders testing strategies without financial risk.
+                  <p className="text-gray-600 dark:text-gray-100 leading-relaxed text-sm md:text-base" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
+                    {t('projects.details.cryptotrade.description')}
                   </p>
                 </motion.div>
 
@@ -175,10 +177,10 @@ const CryptoTrade = () => {
                   className="flex flex-col sm:flex-row gap-3 md:gap-4 w-full max-w-sm lg:max-w-none lg:justify-end"
                 >
                   <button className="px-6 md:px-8 py-3 bg-gray-500 text-white rounded-[35px] hover:bg-gray-600 transition-colors duration-300 text-sm md:text-base w-full sm:w-auto" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }} onClick={() => window.open("https://github.com/PierreDevC/cryptotrade", "_blank")}>
-                    Source Code
+                    {t('projects.details.sourceCode')}
                   </button>
                   <button className="px-6 md:px-8 py-3 bg-black text-white rounded-[35px] hover:bg-gray-800 transition-colors duration-300 text-sm md:text-base w-full sm:w-auto" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }} onClick={() => window.open("https://cryptotrade-production-5b56.up.railway.app/", "_blank")}>
-                    Live Preview
+                    {t('projects.details.livePreview')}
                   </button>
                 </motion.div>
               </div>
@@ -223,7 +225,7 @@ const CryptoTrade = () => {
                 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground"
                 style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
               >
-                CryptoTrade Features
+                {t('projects.details.cryptotrade.featuresTitle')}
               </motion.h3>
 
               {/* Features Carousel */}
@@ -252,10 +254,10 @@ const CryptoTrade = () => {
                       <div className="space-y-6">
                         {/* Feature Content */}
                         <div className="max-w-2xl mx-auto text-center">
-                          <h4 className="text-lg md:text-xl font-medium text-gray-900 mb-3" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
+                          <h4 className="text-lg md:text-xl font-medium text-gray-900 dark:text-gray-100 mb-3" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
                             {slide.title}
                           </h4>
-                          <p className="text-gray-600 leading-relaxed text-sm md:text-base" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
+                          <p className="text-gray-600 dark:text-gray-100 leading-relaxed text-sm md:text-base" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
                             {slide.description}
                           </p>
                         </div>

@@ -4,29 +4,7 @@ import { height } from '../animations';
 import NavigationBody from './Body';
 import NavigationFooter from './Footer';
 import NavigationImage from './Image';
-
-const links = [
-  {
-    title: "Home",
-    href: "/",
-    src: "hero-card.jpg"
-  },
-  {
-    title: "Projects", 
-    href: "#projects",
-    src: "projects.jpg"
-  },
-  {
-    title: "Services",
-    href: "#services", 
-    src: "services.jpg"
-  },
-  {
-    title: "Contact",
-    href: "#contact",
-    src: "contact.jpg"
-  },
-];
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface SelectedLink {
   isActive: boolean;
@@ -34,7 +12,31 @@ interface SelectedLink {
 }
 
 export default function Navigation() {
+  const { t } = useTranslation();
   const [selectedLink, setSelectedLink] = useState<SelectedLink>({ isActive: false, index: 0 });
+
+  const links = [
+    {
+      title: t('navbar.links.home'),
+      href: "/",
+      src: "hero-card.jpg"
+    },
+    {
+      title: t('navbar.links.projects'),
+      href: "#projects",
+      src: "projects.jpg"
+    },
+    {
+      title: t('navbar.links.services'),
+      href: "#services",
+      src: "services.jpg"
+    },
+    {
+      title: t('navbar.links.contact'),
+      href: "#contact",
+      src: "contact.jpg"
+    },
+  ];
 
   return (
     <motion.div 

@@ -24,6 +24,10 @@
   will-change: transform;
 }
 
+.dark .button-86 {
+  color: #28282d;
+}
+
 .button-86::after,
 .button-86::before {
   content: '';
@@ -40,6 +44,10 @@
   height: 100%;
   background: #28282d;
   border-radius: 35px;
+}
+
+.dark .button-86::before {
+  background: #f0f0f0;
 }
 
 .button-86::after {

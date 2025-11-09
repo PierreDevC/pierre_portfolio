@@ -2,8 +2,10 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { motion } from 'framer-motion';
 import LogoLoop from "@/blocks/Animations/LogoLoop/LogoLoop";
+import { useTranslation } from '@/hooks/useTranslation';
 
 const TechStack = () => {
+  const { t } = useTranslation();
   const sectionRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const logoLoopRef = useRef<HTMLDivElement>(null);
@@ -118,13 +120,13 @@ const TechStack = () => {
     >
       <div className="max-w-7xl mx-auto px-6">
         {/* Optional header */}
-        <motion.div 
+        <motion.div
           ref={headerRef}
           className="text-center mb-12"
           style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
         >
           <p className="text-sm text-studio-gray uppercase tracking-wide mb-2">
-            Technologies & Tools
+            {t('technologies.heading')}
           </p>
         </motion.div>
         

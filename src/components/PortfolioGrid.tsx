@@ -2,10 +2,12 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { gsap } from 'gsap';
-import calendarImage from "@/assets/calendar.png";
-import cryptotradeImage from "@/assets/cryptotrade.png";
+import calendappVideo from "@/assets/calendapp.mp4";
+import cryptotradeVideo from "@/assets/cryptotrade.mp4";
+import { useTranslation } from '@/hooks/useTranslation';
 
 const PortfolioGrid = () => {
+  const { t } = useTranslation();
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const navigate = useNavigate();
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -66,19 +68,19 @@ const PortfolioGrid = () => {
   const projects = [
     {
       id: 1,
-      image: calendarImage,
-      title: "CalendApp",
-      category: "Web Application",
-      year: "2025",
+      video: calendappVideo,
+      title: t('projects.items.calendapp.title'),
+      category: t('projects.items.calendapp.category'),
+      year: t('projects.items.calendapp.year'),
       projectUrl: "/calendapp",
       techStack: ["SpringBoot", "Next.js", "PostgresSQL"]
     },
     {
       id: 2,
-      image: cryptotradeImage,
-      title: "CryptoTrade",
-      category: "Web Application",
-      year: "2025",
+      video: cryptotradeVideo,
+      title: t('projects.items.cryptotrade.title'),
+      category: t('projects.items.cryptotrade.category'),
+      year: t('projects.items.cryptotrade.year'),
       projectUrl: "/cryptotrade",
       techStack: ["PHP", "JavaScript", "MySQL"]
     }
@@ -174,28 +176,27 @@ const PortfolioGrid = () => {
     >
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-16 text-center">
-          <motion.h1 
+          <motion.h1
             ref={titleRef}
-            className="text-4xl md:text-6xl lg:text-7xl font-light mb-6 text-foreground" 
+            className="text-4xl md:text-6xl lg:text-7xl font-light mb-6 text-foreground"
             style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
           >
-            Projects
+            {t('projects.heading')}
           </motion.h1>
-          <p 
+          <p
             className="max-w-4xl mx-auto text-studio-gray leading-relaxed text-lg"
             style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
           >
-            A curated selection of my work showcasing innovative solutions across web development, 
-            mobile applications, and digital experiences. Each project represents a unique challenge solved with creativity and technical expertise.
+            {t('projects.description')}
           </p>
         </div>
 
         <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
-            <div 
+            <div
               key={project.id}
               ref={(el) => (cardRefs.current[index] = el)}
-              className="bg-gray-500/20 rounded-3xl p-3 group hover:bg-black transition-all duration-500 ease-out relative cursor-pointer overflow-hidden"
+              className="bg-gray-500/20 dark:bg-gray-700/30 rounded-3xl p-3 group hover:bg-black dark:hover:bg-white transition-all duration-500 ease-out relative cursor-pointer overflow-hidden"
               onMouseEnter={() => handleCardEnter(project.id)}
               onMouseLeave={handleCardLeave}
               onClick={() => {
@@ -209,13 +210,18 @@ const PortfolioGrid = () => {
               {/* Backdrop overlay element (similar to button ::after) */}
               <div className="portfolio-overlay absolute inset-0 bg-white/10 backdrop-blur-sm rounded-3xl opacity-0 scale-75 pointer-events-none" />
               
-              {/* Image Section */}
+              {/* Video Section */}
               <div className="aspect-[4/3] overflow-hidden rounded-2xl mb-3 relative">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
+                <video
+                  src={project.video}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                   className="portfolio-image w-full h-full object-cover transition-transform duration-500"
-                />
+                >
+                  Your browser does not support the video tag.
+                </video>
               </div>
               
               {/* Content Section */}
@@ -233,13 +239,13 @@ const PortfolioGrid = () => {
                       ease: [0.25, 0.46, 0.45, 0.94]
                     }}
                   >
-                    <h3 className="text-lg font-medium text-gray-900 group-hover:text-white transition-colors duration-500" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
+                    <h3 className="text-lg font-medium text-gray-900 dark:text-gray-100 group-hover:text-white dark:group-hover:text-black transition-colors duration-500" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
                       {project.title}
                     </h3>
-                    <p className="text-sm text-gray-600 group-hover:text-gray-300 transition-colors duration-500" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 group-hover:text-gray-300 dark:group-hover:text-gray-700 transition-colors duration-500" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
                       {project.category}
                     </p>
-                    <p className="text-xs text-gray-500 group-hover:text-gray-400 transition-colors duration-500" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
+                    <p className="text-xs text-gray-500 dark:text-gray-500 group-hover:text-gray-400 dark:group-hover:text-gray-600 transition-colors duration-500" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
                       {project.year}
                     </p>
                   </motion.div>
@@ -300,7 +306,7 @@ const PortfolioGrid = () => {
                             fill="none"
                             stroke="currentColor"
                             strokeWidth="2.5"
-                            className="w-full h-full text-gray-700 group-hover:text-white transition-colors duration-500"
+                            className="w-full h-full text-gray-700 dark:text-gray-300 group-hover:text-white dark:group-hover:text-black transition-colors duration-500"
                           >
                             <motion.path
                               d="M7 17L17 7"
@@ -325,8 +331,8 @@ const PortfolioGrid = () => {
                 {project.techStack.map((tech, techIndex) => (
                   <div
                     key={techIndex}
-                    className="bg-gray-200/80 group-hover:bg-white/20 text-gray-700 group-hover:text-white text-xs px-2 py-1 rounded-xl transition-all duration-500"
-                    style={{ 
+                    className="bg-gray-200/80 dark:bg-gray-700/80 group-hover:bg-white/20 dark:group-hover:bg-black/20 text-gray-700 dark:text-gray-300 group-hover:text-white dark:group-hover:text-black text-xs px-2 py-1 rounded-xl transition-all duration-500"
+                    style={{
                       fontFamily: '"Geist", system-ui, -apple-system, sans-serif',
                       fontSize: '10px',
                       height: '25px',

@@ -2,20 +2,24 @@ import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { opacity, background } from './animations';
 import { useNavigation } from '@/contexts/NavigationContext';
 import Navigation from './Navigation';
+import { LanguageToggle } from '../LanguageToggle';
+import { ThemeToggle } from '../ThemeToggle';
+import { useTranslation } from '@/hooks/useTranslation';
 
 export default function AnimatedHeader() {
   const { isMenuOpen: isActive, setIsMenuOpen: setIsActive } = useNavigation();
+  const { t } = useTranslation();
 
   return (
     <div className={`fixed top-0 w-full z-50 border-b border-studio-border p-4 md:p-5 transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] will-change-transform ${isActive ? 'bg-[#f8f9fa]' : 'bg-background/95 backdrop-blur-sm'}`}>
       <div className="flex justify-center items-center relative text-base md:text-sm font-normal uppercase min-h-[60px] md:min-h-[50px]" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
         {/* Logo */}
-        <a 
-          href="/" 
+        <a
+          href="/"
           className={`absolute left-0 no-underline transition-colors duration-700 text-lg md:text-base font-medium ${isActive ? 'text-black hover:text-gray-600' : 'text-foreground hover:text-studio-gray'}`}
           style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
         >
-          Pierre
+          {t('navbar.brand')}
         </a>
 
         {/* Menu Button */}
@@ -56,23 +60,29 @@ export default function AnimatedHeader() {
 
           {/* Menu/Close Labels */}
           <div className="relative flex items-center">
-            <motion.p 
-              variants={opacity} 
+            <motion.p
+              variants={opacity}
               animate={!isActive ? "open" : "closed"}
               className={`m-0 transition-colors duration-700 text-lg md:text-base font-medium ${isActive ? 'text-black' : 'text-foreground'}`}
               style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
             >
-              Menu
+              {t('navbar.menu')}
             </motion.p>
-            <motion.p 
-              variants={opacity} 
+            <motion.p
+              variants={opacity}
               animate={isActive ? "open" : "closed"}
               className={`m-0 absolute opacity-0 transition-colors duration-700 text-lg md:text-base font-medium ${isActive ? 'text-black' : 'text-foreground'}`}
               style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
             >
-              Close
+              {t('navbar.close')}
             </motion.p>
           </div>
+        </div>
+
+        {/* Theme & Language Toggles */}
+        <div className="absolute right-0 flex items-center gap-2">
+          <ThemeToggle />
+          <LanguageToggle />
         </div>
 
 
