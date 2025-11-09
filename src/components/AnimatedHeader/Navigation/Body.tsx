@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { blur, translate } from '../animations';
 import { useNavigation } from '@/contexts/NavigationContext';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useTranslation } from '@/hooks/useTranslation';
 
 interface Link {
   title: string;
@@ -24,16 +25,18 @@ export default function NavigationBody({ links, selectedLink, setSelectedLink }:
   const { setIsMenuOpen } = useNavigation();
   const navigate = useNavigate();
   const location = useLocation();
+  const { t } = useTranslation();
+
   const getChars = (word: string) => {
     let chars: JSX.Element[] = [];
     word.split("").forEach((char, i) => {
       chars.push(
-        <motion.span 
-          custom={[i * 0.02, (word.length - i) * 0.01]} 
-          variants={translate} 
-          initial="initial" 
-          animate="enter" 
-          exit="exit" 
+        <motion.span
+          custom={[i * 0.02, (word.length - i) * 0.01]}
+          variants={translate}
+          initial="initial"
+          animate="enter"
+          exit="exit"
           key={char + i}
         >
           {char}
@@ -45,6 +48,34 @@ export default function NavigationBody({ links, selectedLink, setSelectedLink }:
 
   return (
     <div className="flex flex-col lg:flex-row lg:flex-wrap mt-10 lg:mt-20 lg:max-w-6xl space-y-4 lg:space-y-0">
+      {/* Pierre brand - visible only on mobile */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+        className="md:hidden mb-8"
+      >
+        <a
+          href="/"
+          className="text-black no-underline block"
+          onClick={(e) => {
+            e.preventDefault();
+            if (location.pathname === '/') {
+              window.scrollTo({ top: 0, behavior: 'instant' });
+            } else {
+              navigate('/');
+            }
+            setTimeout(() => setIsMenuOpen(false), 300);
+          }}
+        >
+          <p
+            className="m-0 text-4xl font-medium"
+            style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
+          >
+            {t('navbar.brand')}
+          </p>
+        </a>
+      </motion.div>
       {links.map((link, index) => {
         const { title, href } = link;
         return (

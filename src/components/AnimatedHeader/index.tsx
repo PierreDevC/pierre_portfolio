@@ -13,19 +13,19 @@ export default function AnimatedHeader() {
   return (
     <div className={`fixed top-0 w-full z-50 border-b border-studio-border p-4 md:p-5 transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] will-change-transform ${isActive ? 'bg-[#f8f9fa]' : 'bg-background/95 backdrop-blur-sm'}`}>
       <div className="flex justify-center items-center relative text-base md:text-sm font-normal uppercase min-h-[60px] md:min-h-[50px]" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
-        {/* Logo */}
+        {/* Logo - Hidden on mobile, visible on desktop */}
         <a
           href="/"
-          className={`absolute left-0 no-underline transition-colors duration-700 text-lg md:text-base font-medium ${isActive ? 'text-black hover:text-gray-600' : 'text-foreground hover:text-studio-gray'}`}
+          className={`hidden md:block absolute left-0 no-underline transition-colors duration-700 text-lg md:text-base font-medium ${isActive ? 'text-black hover:text-gray-600' : 'text-foreground hover:text-studio-gray'}`}
           style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
         >
           {t('navbar.brand')}
         </a>
 
-        {/* Menu Button */}
-        <div 
-          onClick={() => setIsActive(!isActive)} 
-          className="flex items-center justify-center gap-3 md:gap-2 cursor-pointer py-2 px-3 md:py-0 md:px-0"
+        {/* Menu Button - Left on mobile, center on desktop */}
+        <div
+          onClick={() => setIsActive(!isActive)}
+          className="absolute left-0 md:static flex items-center justify-center gap-3 md:gap-2 cursor-pointer py-2 px-3 md:py-0 md:px-0"
         >
           {/* Animated Burger to X */}
           <div className="w-6 h-5 md:w-[22.5px] md:h-4 relative pointer-events-none flex flex-col justify-center">
