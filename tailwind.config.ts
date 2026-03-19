@@ -95,7 +95,11 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+			},
+			fontFamily: {
+				sans: ["Geist", "system-ui", "-apple-system", "sans-serif"],
+				mono: ["Geist Mono", "ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"],
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],

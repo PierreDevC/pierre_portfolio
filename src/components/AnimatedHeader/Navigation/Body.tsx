@@ -3,6 +3,7 @@ import { blur, translate } from '../animations';
 import { useNavigation } from '@/contexts/NavigationContext';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from '@/hooks/useTranslation';
+import CircularText from '../../CircularText';
 
 interface Link {
   title: string;
@@ -53,7 +54,7 @@ export default function NavigationBody({ links, selectedLink, setSelectedLink }:
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="md:hidden mb-8"
+        className="md:hidden mb-8 flex items-center gap-0"
       >
         <a
           href="/"
@@ -75,6 +76,12 @@ export default function NavigationBody({ links, selectedLink, setSelectedLink }:
             {t('navbar.brand')}
           </p>
         </a>
+        <CircularText
+          text="PIERRE*DEV*"
+          spinDuration={20}
+          className="w-24 h-24 text-black ml-0"
+          fontSize="text-lg"
+        />
       </motion.div>
       {links.map((link, index) => {
         const { title, href } = link;
@@ -130,3 +137,4 @@ export default function NavigationBody({ links, selectedLink, setSelectedLink }:
     </div>
   );
 }
+

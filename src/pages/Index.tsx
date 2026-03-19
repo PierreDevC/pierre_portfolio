@@ -81,9 +81,9 @@ const Index = () => {
         <div ref={heroRef}>
           <Hero />
         </div>
-        <div ref={techStackRef}>
+        {/* <div ref={techStackRef}>
           <TechStack />
-        </div>
+        </div> */}
         <div ref={portfolioRef} id="projects">
           <PortfolioGrid />
         </div>

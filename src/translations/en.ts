@@ -16,12 +16,12 @@ export const en = {
     },
   },
   hero: {
-    title: "PIERRE",
+    title: "Pierre",
     greeting: "Hey, I'm Pierre",
-    role: "a Software Developer",
+    role: "a Software Developer & Designer",
     location: "Based in Montréal",
     description: "I specialize in creating thoughtful and impactful digital experiences, collaborating with startups and leading brands",
-    cta: "View Projects",
+    cta: "Contact Me",
     profile: {
       name: "Pierre",
       title: "Software Developer",
@@ -34,24 +34,55 @@ export const en = {
     heading: "Technologies & Tools",
   },
   projects: {
-    heading: "Projects",
+    heading: "Projects I've been working on",
+    subheading: "Featured Projects",
     description: "A curated selection of my work showcasing innovative solutions across web development, mobile applications, and digital experiences. Each project represents a unique challenge solved with creativity and technical expertise.",
     items: {
+      mortwise: {
+        title: "MortWise",
+        category: "Mobile Application",
+        kind: "Mortgages",
+        year: "2025",
+      },
       calendapp: {
         title: "CalendApp",
         category: "Web Application",
+        kind: "Productivity",
         year: "2025",
       },
       cryptotrade: {
         title: "CryptoTrade",
         category: "Web Application",
+        kind: "Cryptocurrency",
         year: "2025",
       },
     },
     details: {
       collaborators: "Collaborators",
       sourceCode: "Source Code",
-      livePreview: "Live Preview",
+      livePreview: "Live Demo",
+      mortwise: {
+        description: "MortWise helps users understand what they can afford, model their payments, and explore strategies to pay off their mortgage faster — without needing a credit check or an appointment with a lender. It features a unified scenario system where data flows seamlessly between all tools.",
+        featuresTitle: "MortWise Features",
+        features: {
+          prequalification: {
+            title: "Pre-Qualification Tool",
+            description: "Guided wizard that estimates max purchase price based on income, debts, credit score, and Canadian lending rules (GDS/TDS ratios, stress test).",
+          },
+          calculator: {
+            title: "Mortgage Calculator",
+            description: "Dynamic calculator with sliders for mortgage payment, amount, interest rate, amortization, and reverse mortgage, with real-time results and pie chart visualization.",
+          },
+          simulator: {
+            title: "What-If Scenario Simulator",
+            description: "Model lump-sum payments, rate changes, refinances, and payment pauses to see their impact on payoff timeline and total interest.",
+          },
+          fhsa: {
+            title: "FHSA Calculator",
+            description: "Projects First Home Savings Account balance at a target purchase date, including tax savings and Home Buyers' Plan (HBP) withdrawals.",
+          },
+        },
+      },
       calendapp: {
         description: "CalendApp represents a modern approach to calendar management, focusing on simplicity and user experience. The application was designed to address the common pain points users face with traditional calendar apps.",
         featuresTitle: "CalendApp Features",
@@ -99,30 +130,31 @@ export const en = {
     },
   },
   services: {
-    heading: "Services",
-    description: "Comprehensive digital solutions tailored to your needs. From concept to deployment, delivering exceptional results across all touchpoints.",
+    heading: "What I do and how I can help",
+    subheading: "Services",
     items: {
-      fullstack: {
-        title: "Full Stack Development",
-        description: "End-to-end web solutions with modern frameworks and scalable architectures.",
-      },
       uiux: {
-        title: "UI/UX Design",
-        description: "User-centered design solutions that deliver exceptional digital experiences.",
+        title: "01 UX/UI Design",
+        description: "Creating user-centered interfaces that are both beautiful and functional.",
+      },
+      webdev: {
+        title: "02 Web Development",
+        description: "Building scalable and performant web applications using modern technologies.",
       },
       mobile: {
-        title: "Mobile Development",
-        description: "Native and cross-platform mobile applications for iOS and Android.",
+        title: "03 Mobile Apps",
+        description: "Developing cross-platform mobile experiences with native performance.",
       },
       brand: {
-        title: "Brand Development",
-        description: "Strategic brand identity design and visual communication solutions.",
+        title: "04 Brand Development & Marketing",
+        description: "Crafting unique visual identities and strategic marketing campaigns that resonate with your audience.",
       },
     },
   },
   contact: {
-    heading: "Contact",
-    description: "Ready to bring your ideas to life? Let's start a conversation about your next project. I'm here to help transform your vision into exceptional digital experiences.",
+    heading: "Contact me here",
+    subheading: "Contact",
+    description: "Ready to bring your ideas to life? Let's start a conversation about your next project.",
     form: {
       name: {
         label: "Name:",
@@ -154,11 +186,12 @@ export const en = {
   footer: {
     brand: "Pierre",
     tagline: "A software developer focused on thoughtful design and meaningful experiences.",
-    copyright: "© 2024 PierreDevC. All rights reserved.",
+    copyright: "© 6 PierreDevC. All rights reserved.",
     columns: {
       projects: {
         heading: "PROJECTS",
         items: {
+          mortwise: "MortWise",
           calendapp: "CalendApp",
           cryptotrade: "CryptoTrade",
         },

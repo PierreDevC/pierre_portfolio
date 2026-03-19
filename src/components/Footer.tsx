@@ -14,6 +14,7 @@ const Footer = () => {
           >
             <div className="text-studio-gray text-sm">{t('footer.columns.projects.heading')}</div>
             <div className="space-y-3 text-studio-light">
+              <div className="hover:text-studio-gray transition-colors cursor-pointer">{t('footer.columns.projects.items.mortwise')}</div>
               <div className="hover:text-studio-gray transition-colors cursor-pointer">{t('footer.columns.projects.items.calendapp')}</div>
               <div className="hover:text-studio-gray transition-colors cursor-pointer">{t('footer.columns.projects.items.cryptotrade')}</div>
             </div>

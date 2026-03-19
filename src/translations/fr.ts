@@ -18,12 +18,12 @@ export const fr: TranslationKeys = {
     },
   },
   hero: {
-    title: "PIERRE",
+    title: "Pierre",
     greeting: "Salut, je suis Pierre",
-    role: "un Développeur Logiciel",
+    role: "un Développeur & Designer",
     location: "Basé à Montréal",
     description: "Je suis spécialisé dans la création de solutions digitales pensées et impactantes, en collaborant avec des startups et des marques leaders.",
-    cta: "Voir mes Projets",
+    cta: "Me Contacter",
     profile: {
       name: "Pierre",
       title: "Développeur Logiciel",
@@ -36,17 +36,26 @@ export const fr: TranslationKeys = {
     heading: "Technologies & Outils",
   },
   projects: {
-    heading: "Projets",
+    heading: "Projets sur lesquels j'ai travaillé",
+    subheading: "Projets Vedettes",
     description: "Une sélection de mes réalisations qui illustrent des solutions innovantes en développement web, applications mobiles et expériences digitales. Chaque projet représente un défi unique résolu avec créativité et expertise technique.",
     items: {
+      mortwise: {
+        title: "MortWise",
+        category: "Application Mobile",
+        kind: "Hypothèques",
+        year: "2025",
+      },
       calendapp: {
         title: "CalendApp",
         category: "Application Web",
+        kind: "Productivité",
         year: "2025",
       },
       cryptotrade: {
         title: "CryptoTrade",
         category: "Application Web",
+        kind: "Cryptomonnaie",
         year: "2025",
       },
     },
@@ -54,6 +63,28 @@ export const fr: TranslationKeys = {
       collaborators: "Collaborateurs",
       sourceCode: "Code Source",
       livePreview: "Aperçu en Direct",
+      mortwise: {
+        description: "MortWise aide les utilisateurs à comprendre ce qu'ils peuvent se permettre, à modéliser leurs paiements et à explorer des stratégies pour rembourser leur hypothèque plus rapidement — sans vérification de crédit ni rendez-vous avec un prêteur. Il dispose d'un système de scénarios unifié où les données circulent sans friction entre tous les outils.",
+        featuresTitle: "Fonctionnalités de MortWise",
+        features: {
+          prequalification: {
+            title: "Outil de Préqualification",
+            description: "Assistant guidé qui estime le prix d'achat maximal en fonction des revenus, des dettes, du score de crédit et des règles canadiennes de prêt (ratios ABD/ATD, test de résistance).",
+          },
+          calculator: {
+            title: "Calculateur Hypothécaire",
+            description: "Calculateur dynamique avec curseurs pour le paiement, le montant, le taux d'intérêt, l'amortissement et l'hypothèque inversée, avec résultats en temps réel et visualisation en graphique circulaire.",
+          },
+          simulator: {
+            title: "Simulateur de Scénarios",
+            description: "Modélisez des paiements forfaitaires, des changements de taux, des refinancements et des pauses de paiement pour voir leur impact sur la durée de remboursement et les intérêts totaux.",
+          },
+          fhsa: {
+            title: "Calculateur CELIAPP",
+            description: "Projette le solde du Compte d'épargne libre d'impôt pour l'achat d'une première propriété à une date cible, incluant les économies d'impôt et les retraits dans le cadre du Régime d'accession à la propriété (RAP).",
+          },
+        },
+      },
       calendapp: {
         description: "CalendApp représente une approche moderne de la gestion de calendrier, axée sur la simplicité et l'expérience utilisateur. L'application a été conçue pour résoudre les problèmes courants rencontrés avec les applications de calendrier traditionnelles.",
         featuresTitle: "Fonctionnalités de CalendApp",
@@ -101,30 +132,31 @@ export const fr: TranslationKeys = {
     },
   },
   services: {
-    heading: "Services",
-    description: "Des solutions digitales complètes et sur mesure, adaptées à vos besoins. Du concept initial au déploiement final, je livre des résultats exceptionnels à chaque étape.",
+    heading: "Ce que je fais et comment je peux aider",
+    subheading: "Services",
     items: {
-      fullstack: {
-        title: "Développement Full Stack",
-        description: "Solutions web complètes avec des frameworks modernes et des architectures évolutives qui grandissent avec votre entreprise.",
-      },
       uiux: {
-        title: "Design UI/UX",
-        description: "Conception centrée sur l'utilisateur qui transforme vos idées en expériences digitales mémorables et intuitives.",
+        title: "01 Design UX/UI",
+        description: "Création d'interfaces centrées sur l'utilisateur, à la fois esthétiques et fonctionnelles.",
+      },
+      webdev: {
+        title: "02 Développement Web",
+        description: "Construction d'applications web évolutives et performantes utilisant des technologies modernes.",
       },
       mobile: {
-        title: "Développement Mobile",
-        description: "Applications mobiles natives et multiplateformes pour iOS et Android, optimisées pour la performance et l'expérience utilisateur.",
+        title: "03 Apps Mobiles",
+        description: "Développement d'expériences mobiles multiplateformes avec des performances natives.",
       },
       brand: {
-        title: "Développement de Marque",
-        description: "Création d'identité de marque stratégique et solutions de communication visuelle qui racontent votre histoire.",
+        title: "04 Marque & Marketing",
+        description: "Création d'identités visuelles uniques et de campagnes marketing stratégiques qui résonnent avec votre audience.",
       },
     },
   },
   contact: {
-    heading: "Contact",
-    description: "Prêt à donner vie à vos idées ? Entamons une conversation sur votre prochain projet. Je suis là pour transformer votre vision en expériences digitales exceptionnelles.",
+    heading: "Me contacter ici",
+    subheading: "Contact",
+    description: "Prêt à donner vie à vos idées ? Entamons une conversation sur votre prochain projet.",
     form: {
       name: {
         label: "Nom :",
@@ -156,11 +188,12 @@ export const fr: TranslationKeys = {
   footer: {
     brand: "Pierre",
     tagline: "Un développeur logiciel passionné par le design réfléchi et les expériences significatives.",
-    copyright: "© 2024 PierreDevC. Tous droits réservés.",
+    copyright: "© 2026 PierreDevC. Tous droits réservés.",
     columns: {
       projects: {
         heading: "PROJETS",
         items: {
+          mortwise: "MortWise",
           calendapp: "CalendApp",
           cryptotrade: "CryptoTrade",
         },

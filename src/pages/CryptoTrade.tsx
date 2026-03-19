@@ -288,3 +288,4 @@ const CryptoTrade = () => {
 };
 
 export default CryptoTrade;
+
