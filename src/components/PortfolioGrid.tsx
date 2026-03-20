@@ -260,31 +260,33 @@ const PortfolioGrid = () => {
                   )}
                 </div>
 
-                <div className="space-y-8">
-                  <h4 className="text-3xl font-bold tracking-tight">{project.featuresTitle}</h4>
-                  <Swiper
-                    modules={[Navigation, Pagination, Autoplay]}
-                    spaceBetween={20}
-                    slidesPerView={1}
-                    navigation
-                    pagination={{ clickable: true }}
-                    autoplay={{ delay: 4000 }}
-                    loop={true}
-                    className="rounded-3xl overflow-hidden"
-                  >
-                    {project.features.map((feature: any, idx: number) => (
-                      <SwiperSlide key={idx}>
-                        <div className="bg-gray-50 dark:bg-gray-900 rounded-3xl p-6 md:p-10 space-y-6">
-                          <div className="space-y-2">
-                            <h5 className="text-xl font-bold">{feature.title}</h5>
-                            <p className="text-studio-gray">{feature.description}</p>
+                {project.id !== 'mortwise' && (
+                  <div className="space-y-8">
+                    <h4 className="text-3xl font-bold tracking-tight">{project.featuresTitle}</h4>
+                    <Swiper
+                      modules={[Navigation, Pagination, Autoplay]}
+                      spaceBetween={20}
+                      slidesPerView={1}
+                      navigation
+                      pagination={{ clickable: true }}
+                      autoplay={{ delay: 4000 }}
+                      loop={true}
+                      className="rounded-3xl overflow-hidden"
+                    >
+                      {project.features.map((feature: any, idx: number) => (
+                        <SwiperSlide key={idx}>
+                          <div className="bg-gray-50 dark:bg-gray-900 rounded-3xl p-6 md:p-10 space-y-6">
+                            <div className="space-y-2">
+                              <h5 className="text-xl font-bold">{feature.title}</h5>
+                              <p className="text-studio-gray">{feature.description}</p>
+                            </div>
+                            <img src={feature.image} alt={feature.title} className="w-full rounded-2xl object-cover h-64 md:h-80" />
                           </div>
-                          <img src={feature.image} alt={feature.title} className="w-full rounded-2xl object-cover h-64 md:h-80" />
-                        </div>
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
-                </div>
+                        </SwiperSlide>
+                      ))}
+                    </Swiper>
+                  </div>
+                )}
               </div>
             </div>
           </div>

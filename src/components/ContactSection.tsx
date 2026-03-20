@@ -33,8 +33,8 @@ const ContactSection = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 mb-16 md:mb-24">
         {/* Left Column: Greyed Title */}
         <div className="lg:col-span-4">
-          <h3 
-            className="text-4xl md:text-5xl lg:text-6xl font-medium text-gray-300 dark:text-gray-700 tracking-tight"
+          <h3
+            className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-gray-300 dark:text-gray-700 tracking-tight"
             style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
           >
             {t('contact.subheading')}
@@ -44,18 +44,18 @@ const ContactSection = () => {
         {/* Right Column: Main Header & Form */}
         <div className="lg:col-span-8 space-y-12">
           <div className="space-y-6">
-            <h2 
-              className="text-5xl md:text-7xl lg:text-8xl font-medium text-foreground tracking-tight leading-tight"
+            <h2
+              className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-medium text-foreground tracking-tight leading-tight"
               style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
             >
               {t('contact.heading')}
             </h2>
-            <p className="text-xl text-studio-gray max-w-2xl">
+            <p className="text-base sm:text-xl text-studio-gray max-w-2xl">
               {t('contact.description')}
             </p>
           </div>
 
-          <div ref={formRef} className="bg-gray-50 dark:bg-gray-900/50 p-8 md:p-12 rounded-3xl">
+          <div ref={formRef} className="bg-gray-50 dark:bg-gray-900/50 p-5 sm:p-8 md:p-12 rounded-3xl">
             <form onSubmit={handleSubmit} className="space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-2">
@@ -124,7 +124,7 @@ const ContactSection = () => {
               </div>
 
               <div className="pt-4">
-                <StyledButton type="submit" className="w-full md:w-auto px-12 py-5 text-lg">
+                <StyledButton type="submit" className="!min-w-0 !px-10 !py-3 !h-auto !text-base md:!px-12 md:!py-3 md:!text-base">
                   {t('contact.form.submit')}
                 </StyledButton>
               </div>

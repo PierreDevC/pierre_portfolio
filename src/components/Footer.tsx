@@ -4,9 +4,9 @@ const Footer = () => {
   const { t } = useTranslation();
 
   return (
-    <footer className="py-40 bg-studio-charcoal text-studio-light">
+    <footer className="py-16 md:py-40 bg-studio-charcoal text-studio-light">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-16">
           {/* Projects Column */}
           <div
             className="space-y-6"

@@ -75,7 +75,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-background">
+    <div ref={containerRef} className="min-h-screen bg-background overflow-x-hidden w-full">
       <AnimatedHeader />
       <div className="relative pt-[100px] md:pt-[80px]">
         <div ref={heroRef}>
