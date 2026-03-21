@@ -113,7 +113,7 @@ export default function AnimatedHeader() {
       </div>
       
       {/* Bottom Line with responsive whitespace */}
-      <div className="h-[1.5px] bg-black opacity-80" />
+      <div className="mx-4 sm:mx-6 md:mx-10 h-[1.5px] bg-black opacity-80" />
 
 
       {/* Background Overlay */}
@@ -142,4 +142,3 @@ export default function AnimatedHeader() {
     </div>
   );
 }
-
