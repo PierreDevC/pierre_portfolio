@@ -146,7 +146,7 @@ const PortfolioGrid = () => {
     }, []);
 
     return (
-      <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8 lg:p-12">
+      <div className="fixed inset-0 z-[100] flex items-center justify-center p-0 sm:p-4 md:p-8 lg:p-12">
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -160,7 +160,7 @@ const PortfolioGrid = () => {
           animate={{ y: 0, opacity: 1, scale: 1 }}
           exit={{ y: 50, opacity: 0, scale: 0.95 }}
           transition={{ type: "spring", damping: 25, stiffness: 300 }}
-          className="relative w-full max-w-7xl max-h-[90vh] bg-background rounded-3xl overflow-y-auto shadow-2xl hide-scrollbar"
+          className="relative w-full max-w-7xl h-full sm:h-auto sm:max-h-[90vh] bg-background rounded-none sm:rounded-3xl overflow-y-auto overscroll-contain shadow-2xl hide-scrollbar"
         >
           {/* Close Button */}
           <button 
@@ -172,12 +172,12 @@ const PortfolioGrid = () => {
             </svg>
           </button>
 
-          <div className="p-8 md:p-16">
+          <div className="p-5 sm:p-8 md:p-16">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
               {/* Info Column */}
               <div className="space-y-10">
                 <div>
-                  <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-4" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
+                  <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-4" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
                     {project.title}
                   </h2>
                   <div className="text-xl text-studio-gray font-medium" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
