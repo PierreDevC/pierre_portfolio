@@ -72,21 +72,21 @@ const Hero = () => {
       <div className="w-full mx-auto flex flex-col lg:flex-row justify-between items-start gap-16">
 
         {/* Left Side: Pierre + Spinning Text */}
-        <div className="flex flex-row items-center gap-3 md:gap-6 lg:gap-8 pt-4">
+        <div className="flex flex-row items-center gap-4 md:gap-6 lg:gap-8 pt-4">
           <motion.h1
             ref={titleRef}
-            className="text-[5.9rem] sm:text-8xl md:text-9xl lg:text-[12rem] font-bold text-foreground leading-none"
+            className="text-8xl md:text-9xl lg:text-[12rem] font-bold text-foreground leading-none"
             style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
           >
             {t('hero.title')}
           </motion.h1>
-          <div className="hidden sm:block flex-shrink-0">
+          <div className="hidden md:block flex-shrink-0">
             <CircularText
               text="PIERRE*DEV*"
               onHover="speedUp"
               spinDuration={20}
-              className="text-black dark:text-white sm:w-24 sm:h-24 md:w-32 md:h-32"
-              fontSize="text-xs sm:text-base md:text-2xl"
+              className="text-black dark:text-white w-32 h-32"
+              fontSize="text-2xl"
             />
           </div>
         </div>
