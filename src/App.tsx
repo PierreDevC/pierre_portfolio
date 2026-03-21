@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import MortWise from "./pages/MortWise";
 import CalendApp from "./pages/CalendApp";
 import CryptoTrade from "./pages/CryptoTrade";
+import AllProjects from "./pages/AllProjects";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
               <Route path="/mortwise" element={<MortWise />} />
               <Route path="/calendapp" element={<CalendApp />} />
               <Route path="/cryptotrade" element={<CryptoTrade />} />
+              <Route path="/projects" element={<AllProjects />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

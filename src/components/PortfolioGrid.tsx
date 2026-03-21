@@ -4,8 +4,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import mortwiseImage from "@/assets/mortwise.jpg";
-import calendappVideo from "@/assets/calendapp.mp4";
-import cryptotradeVideo from "@/assets/cryptotrade.mp4";
+import calendappImage from "@/assets/calendapp_img_mockup.jpg";
+import cryptotradeImage from "@/assets/cryptotrade_img.jpg";
 import { useTranslation } from '@/hooks/useTranslation';
 
 // Import project images for carousel
@@ -83,8 +83,8 @@ const PortfolioGrid = () => {
     },
     {
       id: "calendapp",
-      media: calendappVideo,
-      type: 'video',
+      media: calendappImage,
+      type: 'image',
       projectType: t('projects.items.calendapp.category'),
       projectKind: t('projects.items.calendapp.kind'),
       title: t('projects.items.calendapp.title'),
@@ -92,7 +92,7 @@ const PortfolioGrid = () => {
       year: t('projects.items.calendapp.year'),
       description: t('projects.details.calendapp.description'),
       featuresTitle: t('projects.details.calendapp.featuresTitle'),
-      techStack: ["SpringBoot", "Next.js", "PostgresSQL"],
+      techStack: ["SpringBoot", "Vite", "MySQL"],
       github: "https://github.com/coffee-only/CalendarProject",
       live: "https://mina-scheduler-delta.vercel.app/",
       collaborators: [
@@ -109,8 +109,8 @@ const PortfolioGrid = () => {
     },
     {
       id: "cryptotrade",
-      media: cryptotradeVideo,
-      type: 'video',
+      media: cryptotradeImage,
+      type: 'image',
       projectType: t('projects.items.cryptotrade.category'),
       projectKind: t('projects.items.cryptotrade.kind'),
       title: t('projects.items.cryptotrade.title'),
@@ -232,7 +232,7 @@ const PortfolioGrid = () => {
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 px-8 py-4 bg-green-600 hover:bg-green-700 text-white rounded-2xl font-medium text-center transition-colors shadow-lg shadow-green-900/20"
+                    className="flex-1 px-8 py-4 bg-green-600 hover:bg-green-700 text-white rounded-2xl font-medium text-center transition-colors"
                   >
                     {t('projects.details.livePreview')}
                   </a>
@@ -390,21 +390,36 @@ const PortfolioGrid = () => {
       </div>
 
       {/* Project Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-        {/* Left Column (Smaller Projects) */}
-        <div className="lg:col-span-5 flex flex-col gap-16 lg:gap-20">
-          <div className="aspect-[4/3] lg:aspect-auto lg:h-[450px]">
-            <ProjectCard project={projects[1]} className="h-full" />
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+        {projects.map((project) => (
+          <div key={project.id} className="aspect-[4/3] lg:aspect-auto lg:h-[900px]">
+            <ProjectCard project={project} className="h-full" />
           </div>
-          <div className="aspect-[4/3] lg:aspect-auto lg:h-[450px]">
-            <ProjectCard project={projects[2]} className="h-full" />
-          </div>
-        </div>
+        ))}
+      </div>
 
-        {/* Right Column (Featured Large Project) */}
-        <div className="lg:col-span-7 aspect-[4/3] lg:aspect-auto lg:h-[932px]">
-          <ProjectCard project={projects[0]} className="h-full" />
-        </div>
+      {/* See All Projects Link */}
+      <div className="flex justify-center mt-16 md:mt-20">
+        <a
+          href="/projects"
+          className="group relative inline-flex items-center gap-4 text-foreground transition-colors duration-300 text-4xl md:text-5xl lg:text-6xl font-medium uppercase tracking-tight no-underline py-2"
+          style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
+        >
+          {t('projects.seeAll')}
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
+          >
+            <line x1="7" y1="17" x2="17" y2="7" />
+            <polyline points="7 7 17 7 17 17" />
+          </svg>
+          <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-black dark:bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-left" />
+        </a>
       </div>
 
       {/* Project Modal */}

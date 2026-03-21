@@ -38,6 +38,7 @@ export const fr: TranslationKeys = {
   projects: {
     heading: "Projets sur lesquels j'ai travaillé",
     subheading: "Projets Vedettes",
+    seeAll: "Voir tous mes projets",
     description: "Une sélection de mes réalisations qui illustrent des solutions innovantes en développement web, applications mobiles et expériences digitales. Chaque projet représente un défi unique résolu avec créativité et expertise technique.",
     items: {
       mortwise: {
@@ -63,6 +64,9 @@ export const fr: TranslationKeys = {
       collaborators: "Collaborateurs",
       sourceCode: "Code Source",
       livePreview: "Aperçu en Direct",
+      mamabenz: {
+        description: "Mama Benz est un magazine produit par Marketing & Media International Group, Inc. Lors de mon stage en 2024, j'ai contribué à la production éditoriale du magazine et assuré la gestion et la maintenance du site WordPress de l'entreprise.",
+      },
       mortwise: {
         description: "MortWise aide les utilisateurs à comprendre ce qu'ils peuvent se permettre, à modéliser leurs paiements et à explorer des stratégies pour rembourser leur hypothèque plus rapidement — sans vérification de crédit ni rendez-vous avec un prêteur. Il dispose d'un système de scénarios unifié où les données circulent sans friction entre tous les outils.",
         featuresTitle: "Fonctionnalités de MortWise",
@@ -106,6 +110,21 @@ export const fr: TranslationKeys = {
             description: "Intégrez-vous parfaitement avec Google Calendar, Apple Calendar et Microsoft Teams. Gardez tous vos événements synchronisés entre les plateformes sans aucun travail manuel.",
           },
         },
+      },
+      aux33tours: {
+        description: "Un projet photographique capturant l'essence d'un magasin de disques vinyles local sur le Mont-Royal à Montréal — son atmosphère, son caractère et la culture qu'il incarne.",
+      },
+      artmonde: {
+        description: "Une galerie d'art en ligne dédiée à la découverte et à l'acquisition de trésors artistiques intemporels, où l'art classique et moderne se rencontrent pour offrir une expérience visuelle captivante.",
+      },
+      magazine: {
+        description: "Une étude de cas en design graphique recréant un magazine GQ complet, explorant la mise en page éditoriale, la typographie et l'identité visuelle à travers une publication entière.",
+      },
+      gymgear: {
+        description: "Une étude de cas en design graphique explorant l'identité visuelle et la marque pour une enseigne d'équipements de gym.",
+      },
+      baleinebleue: {
+        description: "Une étude de cas en design graphique réalisée comme projet de fin d'études, explorant l'identité visuelle et le design de marque pour une fondation fictive de conservation marine.",
       },
       cryptotrade: {
         description: "CryptoTrade est un simulateur d'échange crypto sans risque avec des données de marché en temps réel, gestion de portefeuille virtuel et suivi des transactions—idéal pour les débutants qui apprennent les bases et les traders expérimentés qui testent des stratégies sans risque financier.",

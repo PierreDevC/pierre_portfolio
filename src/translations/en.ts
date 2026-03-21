@@ -36,6 +36,7 @@ export const en = {
   projects: {
     heading: "Projects I've been working on",
     subheading: "Featured Projects",
+    seeAll: "See all my projects",
     description: "A curated selection of my work showcasing innovative solutions across web development, mobile applications, and digital experiences. Each project represents a unique challenge solved with creativity and technical expertise.",
     items: {
       mortwise: {
@@ -61,6 +62,9 @@ export const en = {
       collaborators: "Collaborators",
       sourceCode: "Source Code",
       livePreview: "Live Demo",
+      mamabenz: {
+        description: "Mama Benz is a magazine produced by Marketing & Media International Group, Inc. During my 2024 internship, I contributed to the magazine's editorial production and managed the company's WordPress website.",
+      },
       mortwise: {
         description: "MortWise helps users understand what they can afford, model their payments, and explore strategies to pay off their mortgage faster — without needing a credit check or an appointment with a lender. It features a unified scenario system where data flows seamlessly between all tools.",
         featuresTitle: "MortWise Features",
@@ -104,6 +108,21 @@ export const en = {
             description: "Seamlessly integrate with Google Calendar, Apple Calendar, and Microsoft Teams. Keep all your events synchronized across platforms without any manual work.",
           },
         },
+      },
+      aux33tours: {
+        description: "A photography project capturing the essence of a local vinyl record shop on Mont Royal in Montréal — its atmosphere, character, and the culture it embodies.",
+      },
+      artmonde: {
+        description: "An online art gallery platform dedicated to discovering and acquiring timeless artistic treasures, where classical and modern art meet to offer an immersive visual experience.",
+      },
+      magazine: {
+        description: "A graphic design case study recreating a full GQ magazine, exploring editorial layout, typography, and visual identity across a complete publication.",
+      },
+      gymgear: {
+        description: "A graphic design case study exploring visual identity and branding for a gym equipment brand.",
+      },
+      baleinebleue: {
+        description: "A graphic design case study completed as a final school project, exploring visual identity and brand design for a fictional marine conservation foundation.",
       },
       cryptotrade: {
         description: "CryptoTrade is a risk-free crypto exchange simulator with real-time market data, virtual portfolio management, and transaction tracking—ideal for beginners learning the basics and experienced traders testing strategies without financial risk.",

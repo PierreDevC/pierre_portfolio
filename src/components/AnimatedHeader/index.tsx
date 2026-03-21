@@ -45,7 +45,7 @@ export default function AnimatedHeader() {
   };
 
   const navLinks = [
-    { title: t('navbar.links.projects'), href: "#projects" },
+    { title: t('navbar.links.projects'), href: "/projects" },
     { title: t('navbar.links.services'), href: "#services" },
     { title: t('navbar.links.contact'), href: "#contact" },
   ];
@@ -113,7 +113,7 @@ export default function AnimatedHeader() {
       </div>
       
       {/* Bottom Line with responsive whitespace */}
-      <div className="mx-4 sm:mx-6 md:mx-10 h-[1.5px] bg-black opacity-80" />
+      <div className="h-[1.5px] bg-black opacity-80" />
 
 
       {/* Background Overlay */}

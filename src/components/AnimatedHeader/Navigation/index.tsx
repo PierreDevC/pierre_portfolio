@@ -23,7 +23,7 @@ export default function Navigation() {
     },
     {
       title: t('navbar.links.projects'),
-      href: "#projects",
+      href: "/projects",
       src: "projects.jpg"
     },
     {
