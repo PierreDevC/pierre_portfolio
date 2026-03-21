@@ -39,6 +39,17 @@ export const fr: TranslationKeys = {
     heading: "Projets sur lesquels j'ai travaillé",
     subheading: "Projets Vedettes",
     seeAll: "Voir tous mes projets",
+    viewProject: "Voir le Projet",
+    categories: {
+      mobileApplication: "Application Mobile",
+      webApplication: "Application Web",
+      printAndWeb: "Impression & Web",
+      photography: "Photographie",
+      printDesign: "Design Imprimé",
+      packaging: "Packaging",
+      illustration: "Illustration",
+      graphicDesign: "Design Graphique",
+    },
     description: "Une sélection de mes réalisations qui illustrent des solutions innovantes en développement web, applications mobiles et expériences digitales. Chaque projet représente un défi unique résolu avec créativité et expertise technique.",
     items: {
       mortwise: {
@@ -68,7 +79,7 @@ export const fr: TranslationKeys = {
         description: "Mama Benz est un magazine produit par Marketing & Media International Group, Inc. Lors de mon stage en 2024, j'ai contribué à la production éditoriale du magazine et assuré la gestion et la maintenance du site WordPress de l'entreprise.",
       },
       mortwise: {
-        description: "MortWise aide les utilisateurs à comprendre ce qu'ils peuvent se permettre, à modéliser leurs paiements et à explorer des stratégies pour rembourser leur hypothèque plus rapidement — sans vérification de crédit ni rendez-vous avec un prêteur. Il dispose d'un système de scénarios unifié où les données circulent sans friction entre tous les outils.",
+        description: "En travaillant avec des clients en hypothèque, j'ai constaté les mêmes problèmes récurrents : des termes confus, des chiffres peu clairs et un sentiment général d'être mal préparé financièrement. MortWise est la solution que j'ai développée pour y remédier, en simplifiant le concept des hypothèques et en aidant les gens à être vraiment équipés avant de prendre l'une des décisions les plus importantes de leur vie.",
         featuresTitle: "Fonctionnalités de MortWise",
         features: {
           prequalification: {
@@ -90,7 +101,7 @@ export const fr: TranslationKeys = {
         },
       },
       calendapp: {
-        description: "CalendApp représente une approche moderne de la gestion de calendrier, axée sur la simplicité et l'expérience utilisateur. L'application a été conçue pour résoudre les problèmes courants rencontrés avec les applications de calendrier traditionnelles.",
+        description: "Développé avec deux amis pour résoudre un problème qu'on vivait tous : les conflits d'horaires. CalendApp permet de centraliser son calendrier, créer des événements et partager ses disponibilités pour trouver un créneau qui convient à tout le monde.",
         featuresTitle: "Fonctionnalités de CalendApp",
         features: {
           createEvents: {
@@ -112,7 +123,7 @@ export const fr: TranslationKeys = {
         },
       },
       aux33tours: {
-        description: "Un projet photographique capturant l'essence d'un magasin de disques vinyles local sur le Mont-Royal à Montréal — son atmosphère, son caractère et la culture qu'il incarne.",
+        description: "J'ai réalisé cette série pour l'un de mes magasins de disques préférés à Montréal. L'objectif était de capturer ce qui rend l'endroit unique : les bacs de vinyles, la lumière, et les gens qui passent leur samedi à fouiller les rayons.",
       },
       artmonde: {
         description: "Une galerie d'art en ligne dédiée à la découverte et à l'acquisition de trésors artistiques intemporels, où l'art classique et moderne se rencontrent pour offrir une expérience visuelle captivante.",
@@ -121,13 +132,13 @@ export const fr: TranslationKeys = {
         description: "Une étude de cas en design graphique recréant un magazine GQ complet, explorant la mise en page éditoriale, la typographie et l'identité visuelle à travers une publication entière.",
       },
       gymgear: {
-        description: "Une étude de cas en design graphique explorant l'identité visuelle et la marque pour une enseigne d'équipements de gym.",
+        description: "Une étude de cas en packaging où j'ai conçu une boîte d'articles sélectionnés pour les adeptes de gym, en travaillant l'identité visuelle complète du concept jusqu'au packaging final.",
       },
       baleinebleue: {
         description: "Une étude de cas en design graphique réalisée comme projet de fin d'études, explorant l'identité visuelle et le design de marque pour une fondation fictive de conservation marine.",
       },
       cryptotrade: {
-        description: "CryptoTrade est un simulateur d'échange crypto sans risque avec des données de marché en temps réel, gestion de portefeuille virtuel et suivi des transactions—idéal pour les débutants qui apprennent les bases et les traders expérimentés qui testent des stratégies sans risque financier.",
+        description: "Développé avec 3 autres développeurs, on voulait créer une plateforme de cryptomonnaie où les utilisateurs pourraient trader sans risque financier. CryptoTrade offre des données de marché en temps réel, la gestion d'un portefeuille virtuel et un suivi complet des transactions.",
         featuresTitle: "Fonctionnalités de CryptoTrade",
         features: {
           portfolio: {

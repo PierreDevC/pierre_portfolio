@@ -99,7 +99,7 @@ export default function AnimatedHeader() {
               >
                 {link.title}
                 {/* Underline effect: animate out to the right */}
-                <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-left group-hover:origin-left group-[:not(:hover)]:origin-right" />
+                <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out origin-left group-hover:origin-left group-[:not(:hover)]:origin-right transform-gpu backface-hidden" />
               </a>
             ))}
           </nav>

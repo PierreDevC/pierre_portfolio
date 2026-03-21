@@ -37,6 +37,17 @@ export const en = {
     heading: "Projects I've been working on",
     subheading: "Featured Projects",
     seeAll: "See all my projects",
+    viewProject: "View Project",
+    categories: {
+      mobileApplication: "Mobile Application",
+      webApplication: "Web Application",
+      printAndWeb: "Print & Web",
+      photography: "Photography",
+      printDesign: "Print Design",
+      packaging: "Packaging",
+      illustration: "Illustration",
+      graphicDesign: "Graphic Design",
+    },
     description: "A curated selection of my work showcasing innovative solutions across web development, mobile applications, and digital experiences. Each project represents a unique challenge solved with creativity and technical expertise.",
     items: {
       mortwise: {
@@ -66,7 +77,7 @@ export const en = {
         description: "Mama Benz is a magazine produced by Marketing & Media International Group, Inc. During my 2024 internship, I contributed to the magazine's editorial production and managed the company's WordPress website.",
       },
       mortwise: {
-        description: "MortWise helps users understand what they can afford, model their payments, and explore strategies to pay off their mortgage faster — without needing a credit check or an appointment with a lender. It features a unified scenario system where data flows seamlessly between all tools.",
+        description: "Working with mortgage clients, I kept noticing the same pain points: confusing terms, unclear numbers, and a general feeling of being financially unprepared. MortWise is the solution I built to change that, making mortgages easier to understand and helping people feel truly equipped before making one of the biggest decisions of their lives.",
         featuresTitle: "MortWise Features",
         features: {
           prequalification: {
@@ -88,7 +99,7 @@ export const en = {
         },
       },
       calendapp: {
-        description: "CalendApp represents a modern approach to calendar management, focusing on simplicity and user experience. The application was designed to address the common pain points users face with traditional calendar apps.",
+        description: "Built with two friends to solve a real problem we all faced: scheduling conflicts. CalendApp lets you centralize your calendar, create events, and share your availabilities so everyone can find time that actually works.",
         featuresTitle: "CalendApp Features",
         features: {
           createEvents: {
@@ -110,7 +121,7 @@ export const en = {
         },
       },
       aux33tours: {
-        description: "A photography project capturing the essence of a local vinyl record shop on Mont Royal in Montréal — its atmosphere, character, and the culture it embodies.",
+        description: "I shot this series for one of my favourite local vinyl shops in Montréal. The goal was to capture what makes the place special: the crates, the light, the kind of people who spend their Saturdays flipping through records.",
       },
       artmonde: {
         description: "An online art gallery platform dedicated to discovering and acquiring timeless artistic treasures, where classical and modern art meet to offer an immersive visual experience.",
@@ -119,13 +130,13 @@ export const en = {
         description: "A graphic design case study recreating a full GQ magazine, exploring editorial layout, typography, and visual identity across a complete publication.",
       },
       gymgear: {
-        description: "A graphic design case study exploring visual identity and branding for a gym equipment brand.",
+        description: "A packaging design case study where I designed a box of curated items for gym goers, working through the full visual identity from concept to final packaging.",
       },
       baleinebleue: {
-        description: "A graphic design case study completed as a final school project, exploring visual identity and brand design for a fictional marine conservation foundation.",
+        description: "A graphic design case study completed as a final school project, exploring visual identity and brand design for a marine conservation foundation.",
       },
       cryptotrade: {
-        description: "CryptoTrade is a risk-free crypto exchange simulator with real-time market data, virtual portfolio management, and transaction tracking—ideal for beginners learning the basics and experienced traders testing strategies without financial risk.",
+        description: "Built with 3 other developers, we wanted to create a cryptocurrency platform where users could trade without financial risk. CryptoTrade offers real-time market data, virtual portfolio management, and full transaction tracking.",
         featuresTitle: "CryptoTrade Features",
         features: {
           portfolio: {

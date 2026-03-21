@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import mortwiseImage from "@/assets/mortwise.jpg";
+import mortwiseImage from "@/assets/mortwise_mockup.jpg";
 import calendappImage from "@/assets/calendapp_img_mockup.jpg";
 import cryptotradeImage from "@/assets/cryptotrade_img.jpg";
 import { useTranslation } from '@/hooks/useTranslation';
@@ -138,8 +138,10 @@ const PortfolioGrid = () => {
   const ProjectModal = ({ project, onClose }: { project: any, onClose: () => void }) => {
     useEffect(() => {
       document.body.style.overflow = 'hidden';
+      window.dispatchEvent(new Event('lenis:stop'));
       return () => {
         document.body.style.overflow = 'unset';
+        window.dispatchEvent(new Event('lenis:start'));
       };
     }, []);
 
@@ -232,7 +234,7 @@ const PortfolioGrid = () => {
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 px-8 py-4 bg-green-600 hover:bg-green-700 text-white rounded-2xl font-medium text-center transition-colors"
+                    className="flex-1 px-8 py-4 bg-black hover:bg-neutral-800 text-white rounded-2xl font-medium text-center transition-colors"
                   >
                     {t('projects.details.livePreview')}
                   </a>
@@ -331,7 +333,7 @@ const PortfolioGrid = () => {
               {project.title}
             </h3>
             {/* Left-to-right underline on hover */}
-            <span className="absolute -bottom-1 left-0 w-full h-[1.5px] bg-black dark:bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-left group-hover:origin-left group-[:not(:hover)]:origin-right" />
+            <span className="absolute -bottom-1 left-0 w-full h-[1.5px] bg-black dark:bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out origin-left group-hover:origin-left group-[:not(:hover)]:origin-right transform-gpu backface-hidden" />
           </div>
           <div className="flex flex-wrap gap-x-3 gap-y-1 text-sm md:text-base text-studio-gray font-medium uppercase tracking-wider">
             <span>{project.projectType}</span>
@@ -418,7 +420,7 @@ const PortfolioGrid = () => {
             <line x1="7" y1="17" x2="17" y2="7" />
             <polyline points="7 7 17 7 17 17" />
           </svg>
-          <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-black dark:bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-left" />
+          <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-black dark:bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out origin-left group-hover:origin-left group-[:not(:hover)]:origin-right transform-gpu backface-hidden" />
         </a>
       </div>
 

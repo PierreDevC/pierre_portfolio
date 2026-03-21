@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import AnimatedHeader from "@/components/AnimatedHeader";
 import { useTranslation } from "@/hooks/useTranslation";
 
-import mortwiseImg from "@/assets/mortwise.jpg";
+import mortwiseImg from "@/assets/mortwise_mockup.jpg";
 import calendappImg from "@/assets/calendapp_img_mockup.jpg";
 import cryptotradeImg from "@/assets/cryptotrade_img.jpg";
 import mockupMagazineImg from "@/assets/Mockup_magazine_couverture.jpg";
@@ -20,7 +20,7 @@ const projects = [
     id: "mortwise",
     title: "MortWise",
     year: "2025",
-    category: "Mobile Application",
+    categoryKey: "projects.categories.mobileApplication",
     tech: ["Flutter", "Firebase", "Provider"],
     image: mortwiseImg,
     descKey: "projects.details.mortwise.description",
@@ -30,7 +30,7 @@ const projects = [
     id: "calendapp",
     title: "CalendApp",
     year: "2024",
-    category: "Web Application",
+    categoryKey: "projects.categories.webApplication",
     tech: ["SpringBoot", "Vite", "MySQL"],
     image: calendappImg,
     descKey: "projects.details.calendapp.description",
@@ -40,7 +40,7 @@ const projects = [
     id: "cryptotrade",
     title: "CryptoTrade",
     year: "2024",
-    category: "Web Application",
+    categoryKey: "projects.categories.webApplication",
     tech: ["PHP", "JavaScript", "MySQL"],
     image: cryptotradeImg,
     descKey: "projects.details.cryptotrade.description",
@@ -50,7 +50,7 @@ const projects = [
     id: "mama-benz",
     title: "Mama Benz",
     year: "2025",
-    category: "Print & Web",
+    categoryKey: "projects.categories.printAndWeb",
     tech: ["WordPress", "InDesign", "Photoshop"],
     image: mamaBenzImg,
     descKey: "projects.details.mamabenz.description",
@@ -60,8 +60,8 @@ const projects = [
     id: "aux-33-tours",
     title: "Aux 33 Tours",
     year: "2025",
-    category: "Photography",
-    tech: ["Lightroom", "Capture One"],
+    categoryKey: "projects.categories.photography",
+    tech: ["PhotoShop", "Lightroom", "Camera RAW"],
     image: aux33ToursImg,
     descKey: "projects.details.aux33tours.description",
     href: "#",
@@ -70,7 +70,7 @@ const projects = [
     id: "art-monde",
     title: "Art Monde",
     year: "2025",
-    category: "Web Application",
+    categoryKey: "projects.categories.webApplication",
     tech: ["HTML", "CSS", "JavaScript"],
     image: artMondeImg,
     descKey: "projects.details.artmonde.description",
@@ -80,7 +80,7 @@ const projects = [
     id: "magazine",
     title: "GQ Magazine",
     year: "2025",
-    category: "Print Design",
+    categoryKey: "projects.categories.printDesign",
     tech: ["Illustrator", "Photoshop"],
     image: mockupMagazineImg,
     descKey: "projects.details.magazine.description",
@@ -90,7 +90,7 @@ const projects = [
     id: "gym-gear",
     title: "Gym Gear",
     year: "2023",
-    category: "Graphic Design",
+    categoryKey: "projects.categories.packaging",
     tech: ["Illustrator", "Photoshop"],
     image: gymGearImg,
     descKey: "projects.details.gymgear.description",
@@ -100,7 +100,7 @@ const projects = [
     id: "baleine-bleue",
     title: "Fondation La Baleine Grise",
     year: "2023",
-    category: "Graphic Design",
+    categoryKey: "projects.categories.illustration",
     tech: ["Photoshop", "Illustrator"],
     image: baleineBleuImg,
     descKey: "projects.details.baleinebleue.description",
@@ -119,7 +119,7 @@ function ProjectInfo({ project, index, total }: { project: typeof projects[0]; i
         {project.title}
       </h2>
       <p className="text-[11px] uppercase tracking-[0.18em] text-studio-gray font-medium mb-7" style={geist}>
-        {project.category}&nbsp;&nbsp;—&nbsp;&nbsp;{project.year}
+        {t(project.categoryKey)}&nbsp;&nbsp;—&nbsp;&nbsp;{project.year}
       </p>
       <p className="text-sm text-studio-gray leading-relaxed mb-8" style={geist}>
         {t(project.descKey)}
@@ -133,7 +133,7 @@ function ProjectInfo({ project, index, total }: { project: typeof projects[0]; i
       </div>
       {project.href !== "#" && (
         <a href={project.href} target={project.href.startsWith("http") ? "_blank" : undefined} rel={project.href.startsWith("http") ? "noopener noreferrer" : undefined} className="group relative inline-flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-foreground no-underline py-1" style={geist}>
-          View Project
+          {t('projects.viewProject')}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
             <line x1="7" y1="17" x2="17" y2="7" />
             <polyline points="7 7 17 7 17 17" />
