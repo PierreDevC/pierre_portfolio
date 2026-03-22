@@ -98,55 +98,47 @@ const Hero = () => {
               className="flex flex-col items-start lg:items-end"
               style={{ gap: 'clamp(0.4rem, 1.2vw, 1rem)', fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
             >
-              {/* Line 1: [image 1] Salut, je suis Pierre */}
-              <div className="flex items-center justify-start lg:justify-end order-first lg:order-none" style={{ gap: 'clamp(0.6rem, 1.5vw, 1.5rem)' }}>
-                <div
-                  className="bg-white dark:bg-gray-800 border border-black dark:border-white overflow-hidden flex-shrink-0 order-first lg:order-none"
-                  style={{
-                    width: 'clamp(2rem, 5vw, 6rem)',
-                    height: 'clamp(1.3rem, 3.2vw, 3.5rem)',
-                    borderRadius: 'clamp(8px, 1.5vw, 30px)',
-                  }}
-                >
-                  <img src={heroCardImage} alt="Pierre" className="w-full h-full object-cover" style={{ objectPosition: 'center top' }} />
-                </div>
+              {/* Line 1 */}
+              <div className="flex items-center justify-start lg:justify-end">
                 <span className="font-normal text-gray-900 dark:text-gray-100 leading-tight" style={{ fontSize: 'clamp(0.85rem, 4.5vw, 4.5rem)' }}>
                   {t('hero.greeting')}
                 </span>
               </div>
 
-              {/* Line 2: un Développeur & Designer [image 2] */}
-              <div className="flex items-center justify-start lg:justify-end" style={{ gap: 'clamp(0.6rem, 1.5vw, 1.5rem)' }}>
+              {/* Line 2 */}
+              <div className="flex items-center justify-start lg:justify-end">
                 <span className="font-normal text-gray-900 dark:text-gray-100 leading-tight" style={{ fontSize: 'clamp(0.85rem, 4.5vw, 4.5rem)' }}>
                   {t('hero.role')}
                 </span>
-                <div
-                  className="bg-white dark:bg-gray-800 border border-black dark:border-white overflow-hidden flex-shrink-0"
-                  style={{
-                    width: 'clamp(2rem, 5vw, 6rem)',
-                    height: 'clamp(1.3rem, 3.2vw, 3.5rem)',
-                    borderRadius: 'clamp(8px, 1.5vw, 30px)',
-                  }}
-                >
-                  <img src={developerImage} alt="Development tools" className="w-full h-full object-cover" />
-                </div>
               </div>
 
-              {/* Line 3: [image 3] Basé à Montréal */}
-              <div className="flex items-center justify-start lg:justify-end order-first lg:order-none" style={{ gap: 'clamp(0.6rem, 1.5vw, 1.5rem)' }}>
-                <div
-                  className="bg-white dark:bg-gray-800 border border-black dark:border-white overflow-hidden flex-shrink-0 order-first lg:order-none"
-                  style={{
-                    width: 'clamp(2rem, 5vw, 6rem)',
-                    height: 'clamp(1.3rem, 3.2vw, 3.5rem)',
-                    borderRadius: 'clamp(8px, 1.5vw, 30px)',
-                  }}
-                >
-                  <img src={montrealImage} alt="Montréal" className="w-full h-full object-cover" />
-                </div>
+              {/* Line 3 */}
+              <div className="flex items-center justify-start lg:justify-end">
                 <span className="font-normal text-gray-900 dark:text-gray-100 leading-tight" style={{ fontSize: 'clamp(0.85rem, 4.5vw, 4.5rem)' }}>
                   {t('hero.location')}
                 </span>
+              </div>
+
+              {/* Images row below text */}
+              <div className="flex items-center justify-start lg:justify-end gap-3 mt-2">
+                <div
+                  className="bg-white dark:bg-gray-800 border border-black dark:border-white overflow-hidden flex-shrink-0"
+                  style={{ width: 'clamp(3rem, 7vw, 7rem)', height: 'clamp(2rem, 4.5vw, 4.5rem)', borderRadius: 'clamp(16px, 2.5vw, 40px)' }}
+                >
+                  <img src={heroCardImage} alt="Pierre" className="w-full h-full object-cover" style={{ objectPosition: 'center top' }} />
+                </div>
+                <div
+                  className="bg-white dark:bg-gray-800 border border-black dark:border-white overflow-hidden flex-shrink-0"
+                  style={{ width: 'clamp(3rem, 7vw, 7rem)', height: 'clamp(2rem, 4.5vw, 4.5rem)', borderRadius: 'clamp(16px, 2.5vw, 40px)' }}
+                >
+                  <img src={developerImage} alt="Development tools" className="w-full h-full object-cover" />
+                </div>
+                <div
+                  className="bg-white dark:bg-gray-800 border border-black dark:border-white overflow-hidden flex-shrink-0"
+                  style={{ width: 'clamp(3rem, 7vw, 7rem)', height: 'clamp(2rem, 4.5vw, 4.5rem)', borderRadius: 'clamp(16px, 2.5vw, 40px)' }}
+                >
+                  <img src={montrealImage} alt="Montréal" className="w-full h-full object-cover" />
+                </div>
               </div>
 
               {/* Secondary Description */}

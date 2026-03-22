@@ -6,7 +6,6 @@ import Navigation from './Navigation';
 import { LanguageToggle } from '../LanguageToggle';
 import { ThemeToggle } from '../ThemeToggle';
 import { useTranslation } from '@/hooks/useTranslation';
-import CircularText from '../CircularText';
 
 export default function AnimatedHeader() {
   const { isMenuOpen: isActive, setIsMenuOpen: setIsActive } = useNavigation();
@@ -113,7 +112,7 @@ export default function AnimatedHeader() {
       </div>
       
       {/* Bottom Line with responsive whitespace */}
-      <div className="mx-4 sm:mx-6 md:mx-10 h-[1.5px] bg-black opacity-80" />
+      <div className="h-[1.5px] bg-black opacity-80" />
 
 
       {/* Background Overlay */}
