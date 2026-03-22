@@ -185,7 +185,6 @@ export const en = {
     heading: "Contact me here",
     subheading: "Contact",
     description: "Ready to bring your ideas to life? Let's start a conversation about your next project.",
-    downloadResume: "Download Resume",
     form: {
       name: {
         label: "Name:",

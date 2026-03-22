@@ -58,6 +58,17 @@ const Hero = () => {
 
   return (
     <section className="relative pt-6 md:pt-32 pb-32 w-full px-6 md:px-12">
+      {/* Mobile-only: CircularText fixed at top right */}
+      <div className="absolute top-4 right-4 sm:hidden">
+        <CircularText
+          text="PIERRE*DEV*"
+          onHover="speedUp"
+          spinDuration={20}
+          className="text-black dark:text-white w-8 h-8"
+          fontSize="text-[16px]"
+        />
+      </div>
+
       <div className="w-full mx-auto flex flex-col lg:flex-row justify-between items-start gap-16">
 
         {/* Left Side: Pierre + Spinning Text */}
