@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { useTranslation } from '@/hooks/useTranslation';
 import StyledButton from "./ui/styled-button";
+import resumePdf from "@/assets/Pierre_CV.pdf";
 
 const ContactSection = () => {
   const { t } = useTranslation();
@@ -43,16 +44,33 @@ const ContactSection = () => {
 
         {/* Right Column: Main Header & Form */}
         <div className="lg:col-span-8 space-y-12">
-          <div className="space-y-6">
-            <h2
-              className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-medium text-foreground tracking-tight leading-tight"
-              style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
-            >
-              {t('contact.heading')}
-            </h2>
-            <p className="text-base sm:text-xl text-studio-gray max-w-2xl">
-              {t('contact.description')}
-            </p>
+          <div className="space-y-8">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+              <div className="space-y-6">
+                <h2 
+                  className="text-5xl md:text-7xl lg:text-8xl font-medium text-foreground tracking-tight leading-tight"
+                  style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
+                >
+                  {t('contact.heading')}
+                </h2>
+                <p className="text-xl text-studio-gray max-w-2xl">
+                  {t('contact.description')}
+                </p>
+              </div>
+
+              <a 
+                href={resumePdf} 
+                download="Pierre_CV.pdf"
+                className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gray-100 dark:bg-gray-800 text-foreground rounded-2xl font-medium transition-all hover:bg-gray-200 dark:hover:bg-gray-700 w-fit"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 transition-transform group-hover:translate-y-0.5">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                {t('contact.downloadResume')}
+              </a>
+            </div>
           </div>
 
           <div ref={formRef} className="bg-gray-50 dark:bg-gray-900/50 p-5 sm:p-8 md:p-12 rounded-3xl">

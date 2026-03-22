@@ -187,6 +187,7 @@ export const fr: TranslationKeys = {
     heading: "Me contacter ici",
     subheading: "Contact",
     description: "Prêt à donner vie à vos idées ? Entamons une conversation sur votre prochain projet.",
+    downloadResume: "Télécharger mon CV",
     form: {
       name: {
         label: "Nom :",

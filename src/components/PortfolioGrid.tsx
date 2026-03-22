@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import mortwiseImage from "@/assets/mortwise_mockup.jpg";
-import calendappImage from "@/assets/calendapp_img_mockup.jpg";
-import cryptotradeImage from "@/assets/cryptotrade_img.jpg";
+import mortwiseImage from "@/assets/mortwise.jpg";
+import calendappVideo from "@/assets/calendapp.mp4";
+import cryptotradeVideo from "@/assets/cryptotrade.mp4";
 import { useTranslation } from '@/hooks/useTranslation';
 
 // Import project images for carousel
@@ -83,8 +83,8 @@ const PortfolioGrid = () => {
     },
     {
       id: "calendapp",
-      media: calendappImage,
-      type: 'image',
+      media: calendappVideo,
+      type: 'video',
       projectType: t('projects.items.calendapp.category'),
       projectKind: t('projects.items.calendapp.kind'),
       title: t('projects.items.calendapp.title'),
@@ -92,7 +92,7 @@ const PortfolioGrid = () => {
       year: t('projects.items.calendapp.year'),
       description: t('projects.details.calendapp.description'),
       featuresTitle: t('projects.details.calendapp.featuresTitle'),
-      techStack: ["SpringBoot", "Vite", "MySQL"],
+      techStack: ["SpringBoot", "Next.js", "PostgresSQL"],
       github: "https://github.com/coffee-only/CalendarProject",
       live: "https://mina-scheduler-delta.vercel.app/",
       collaborators: [
@@ -109,8 +109,8 @@ const PortfolioGrid = () => {
     },
     {
       id: "cryptotrade",
-      media: cryptotradeImage,
-      type: 'image',
+      media: cryptotradeVideo,
+      type: 'video',
       projectType: t('projects.items.cryptotrade.category'),
       projectKind: t('projects.items.cryptotrade.kind'),
       title: t('projects.items.cryptotrade.title'),
@@ -138,15 +138,13 @@ const PortfolioGrid = () => {
   const ProjectModal = ({ project, onClose }: { project: any, onClose: () => void }) => {
     useEffect(() => {
       document.body.style.overflow = 'hidden';
-      window.dispatchEvent(new Event('lenis:stop'));
       return () => {
         document.body.style.overflow = 'unset';
-        window.dispatchEvent(new Event('lenis:start'));
       };
     }, []);
 
     return (
-      <div className="fixed inset-0 z-[100] flex items-center justify-center p-0 sm:p-4 md:p-8 lg:p-12">
+      <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8 lg:p-12">
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -160,7 +158,7 @@ const PortfolioGrid = () => {
           animate={{ y: 0, opacity: 1, scale: 1 }}
           exit={{ y: 50, opacity: 0, scale: 0.95 }}
           transition={{ type: "spring", damping: 25, stiffness: 300 }}
-          className="relative w-full max-w-7xl h-full sm:h-auto sm:max-h-[90vh] bg-background rounded-none sm:rounded-3xl overflow-y-auto overscroll-contain shadow-2xl hide-scrollbar"
+          className="relative w-full max-w-7xl max-h-[90vh] bg-background rounded-3xl overflow-y-auto shadow-2xl hide-scrollbar"
         >
           {/* Close Button */}
           <button 
@@ -172,12 +170,12 @@ const PortfolioGrid = () => {
             </svg>
           </button>
 
-          <div className="p-5 sm:p-8 md:p-16">
+          <div className="p-8 md:p-16">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
               {/* Info Column */}
               <div className="space-y-10">
                 <div>
-                  <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-4" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
+                  <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-4" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
                     {project.title}
                   </h2>
                   <div className="text-xl text-studio-gray font-medium" style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}>
@@ -234,7 +232,7 @@ const PortfolioGrid = () => {
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 px-8 py-4 bg-black hover:bg-neutral-800 text-white rounded-2xl font-medium text-center transition-colors"
+                    className="flex-1 px-8 py-4 bg-green-600 hover:bg-green-700 text-white rounded-2xl font-medium text-center transition-colors shadow-lg shadow-green-900/20"
                   >
                     {t('projects.details.livePreview')}
                   </a>
@@ -262,33 +260,31 @@ const PortfolioGrid = () => {
                   )}
                 </div>
 
-                {project.id !== 'mortwise' && (
-                  <div className="space-y-8">
-                    <h4 className="text-3xl font-bold tracking-tight">{project.featuresTitle}</h4>
-                    <Swiper
-                      modules={[Navigation, Pagination, Autoplay]}
-                      spaceBetween={20}
-                      slidesPerView={1}
-                      navigation
-                      pagination={{ clickable: true }}
-                      autoplay={{ delay: 4000 }}
-                      loop={true}
-                      className="rounded-3xl overflow-hidden"
-                    >
-                      {project.features.map((feature: any, idx: number) => (
-                        <SwiperSlide key={idx}>
-                          <div className="bg-gray-50 dark:bg-gray-900 rounded-3xl p-6 md:p-10 space-y-6">
-                            <div className="space-y-2">
-                              <h5 className="text-xl font-bold">{feature.title}</h5>
-                              <p className="text-studio-gray">{feature.description}</p>
-                            </div>
-                            <img src={feature.image} alt={feature.title} className="w-full rounded-2xl object-cover h-64 md:h-80" />
+                <div className="space-y-8">
+                  <h4 className="text-3xl font-bold tracking-tight">{project.featuresTitle}</h4>
+                  <Swiper
+                    modules={[Navigation, Pagination, Autoplay]}
+                    spaceBetween={20}
+                    slidesPerView={1}
+                    navigation
+                    pagination={{ clickable: true }}
+                    autoplay={{ delay: 4000 }}
+                    loop={true}
+                    className="rounded-3xl overflow-hidden"
+                  >
+                    {project.features.map((feature: any, idx: number) => (
+                      <SwiperSlide key={idx}>
+                        <div className="bg-gray-50 dark:bg-gray-900 rounded-3xl p-6 md:p-10 space-y-6">
+                          <div className="space-y-2">
+                            <h5 className="text-xl font-bold">{feature.title}</h5>
+                            <p className="text-studio-gray">{feature.description}</p>
                           </div>
-                        </SwiperSlide>
-                      ))}
-                    </Swiper>
-                  </div>
-                )}
+                          <img src={feature.image} alt={feature.title} className="w-full rounded-2xl object-cover h-64 md:h-80" />
+                        </div>
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+                </div>
               </div>
             </div>
           </div>
@@ -392,36 +388,21 @@ const PortfolioGrid = () => {
       </div>
 
       {/* Project Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
-        {projects.map((project) => (
-          <div key={project.id} className="aspect-[4/3] lg:aspect-auto lg:h-[900px]">
-            <ProjectCard project={project} className="h-full" />
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+        {/* Left Column (Smaller Projects) */}
+        <div className="lg:col-span-5 flex flex-col gap-16 lg:gap-20">
+          <div className="aspect-[4/3] lg:aspect-auto lg:h-[450px]">
+            <ProjectCard project={projects[1]} className="h-full" />
           </div>
-        ))}
-      </div>
+          <div className="aspect-[4/3] lg:aspect-auto lg:h-[450px]">
+            <ProjectCard project={projects[2]} className="h-full" />
+          </div>
+        </div>
 
-      {/* See All Projects Link */}
-      <div className="flex justify-center mt-16 md:mt-20">
-        <a
-          href="/projects"
-          className="group relative inline-flex items-center gap-4 text-foreground transition-colors duration-300 text-4xl md:text-5xl lg:text-6xl font-medium uppercase tracking-tight no-underline py-2"
-          style={{ fontFamily: '"Geist", system-ui, -apple-system, sans-serif' }}
-        >
-          {t('projects.seeAll')}
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
-          >
-            <line x1="7" y1="17" x2="17" y2="7" />
-            <polyline points="7 7 17 7 17 17" />
-          </svg>
-          <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-black dark:bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out origin-left group-hover:origin-left group-[:not(:hover)]:origin-right transform-gpu backface-hidden" />
-        </a>
+        {/* Right Column (Featured Large Project) */}
+        <div className="lg:col-span-7 aspect-[4/3] lg:aspect-auto lg:h-[932px]">
+          <ProjectCard project={projects[0]} className="h-full" />
+        </div>
       </div>
 
       {/* Project Modal */}
