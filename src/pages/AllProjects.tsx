@@ -213,7 +213,7 @@ export default function AllProjects() {
         <div className="fixed top-0 right-0 w-1/2 h-screen flex items-center px-16 bg-background z-10">
 
           {/* Table of contents */}
-          <div className="absolute top-28 right-12 flex flex-col items-end gap-0">
+          <div className="absolute top-28 right-12 flex-col items-end gap-0 hidden [@media(min-width:1200px)]:flex">
             <div className="relative flex flex-col">
               {/* Vertical connecting line */}
               <div className="absolute right-[calc(100%+12px)] top-0 bottom-0 w-[1px] bg-black/10 dark:bg-white/10" />
