@@ -135,42 +135,28 @@ const PortfolioGrid = () => {
     }
   ];
 
-  const ProjectModal = ({ project, onClose }: { project: any, onClose: () => void }) => {
+  const useIsDesktop = () => {
+    const [isDesktop, setIsDesktop] = useState(() => window.innerWidth >= 1024);
     useEffect(() => {
-      document.body.style.overflow = 'hidden';
-      window.dispatchEvent(new Event('lenis:stop'));
-      return () => {
-        document.body.style.overflow = 'unset';
-        window.dispatchEvent(new Event('lenis:start'));
-      };
+      const mql = window.matchMedia('(min-width: 1024px)');
+      const onChange = () => setIsDesktop(mql.matches);
+      mql.addEventListener('change', onChange);
+      return () => mql.removeEventListener('change', onChange);
     }, []);
+    return isDesktop;
+  };
 
-    return (
-      <div className="fixed inset-0 z-[100] flex items-center justify-center p-0 sm:p-4 md:p-8 lg:p-12">
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="absolute inset-0 bg-black/60 backdrop-blur-md"
-          onClick={onClose}
-        />
-        
-        <motion.div 
-          initial={{ y: 50, opacity: 0, scale: 0.95 }}
-          animate={{ y: 0, opacity: 1, scale: 1 }}
-          exit={{ y: 50, opacity: 0, scale: 0.95 }}
-          transition={{ type: "spring", damping: 25, stiffness: 300 }}
-          className="relative w-full max-w-7xl h-full sm:h-auto sm:max-h-[90vh] bg-background rounded-none sm:rounded-3xl overflow-y-auto overscroll-contain shadow-2xl hide-scrollbar"
-        >
-          {/* Close Button */}
-          <button 
-            onClick={onClose}
-            className="absolute top-6 right-6 z-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md flex items-center justify-center transition-colors group"
-          >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-6 h-6 text-foreground group-hover:rotate-90 transition-transform duration-300">
-              <path d="M18 6L6 18M6 6l12 12" />
-            </svg>
-          </button>
+  const ModalContent = ({ project, onClose }: { project: any, onClose: () => void }) => (
+    <>
+      {/* Close Button */}
+      <button
+        onClick={onClose}
+        className="absolute top-6 right-6 z-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md flex items-center justify-center transition-colors group"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-6 h-6 text-foreground group-hover:rotate-90 transition-transform duration-300">
+          <path d="M18 6L6 18M6 6l12 12" />
+        </svg>
+      </button>
 
           <div className="p-5 sm:p-8 md:p-16">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
@@ -262,7 +248,7 @@ const PortfolioGrid = () => {
                   )}
                 </div>
 
-                {project.id !== 'mortwise' && (
+                {/* {project.id !== 'mortwise' && (
                   <div className="space-y-8">
                     <h4 className="text-3xl font-bold tracking-tight">{project.featuresTitle}</h4>
                     <Swiper
@@ -288,10 +274,70 @@ const PortfolioGrid = () => {
                       ))}
                     </Swiper>
                   </div>
-                )}
+                )} */}
               </div>
             </div>
           </div>
+    </>
+  );
+
+  const ProjectModal = ({ project, onClose }: { project: any, onClose: () => void }) => {
+    const isDesktop = useIsDesktop();
+
+    useEffect(() => {
+      document.body.style.overflow = 'hidden';
+      if (isDesktop) window.dispatchEvent(new Event('lenis:stop'));
+      return () => {
+        document.body.style.overflow = 'unset';
+        if (isDesktop) window.dispatchEvent(new Event('lenis:start'));
+      };
+    }, [isDesktop]);
+
+    if (!isDesktop) {
+      return (
+        <div className="fixed inset-0 z-[100]">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="absolute inset-0 bg-black/60 backdrop-blur-md"
+            onClick={onClose}
+          />
+          <motion.div
+            initial={{ y: '100%' }}
+            animate={{ y: 0 }}
+            exit={{ y: '100%' }}
+            transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+            className="absolute inset-x-0 bottom-0 h-[80dvh] bg-background rounded-t-3xl overflow-y-scroll hide-scrollbar"
+            style={{ WebkitOverflowScrolling: 'touch' }}
+            onClick={(e) => e.stopPropagation()}
+            data-lenis-prevent
+          >
+            <div className="relative">
+              <ModalContent project={project} onClose={onClose} />
+            </div>
+          </motion.div>
+        </div>
+      );
+    }
+
+    return (
+      <div className="fixed inset-0 z-[100] flex items-center justify-center p-0 sm:p-4 md:p-8 lg:p-12">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="absolute inset-0 bg-black/60 backdrop-blur-md"
+          onClick={onClose}
+        />
+        <motion.div
+          initial={{ y: 50, opacity: 0, scale: 0.95 }}
+          animate={{ y: 0, opacity: 1, scale: 1 }}
+          exit={{ y: 50, opacity: 0, scale: 0.95 }}
+          transition={{ type: "spring", damping: 25, stiffness: 300 }}
+          className="relative w-full max-w-7xl h-full sm:h-auto sm:max-h-[90vh] bg-background rounded-none sm:rounded-3xl overflow-y-auto overscroll-contain shadow-2xl hide-scrollbar"
+        >
+          <ModalContent project={project} onClose={onClose} />
         </motion.div>
       </div>
     );

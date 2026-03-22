@@ -24,7 +24,7 @@ const projects = [
     tech: ["Flutter", "Firebase", "Provider"],
     image: mortwiseImg,
     descKey: "projects.details.mortwise.description",
-    href: "/mortwise",
+    href: "https://mortwise.web.app/",
   },
   {
     id: "calendapp",
@@ -34,7 +34,7 @@ const projects = [
     tech: ["SpringBoot", "Vite", "MySQL"],
     image: calendappImg,
     descKey: "projects.details.calendapp.description",
-    href: "/calendapp",
+    href: "https://mina-scheduler-delta.vercel.app/",
   },
   {
     id: "cryptotrade",
@@ -44,7 +44,7 @@ const projects = [
     tech: ["PHP", "JavaScript", "MySQL"],
     image: cryptotradeImg,
     descKey: "projects.details.cryptotrade.description",
-    href: "/cryptotrade",
+    href: "https://cryptotrade-production-5b56.up.railway.app/",
   },
   {
     id: "mama-benz",
