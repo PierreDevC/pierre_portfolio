@@ -124,7 +124,7 @@ const ContactSection = () => {
               </div>
 
               <div className="pt-4">
-                <StyledButton type="submit" className="!min-w-0 !px-10 !py-3 !h-auto !text-base md:!px-12 md:!py-3 md:!text-base">
+                <StyledButton type="submit" className="button-86-white !min-w-0 !px-10 !py-3 !h-auto !text-base md:!px-12 md:!py-3 md:!text-base">
                   {t('contact.form.submit')}
                 </StyledButton>
               </div>

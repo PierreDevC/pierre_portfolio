@@ -87,4 +87,34 @@
   transform: translate(0, 5%);
 }
 
+/* White variant with invert on hover */
+.button-86-white {
+  color: #28282d;
+  transition: color 0.3s ease;
+}
+
+.button-86-white::before {
+  background: #ffffff;
+  border-radius: 35px;
+  border: 2px solid #28282d;
+  transition: background 0.3s ease, transform 0s, width 0s, height 0s;
+}
+
+.button-86-white:hover {
+  color: #ffffff;
+  transform: none;
+}
+
+.button-86-white:hover::before {
+  background: #28282d;
+  border-radius: 35px;
+  transform: translate(0%, 0%);
+  width: 100%;
+  height: 100%;
+}
+
+.button-86-white::after {
+  display: none;
+}
+
 

@@ -7,6 +7,8 @@ import heroCardImage from "@/assets/hero-card.jpg";
 import developerImage from "@/assets/developer.jpg";
 import montrealImage from "@/assets/montreal.jpg";
 import { useTranslation } from '@/hooks/useTranslation';
+import resumePdf from "@/assets/Pierre_CV.pdf";
+import "@/components/ui/styled-button.css";
 
 const Hero = () => {
   const { t } = useTranslation();
@@ -154,24 +156,32 @@ const Hero = () => {
 
           <motion.div
             ref={buttonRef}
-            className="flex items-start lg:items-end justify-start lg:justify-end pt-4"
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.2 }}
+            className="flex flex-wrap items-start lg:items-end justify-start lg:justify-end gap-8 pt-4"
           >
-            <StyledButton 
-              className="text-lg px-8 py-4 h-auto"
-              onClick={() => {
-                const contactSection = document.getElementById('contact');
-                if (contactSection) {
-                  const navbarHeight = 100; // Account for fixed navbar with some extra space
-                  const elementTop = contactSection.getBoundingClientRect().top + window.pageYOffset;
-                  const offsetPosition = elementTop - navbarHeight;
-                  window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-                }
-              }}
+            <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
+              <StyledButton
+                className="button-86-white text-lg px-8 py-4 h-auto"
+                onClick={() => {
+                  const contactSection = document.getElementById('contact');
+                  if (contactSection) {
+                    const navbarHeight = 100;
+                    const elementTop = contactSection.getBoundingClientRect().top + window.pageYOffset;
+                    const offsetPosition = elementTop - navbarHeight;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                  }
+                }}
+              >
+                {t('hero.cta')}
+              </StyledButton>
+            </motion.div>
+            <a
+              href={resumePdf}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="button-86 text-lg px-8 py-4 h-auto no-underline"
             >
-              {t('hero.cta')}
-            </StyledButton>
+              {t('contact.downloadResume')}
+            </a>
           </motion.div>
         </div>
 

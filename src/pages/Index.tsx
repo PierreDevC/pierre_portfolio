@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { useLocation } from 'react-router-dom';
 import AnimatedHeader from "@/components/AnimatedHeader";
@@ -84,6 +85,18 @@ const Index = () => {
         {/* <div ref={techStackRef}>
           <TechStack />
         </div> */}
+        {/* Scroll indicator */}
+        <div className="flex justify-center pb-10 -mt-4">
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-7 h-7 text-gray-400">
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </motion.div>
+        </div>
+
         <div ref={portfolioRef} id="projects">
           <PortfolioGrid />
         </div>
