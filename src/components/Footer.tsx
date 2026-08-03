@@ -42,7 +42,6 @@ const Footer = () => {
             <div className="text-studio-gray text-sm">{t('footer.columns.contact.heading')}</div>
             <div className="space-y-3 text-studio-light">
               <div className="hover:text-studio-gray transition-colors">{t('footer.columns.contact.email')}</div>
-              <div className="hover:text-studio-gray transition-colors">{t('footer.columns.contact.phone')}</div>
               <div className="text-studio-gray">
                 {t('footer.columns.contact.location')}<br />
               </div>

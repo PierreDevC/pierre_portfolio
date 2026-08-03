@@ -1,17 +1,20 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
+import { toast } from "sonner";
 import { useTranslation } from '@/hooks/useTranslation';
 import StyledButton from "./ui/styled-button";
 
 const ContactSection = () => {
   const { t } = useTranslation();
   const formRef = useRef<HTMLDivElement>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     projectType: "",
-    details: ""
+    details: "",
+    company: "" // honeypot — kept empty by real users
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -19,10 +22,30 @@ const ContactSection = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Add logic here to send the form data
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || t('contact.toast.error'));
+      }
+
+      toast.success(t('contact.toast.success'));
+      setFormData({ name: "", email: "", projectType: "", details: "", company: "" });
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : t('contact.toast.error'));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -123,9 +146,25 @@ const ContactSection = () => {
                 />
               </div>
 
+              {/* Honeypot field — hidden from users, catches bots */}
+              <input
+                type="text"
+                name="company"
+                value={formData.company}
+                onChange={handleChange}
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="absolute left-[-9999px] w-px h-px opacity-0"
+              />
+
               <div className="pt-4">
-                <StyledButton type="submit" className="button-86-white !min-w-0 !px-10 !py-3 !h-auto !text-base md:!px-12 md:!py-3 md:!text-base">
-                  {t('contact.form.submit')}
+                <StyledButton
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="button-86-white !min-w-0 !px-10 !py-3 !h-auto !text-base md:!px-12 md:!py-3 md:!text-base"
+                >
+                  {isSubmitting ? t('contact.form.submitting') : t('contact.form.submit')}
                 </StyledButton>
               </div>
             </form>

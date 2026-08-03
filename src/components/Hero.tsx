@@ -7,7 +7,6 @@ import heroCardImage from "@/assets/hero-card.jpg";
 import developerImage from "@/assets/developer.jpg";
 import montrealImage from "@/assets/montreal.jpg";
 import { useTranslation } from '@/hooks/useTranslation';
-import resumePdf from "@/assets/Pierre_CV.pdf";
 import "@/components/ui/styled-button.css";
 
 const Hero = () => {
@@ -174,14 +173,6 @@ const Hero = () => {
                 {t('hero.cta')}
               </StyledButton>
             </motion.div>
-            <a
-              href={resumePdf}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="button-86 text-lg px-8 py-4 h-auto no-underline"
-            >
-              {t('contact.downloadResume')}
-            </a>
           </motion.div>
         </div>
 

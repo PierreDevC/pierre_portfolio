@@ -187,7 +187,6 @@ export const fr: TranslationKeys = {
     heading: "Me contacter ici",
     subheading: "Contact",
     description: "Prêt à donner vie à vos idées ? Entamons une conversation sur votre prochain projet.",
-    downloadResume: "Voir le CV",
     form: {
       name: {
         label: "Nom :",
@@ -214,6 +213,11 @@ export const fr: TranslationKeys = {
         placeholder: "Parlez-moi de votre projet, des délais, du budget et de vos exigences spécifiques...",
       },
       submit: "ENVOYER LE MESSAGE",
+      submitting: "ENVOI...",
+    },
+    toast: {
+      success: "Merci ! Votre message a été envoyé — je vous répondrai bientôt.",
+      error: "Impossible d'envoyer votre message. Veuillez réessayer.",
     },
   },
   footer: {
@@ -241,7 +245,6 @@ export const fr: TranslationKeys = {
       contact: {
         heading: "CONTACT",
         email: "pscypre@gmail.com",
-        phone: "+1 (438) 926-1340",
         location: "Montréal, Canada",
       },
       follow: {

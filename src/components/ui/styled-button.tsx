@@ -5,13 +5,17 @@ interface StyledButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
   className?: string;
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
 }
 
-const StyledButton: React.FC<StyledButtonProps> = ({ children, onClick, className = "" }) => {
+const StyledButton: React.FC<StyledButtonProps> = ({ children, onClick, className = "", type = "button", disabled = false }) => {
   return (
-    <button 
+    <button
       className={`button-86 ${className}`}
       onClick={onClick}
+      type={type}
+      disabled={disabled}
       role="button"
     >
       {children}

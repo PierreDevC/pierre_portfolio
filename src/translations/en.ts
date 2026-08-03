@@ -185,7 +185,6 @@ export const en = {
     heading: "Contact me here",
     subheading: "Contact",
     description: "Ready to bring your ideas to life? Let's start a conversation about your next project.",
-    downloadResume: "View Resume",
     form: {
       name: {
         label: "Name:",
@@ -212,6 +211,11 @@ export const en = {
         placeholder: "Tell me about your project, timeline, budget, and any specific requirements...",
       },
       submit: "SEND MESSAGE",
+      submitting: "SENDING...",
+    },
+    toast: {
+      success: "Thanks! Your message has been sent — I'll get back to you soon.",
+      error: "Could not send your message. Please try again.",
     },
   },
   footer: {
@@ -239,7 +243,6 @@ export const en = {
       contact: {
         heading: "CONTACT",
         email: "pscypre@gmail.com",
-        phone: "+1 (438) 926-1340",
         location: "Montreal, Canada",
       },
       follow: {
