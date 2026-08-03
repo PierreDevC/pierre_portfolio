@@ -214,7 +214,7 @@ export const en = {
       submitting: "SENDING...",
     },
     toast: {
-      success: "Thanks! Your message has been sent — I'll get back to you soon.",
+      success: "Thanks! Your message has been sent. I'll get back to you soon.",
       error: "Could not send your message. Please try again.",
     },
   },

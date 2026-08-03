@@ -4,11 +4,14 @@ import { gsap } from "gsap";
 import { toast } from "sonner";
 import { useTranslation } from '@/hooks/useTranslation';
 import StyledButton from "./ui/styled-button";
+import PaperPlane from "./PaperPlane";
 
 const ContactSection = () => {
   const { t } = useTranslation();
   const formRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLDivElement>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [planeOrigin, setPlaneOrigin] = useState<{ x: number; y: number } | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -25,6 +28,12 @@ const ContactSection = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (isSubmitting) return;
+
+    // Launch the paper plane from the button's center.
+    const rect = buttonRef.current?.getBoundingClientRect();
+    if (rect) {
+      setPlaneOrigin({ x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 });
+    }
 
     setIsSubmitting(true);
     try {
@@ -159,18 +168,28 @@ const ContactSection = () => {
               />
 
               <div className="pt-4">
-                <StyledButton
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="button-86-white !min-w-0 !px-10 !py-3 !h-auto !text-base md:!px-12 md:!py-3 md:!text-base"
+                <div
+                  ref={buttonRef}
+                  className="inline-block transition-opacity duration-200"
+                  style={{ opacity: planeOrigin ? 0 : 1 }}
                 >
-                  {isSubmitting ? t('contact.form.submitting') : t('contact.form.submit')}
-                </StyledButton>
+                  <StyledButton
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="button-86-white !min-w-0 !px-10 !py-3 !h-auto !text-base md:!px-12 md:!py-3 md:!text-base"
+                  >
+                    {isSubmitting ? t('contact.form.submitting') : t('contact.form.submit')}
+                  </StyledButton>
+                </div>
               </div>
             </form>
           </div>
         </div>
       </div>
+
+      {planeOrigin && (
+        <PaperPlane origin={planeOrigin} onDone={() => setPlaneOrigin(null)} />
+      )}
     </section>
   );
 };

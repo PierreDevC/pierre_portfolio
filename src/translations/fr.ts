@@ -216,7 +216,7 @@ export const fr: TranslationKeys = {
       submitting: "ENVOI...",
     },
     toast: {
-      success: "Merci ! Votre message a été envoyé — je vous répondrai bientôt.",
+      success: "Merci ! Votre message a été envoyé. Je vous répondrai bientôt.",
       error: "Impossible d'envoyer votre message. Veuillez réessayer.",
     },
   },
